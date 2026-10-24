@@ -4,7 +4,7 @@
 
 TrueCost Home is a planned buyer-facing tool that connects listing information and property-condition evidence to repair scenarios, monthly ownership budgets, upfront cash gaps, and assistance pathways.
 
-**Status: planning and team onboarding.** No application, model integration, production dataset, or deployment has been implemented yet. The stack below is the agreed build direction; the exact Gemma endpoint must be tested first.
+**Status: foundation implemented locally.** A runnable Next.js preview, three synthetic demo fixtures, and shared validated contracts are in place. Model integration, financial calculations, persistence, accounts, production datasets, and deployment are not implemented yet.
 
 ## Start here
 
@@ -12,6 +12,8 @@ TrueCost Home is a planned buyer-facing tool that connects listing information a
 2. [Team workflow](TEAM.md) — shared ownership, collaboration, and code review.
 3. [Build roadmap](ROADMAP.md) — milestones and observable acceptance criteria.
 4. [Product plan](docs/PROJECT_PLAN.md) — scope, math, sources, limitations, and demo.
+5. [Demo specification](docs/DEMO_SPEC.md) — sample inputs, hand-computed expectations, and implemented contracts.
+6. [Gemma wrapper plan](docs/GEMMA_WRAPPER.md) — server files, evidence checks, retries, and evaluation.
 
 ## The product in one flow
 
@@ -41,7 +43,31 @@ Paperclip is not part of the MVP. A bounded request pipeline is sufficient.
 
 ## Run locally
 
-There is no runnable application yet. Do not install dependencies based on this README alone. Each implementation milestone will add exact version pins, setup commands, environment requirements, and test commands. `.env.example` contains proposed configuration names, not a working endpoint.
+Open the repository root in VS Code. Use Node **24.22.1** (recorded in `web/.nvmrc`) and npm. In the integrated terminal:
+
+```sh
+cd web
+nvm install
+nvm use
+npm ci
+npm run dev
+```
+
+If you do not use nvm, install Node 24.22.1 through your normal Node version manager first. Open `http://localhost:3000`. The current page is a foundation preview, not a functioning property analyzer. No credentials or Google Cloud setup are required yet.
+
+Run checks from `web/`:
+
+```sh
+npm run check
+```
+
+This runs ESLint, route-type generation and TypeScript checking, contract tests, and a production build. Individual scripts: `lint`, `typecheck`, `test`, `build`. After building, `npm start` serves the production preview. VS Code includes **Web: dev** and **Web: checks** tasks.
+
+`web/src/app/` contains pages and future API routes; `web/src/lib/schemas/` contains shared runtime contracts; `web/fixtures/` contains synthetic examples; `web/tests/` contains tests. `.tsx` files render React interfaces, `.ts` files hold logic/types, `.json` files hold data/configuration, and `.md` files explain the project.
+
+`.env.example` at the repository root lists proposed server configuration for later integration. When that milestone is implemented, copy it to ignored `web/.env.local` and fill only the required values. Never put secrets in `NEXT_PUBLIC_*` variables.
+
+**Firestore is part of the agreed architecture.** Persistence and accounts are deferred, not removed. No database or cloud resources are provisioned by these setup commands.
 
 ## Product boundaries
 

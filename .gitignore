@@ -37,8 +37,14 @@ htmlcov/
 # Tool outputs
 .DS_Store
 .idea/
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
 .firebase/
 coverage/
 playwright-report/
 test-results/
+
+# TypeScript incremental cache
+*.tsbuildinfo

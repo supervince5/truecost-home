@@ -1,6 +1,6 @@
 # TrueCost Home — hackathon plan
 
-October 24, 2026. Product and implementation specification. The application, model endpoint, cost dataset, and program matcher are not yet implemented.
+October 24, 2026. Product and implementation specification. The application scaffold and initial contracts are implemented. The analysis workflow, model endpoint, cost dataset, and program matcher are not yet implemented.
 
 ## Product decision
 
@@ -226,3 +226,7 @@ Never say “Maria qualifies” on the basis of this prototype. Never silently r
 Include setup, architecture, exact model/provider, code/model/data licenses, data provenance, retention behavior, evaluation results and limits, demo fixtures, and live-versus-mocked disclosure.
 
 Still required before implementation can be called operational: a tested Gemma 4 image endpoint; sourced and reusable local cost records; program rules and intake verification; demo media rights; and run results for the specified acceptance checks. No GPU, model API, storage service, or deployment has been provisioned.
+
+## Foundation implementation status
+
+The Next.js scaffold and initial shared contracts are implemented. See [the demo specification](DEMO_SPEC.md) and [Gemma wrapper implementation plan](GEMMA_WRAPPER.md). Firestore remains the chosen persistence service; persistence and accounts are deferred until after the first working analysis flow. The model, calculator, storage and cloud deployment remain unimplemented. Current code uses camelCase fields; earlier JSON examples in this document are conceptual rather than exact wire contracts.

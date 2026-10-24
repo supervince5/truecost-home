@@ -1,0 +1,10 @@
+{
+  "typescript.tsdk": "web/node_modules/typescript/lib",
+  "eslint.workingDirectories": [
+    "./web"
+  ],
+  "files.exclude": {
+    "**/.next": true,
+    "**/node_modules": true
+  }
+}

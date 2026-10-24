@@ -142,3 +142,7 @@ Prompt examples and preprocessing may improve results without changing weights. 
 We share product, programming, architecture, and release decisions. Agree on an observable acceptance example for each slice, implement a small change, run relevant checks, and get a teammate's review. Frontend, pipeline, calculations, and source data can be divided by interest while using the same contracts.
 
 Review questions: Where did the fact come from? What remains unknown? Does the evidence support the claim? Can the math run without the model? Does a correction recompute the right results? What is the measured cost per analysis?
+
+## Foundation implementation status
+
+The Next.js scaffold and initial shared contracts are implemented. See [the demo specification](DEMO_SPEC.md) and [Gemma wrapper implementation plan](GEMMA_WRAPPER.md). Firestore remains the chosen persistence service; persistence and accounts are deferred until after the first working analysis flow. The model, calculator, storage and cloud deployment remain unimplemented. Current code uses camelCase fields; earlier JSON examples in this document are conceptual rather than exact wire contracts.

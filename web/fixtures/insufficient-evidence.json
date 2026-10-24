@@ -1,0 +1,73 @@
+{
+  "id": "insufficient-evidence",
+  "synthetic": true,
+  "notice": "Synthetic test values, not a real listing, market estimate, contractor quote, or live model response.",
+  "input": {
+    "schemaVersion": 1,
+    "property": {
+      "priceCents": 18000000,
+      "locality": "Prince William County, VA",
+      "yearBuilt": 1985
+    },
+    "budget": {
+      "totalPurchaseCashCents": 2800000,
+      "downPaymentCents": 1800000,
+      "closingCostsCents": 400000,
+      "protectedSavingsCents": 200000,
+      "monthlyHousingBudgetCents": 130000,
+      "annualInterestRatePercent": 0,
+      "loanTermMonths": 360,
+      "monthlyPropertyTaxCents": 20000,
+      "monthlyInsuranceCents": null,
+      "monthlyMortgageInsuranceCents": 0,
+      "monthlyHoaCents": 0,
+      "monthlyUtilitiesCents": 20000,
+      "monthlyMaintenanceCents": 5000
+    },
+    "sources": [
+      {
+        "id": "listing-1",
+        "kind": "listing_text",
+        "text": "The seller discloses that the heating system is 20 years old."
+      }
+    ],
+    "findings": [
+      {
+        "id": "finding-1",
+        "component": "heating_system",
+        "description": "Seller reports a 20-year-old heating system; condition is not established.",
+        "evidenceClass": "disclosed_fact",
+        "evidence": [
+          {
+            "kind": "text",
+            "sourceId": "listing-1",
+            "quote": "heating system is 20 years old"
+          }
+        ],
+        "needsProfessionalAssessment": true,
+        "followUpQuestion": "Can an HVAC professional assess condition and repair scope?"
+      }
+    ],
+    "unassessedComponents": [
+      "roof"
+    ]
+  },
+  "repairScenario": {
+    "immediateRepairCents": null,
+    "futureRepairs": [],
+    "label": "Illustrative cash-funded scenario; heating-system age alone does not justify replacement."
+  },
+  "expectedResult": {
+    "status": "needs_information",
+    "flags": [
+      "missing_information"
+    ],
+    "missingInputs": [
+      "budget.monthlyInsuranceCents",
+      "repairScope"
+    ],
+    "monthlyOwnershipCents": null,
+    "availableMonthlyRepairContributionCents": null,
+    "immediateCashGapCents": null
+  }
+}

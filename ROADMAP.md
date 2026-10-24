@@ -1,12 +1,14 @@
 # Build roadmap
 
-Status: all application milestones below are planned, not complete.
+Status: foundation steps 1–3 are implemented locally: demo specification and fixtures, Next.js scaffold/VS Code, shared schemas and contract tests. All model, calculation, persistence and deployment work below remains planned.
 
 ## 0. Understand and agree
 
 Read the architecture guide. Agree together on the initial user journey, budget semantics, and first demo scenario before implementation.
 
-## 1. Prove the model path
+## 1. Build the Gemma wrapper and prove the model path
+
+Follow [the wrapper implementation plan](docs/GEMMA_WRAPPER.md) for the server adapter, evidence preparation, output validation, request limits and retry policy.
 
 Send one representative image and listing excerpt to an actual Gemma 4 endpoint. Record the exact provider, model ID, supported request format, response, latency, and usage. Validate structured output and failure handling. Do not substitute a Gemini call and label it Gemma.
 
@@ -20,7 +22,7 @@ Acceptance: zero-interest mortgage, no loan, immediate shortfall, late repair, p
 
 ## 3. Agree on API contracts
 
-Define property facts, observations, evidence references, buyer assumptions, scenarios, and results. Implement runtime validation and share Zod schemas and inferred TypeScript types between Next.js routes and UI.
+Initial property, budget, finding, source-reference, reviewed-analysis and result contracts are implemented in `web/src/lib/schemas/`. Remaining work: upload/extraction contracts, full timeline scenarios, and actual route/UI integration.
 
 Acceptance: invalid or missing material fields are rejected or represented as unknown; the same sample payload works for frontend and backend development.
 
