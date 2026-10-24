@@ -145,4 +145,4 @@ Review questions: Where did the fact come from? What remains unknown? Does the e
 
 ## Foundation implementation status
 
-The Next.js scaffold and initial shared contracts are implemented. See [the demo specification](DEMO_SPEC.md) and [Gemma wrapper implementation plan](GEMMA_WRAPPER.md). Firestore remains the chosen persistence service; persistence and accounts are deferred until after the first working analysis flow. The model, calculator, storage and cloud deployment remain unimplemented. Current code uses camelCase fields; earlier JSON examples in this document are conceptual rather than exact wire contracts.
+The Next.js scaffold and initial shared contracts are implemented. See [the demo specification](DEMO_SPEC.md) and [Gemma wrapper implementation plan](GEMMA_WRAPPER.md). Firestore remains the chosen persistence service; persistence and accounts are deferred until after the first working analysis flow. The Gemma wrapper and analysis API are implemented; the calculator, storage and cloud deployment remain unimplemented. Current code uses camelCase fields; earlier JSON examples in this document are conceptual rather than exact wire contracts.

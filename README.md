@@ -4,7 +4,7 @@
 
 TrueCost Home is a planned buyer-facing tool that connects listing information and property-condition evidence to repair scenarios, monthly ownership budgets, upfront cash gaps, and assistance pathways.
 
-**Status: foundation implemented locally.** A runnable Next.js preview, three synthetic demo fixtures, and shared validated contracts are in place. Model integration, financial calculations, persistence, accounts, production datasets, and deployment are not implemented yet.
+**Status: foundation implemented locally.** A runnable Next.js preview, three synthetic demo fixtures, and shared validated contracts are in place. The server-side Gemma wrapper and analysis API are implemented, with [successful live text/image smoke checks](docs/MODEL_SMOKE_RESULTS.md). Financial calculations, buyer-facing analysis screens, persistence, accounts, production datasets, and deployment remain unimplemented.
 
 ## Start here
 
@@ -13,7 +13,8 @@ TrueCost Home is a planned buyer-facing tool that connects listing information a
 3. [Build roadmap](ROADMAP.md) — milestones and observable acceptance criteria.
 4. [Product plan](docs/PROJECT_PLAN.md) — scope, math, sources, limitations, and demo.
 5. [Demo specification](docs/DEMO_SPEC.md) — sample inputs, hand-computed expectations, and implemented contracts.
-6. [Gemma wrapper plan](docs/GEMMA_WRAPPER.md) — server files, evidence checks, retries, and evaluation.
+6. [Gemma wrapper](docs/GEMMA_WRAPPER.md) — setup, endpoint format, limits, evidence checks, and evaluation.
+7. [Model development](docs/MODEL_DEVELOPMENT.md) — prompting versus training and how we will measure improvements.
 
 ## The product in one flow
 
@@ -53,7 +54,7 @@ npm ci
 npm run dev
 ```
 
-If you do not use nvm, install Node 24.22.1 through your normal Node version manager first. Open `http://localhost:3000`. The current page is a foundation preview, not a functioning property analyzer. No credentials or Google Cloud setup are required yet.
+If you do not use nvm, install Node 24.22.1 through your normal Node version manager first. Open `http://localhost:3000`. The current page is a foundation preview, not a functioning property analyzer. No credentials are required for the preview or automated tests. The analysis API needs a server-only Gemma key; follow the wrapper setup guide.
 
 Run checks from `web/`:
 
@@ -65,7 +66,7 @@ This runs ESLint, route-type generation and TypeScript checking, contract tests,
 
 `web/src/app/` contains pages and future API routes; `web/src/lib/schemas/` contains shared runtime contracts; `web/fixtures/` contains synthetic examples; `web/tests/` contains tests. `.tsx` files render React interfaces, `.ts` files hold logic/types, `.json` files hold data/configuration, and `.md` files explain the project.
 
-`.env.example` at the repository root lists proposed server configuration for later integration. When that milestone is implemented, copy it to ignored `web/.env.local` and fill only the required values. Never put secrets in `NEXT_PUBLIC_*` variables.
+`.env.example` at the repository root lists the model configuration and reserved future cloud settings. Copy it to ignored `web/.env.local` and set `GEMMA_API_KEY` to use the analysis API. Never put secrets in `NEXT_PUBLIC_*` variables.
 
 **Firestore is part of the agreed architecture.** Persistence and accounts are deferred, not removed. No database or cloud resources are provisioned by these setup commands.
 

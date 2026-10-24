@@ -1,6 +1,6 @@
 # TrueCost Home — hackathon plan
 
-October 24, 2026. Product and implementation specification. The application scaffold and initial contracts are implemented. The analysis workflow, model endpoint, cost dataset, and program matcher are not yet implemented.
+October 24, 2026. Product and implementation specification. The application scaffold and initial contracts are implemented. The hosted Gemma wrapper has passed live synthetic text/image smoke checks. The buyer-facing analysis workflow, cost dataset, and program matcher are not yet implemented.
 
 ## Product decision
 
@@ -146,7 +146,7 @@ The event description identifies Saturday, October 24 tracks for open-source/ope
 
 **Recommended Saturday target: Best Use of Gemma 4.** Google lists Gemma 4 models including E2B, E4B, 12B, 26B A4B, and 31B; the model card lists Apache 2.0 and image input. [Gemma 4 model card](https://ai.google.dev/gemma/docs/core/model_card_4)
 
-First milestone: successfully send a representative image and text request to the intended provider, validate the response, and record the exact model ID, provider, license, latency, and usage. The authenticated model endpoint still needs testing. Google documents model listing and metadata retrieval; an AI Studio key or a Gemini-branded SDK is not proof that the actual model called is Gemma 4. [Google Models API](https://ai.google.dev/api/models)
+First milestone: successfully send a representative image and text request to the intended provider, validate the response, and record the exact model ID, provider, license, latency, and usage. The authenticated hosted endpoint has passed the synthetic checks recorded in MODEL_SMOKE_RESULTS.md; broader capability and accuracy evaluation remains pending. Google documents model listing and metadata retrieval; an AI Studio key or a Gemini-branded SDK is not proof that the actual model called is Gemma 4. [Google Models API](https://ai.google.dev/api/models)
 
 Selected architecture:
 
@@ -225,8 +225,8 @@ Never say “Maria qualifies” on the basis of this prototype. Never silently r
 
 Include setup, architecture, exact model/provider, code/model/data licenses, data provenance, retention behavior, evaluation results and limits, demo fixtures, and live-versus-mocked disclosure.
 
-Still required before implementation can be called operational: a tested Gemma 4 image endpoint; sourced and reusable local cost records; program rules and intake verification; demo media rights; and run results for the specified acceptance checks. No GPU, model API, storage service, or deployment has been provisioned.
+The Gemma 4 text/image endpoint is verified by synthetic smoke checks. Still required for an operational buyer workflow: sourced and reusable local cost records; program rules and intake verification; demo media rights; and run results for the specified acceptance checks. The hosted model API uses an existing Google AI Studio project. No GPU, app storage service, or application deployment has been provisioned.
 
 ## Foundation implementation status
 
-The Next.js scaffold and initial shared contracts are implemented. See [the demo specification](DEMO_SPEC.md) and [Gemma wrapper implementation plan](GEMMA_WRAPPER.md). Firestore remains the chosen persistence service; persistence and accounts are deferred until after the first working analysis flow. The model, calculator, storage and cloud deployment remain unimplemented. Current code uses camelCase fields; earlier JSON examples in this document are conceptual rather than exact wire contracts.
+The Next.js scaffold and initial shared contracts are implemented. See [the demo specification](DEMO_SPEC.md) and [Gemma wrapper implementation plan](GEMMA_WRAPPER.md). Firestore remains the chosen persistence service; persistence and accounts are deferred until after the first working analysis flow. The Gemma wrapper and analysis API are implemented; the calculator, storage and cloud deployment remain unimplemented. Current code uses camelCase fields; earlier JSON examples in this document are conceptual rather than exact wire contracts.
