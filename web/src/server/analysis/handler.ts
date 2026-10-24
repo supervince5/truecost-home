@@ -5,8 +5,7 @@ import { prepareEvidence } from "../evidence/prepare";
 import type { ModelProvider } from "../model/provider";
 import { extract } from "./extract";
 
-async function readJson(request: Request) {
-  const limit = 10 * 1024 * 1024;
+export async function readJson(request: Request, limit = 10 * 1024 * 1024) {
   if (Number(request.headers.get("content-length")) > limit) throw new AnalysisError("TOO_LARGE");
   if (!request.body) throw new AnalysisError("INVALID_INPUT");
   const reader = request.body.getReader();

@@ -12,6 +12,7 @@ export const errors = {
   TIMEOUT: [504, "Analysis timed out. Try fewer or smaller inputs."],
   CANCELLED: [408, "Analysis was cancelled."],
   PROVIDER_ERROR: [502, "The model provider could not complete the request."],
+  PROVIDER_UNAVAILABLE: [503, "The model provider is temporarily unavailable. Try again later."],
   INVALID_MODEL_OUTPUT: [502, "The model response could not be verified. No findings were accepted."],
   MODEL_MISMATCH: [502, "The provider returned an unexpected model."],
 } as const;

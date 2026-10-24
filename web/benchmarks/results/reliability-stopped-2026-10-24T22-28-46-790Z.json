@@ -1,0 +1,1293 @@
+{
+  "startedAt": "2026-10-24T22:28:46.790Z",
+  "status": "stopped_after_photo_comparison",
+  "rows": [
+    {
+      "id": "epa-17-round-1",
+      "kind": "photo",
+      "passed": true,
+      "errorCode": null,
+      "elapsedMs": 72691,
+      "expectedTags": null,
+      "actualTags": [
+        "wall_surface_stain"
+      ],
+      "score": null,
+      "result": {
+        "findings": [
+          {
+            "id": "wall_stain_01",
+            "component": "interior",
+            "conditionState": "current",
+            "indicatorIds": [
+              "wall_surface_stain"
+            ],
+            "description": "Visible discolored patches and staining on the interior wall surface.",
+            "evidenceClass": "visual_observation",
+            "evidence": [
+              {
+                "kind": "image",
+                "sourceId": "photo-1"
+              }
+            ],
+            "needsProfessionalAssessment": true,
+            "followUpQuestion": "What is the source of the moisture causing these wall stains?"
+          }
+        ],
+        "unassessedComponents": [
+          "roof",
+          "heating_system",
+          "cooling_system",
+          "water_heater",
+          "electrical",
+          "plumbing",
+          "ceiling",
+          "foundation",
+          "structure",
+          "attic",
+          "ventilation",
+          "kitchen",
+          "bathroom",
+          "appliances",
+          "windows_doors",
+          "exterior",
+          "deck",
+          "drainage",
+          "landscaping",
+          "fireplace",
+          "garage",
+          "pests",
+          "environmental",
+          "sewer_septic",
+          "well_water",
+          "pool",
+          "other"
+        ],
+        "sources": [
+          {
+            "id": "photo-1",
+            "kind": "image",
+            "label": "Photo 1"
+          }
+        ],
+        "reviewRequired": true,
+        "conditionReview": {
+          "knowledgeVersion": "whole-home-2026-10-24-v2",
+          "cards": [
+            {
+              "findingId": "wall_stain_01",
+              "indicatorId": "wall_surface_stain",
+              "priority": "investigate",
+              "alternativeExplanations": "Prior wetting, condensation, surface contamination or other discoloration; a photo does not establish active moisture or mold.",
+              "verification": "Verify material and location; assess moisture and history before identifying a cause.",
+              "costCatalogIds": [],
+              "costStatus": "scope_confirmation_required",
+              "sources": [
+                {
+                  "id": "moisture-observations",
+                  "publisher": "US EPA",
+                  "title": "Moisture damage and prevention image library",
+                  "url": "https://www.epa.gov/mold/mold-image-library",
+                  "basis": "technical_guidance",
+                  "publishedAt": "2026-08-17",
+                  "checkedAt": "2026-10-24"
+                },
+                {
+                  "id": "walls",
+                  "publisher": "DOE / PNNL",
+                  "title": "Pre-Retrofit Assessment of Walls, Windows, and Doors",
+                  "url": "https://basc.pnnl.gov/information/pre-retrofit-assessment-walls-windows-and-doors",
+                  "basis": "technical_guidance",
+                  "publishedAt": null,
+                  "checkedAt": "2026-10-24"
+                }
+              ]
+            }
+          ],
+          "patternCandidates": [],
+          "coverage": [
+            {
+              "component": "roof",
+              "status": "no_evidence"
+            },
+            {
+              "component": "heating_system",
+              "status": "no_evidence"
+            },
+            {
+              "component": "cooling_system",
+              "status": "no_evidence"
+            },
+            {
+              "component": "water_heater",
+              "status": "no_evidence"
+            },
+            {
+              "component": "electrical",
+              "status": "no_evidence"
+            },
+            {
+              "component": "plumbing",
+              "status": "no_evidence"
+            },
+            {
+              "component": "ceiling",
+              "status": "no_evidence"
+            },
+            {
+              "component": "foundation",
+              "status": "no_evidence"
+            },
+            {
+              "component": "structure",
+              "status": "no_evidence"
+            },
+            {
+              "component": "attic",
+              "status": "no_evidence"
+            },
+            {
+              "component": "ventilation",
+              "status": "no_evidence"
+            },
+            {
+              "component": "kitchen",
+              "status": "no_evidence"
+            },
+            {
+              "component": "bathroom",
+              "status": "no_evidence"
+            },
+            {
+              "component": "appliances",
+              "status": "no_evidence"
+            },
+            {
+              "component": "interior",
+              "status": "observations_only"
+            },
+            {
+              "component": "windows_doors",
+              "status": "no_evidence"
+            },
+            {
+              "component": "exterior",
+              "status": "no_evidence"
+            },
+            {
+              "component": "deck",
+              "status": "no_evidence"
+            },
+            {
+              "component": "drainage",
+              "status": "no_evidence"
+            },
+            {
+              "component": "landscaping",
+              "status": "no_evidence"
+            },
+            {
+              "component": "fireplace",
+              "status": "no_evidence"
+            },
+            {
+              "component": "garage",
+              "status": "no_evidence"
+            },
+            {
+              "component": "pests",
+              "status": "no_evidence"
+            },
+            {
+              "component": "environmental",
+              "status": "no_evidence"
+            },
+            {
+              "component": "sewer_septic",
+              "status": "no_evidence"
+            },
+            {
+              "component": "well_water",
+              "status": "no_evidence"
+            },
+            {
+              "component": "pool",
+              "status": "no_evidence"
+            }
+          ],
+          "limits": [
+            "No component is certified safe or fully inspected.",
+            "Hidden damage requires inspection or testing.",
+            "Repair cost is not a resale-value adjustment."
+          ]
+        },
+        "metadata": {
+          "provider": "google-gemini-api",
+          "modelId": "gemma-4-31b-it",
+          "modelVersion": "gemma-4-31b-it",
+          "promptVersion": "whole-home-state-v4",
+          "pipelineVersion": "condition-state-photo-deadline-v3",
+          "attempts": 2,
+          "inputTokens": null,
+          "outputTokens": null,
+          "thinkingTokens": null,
+          "totalTokens": null,
+          "latencyMs": 72688
+        }
+      },
+      "httpDiagnostics": [
+        {
+          "responseMs": 39948,
+          "status": 504,
+          "apiStatus": "DEADLINE_EXCEEDED",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        },
+        {
+          "responseMs": 31922,
+          "status": 200,
+          "apiStatus": null,
+          "finishReason": "STOP",
+          "thinkingTokens": null,
+          "totalTokens": 2928
+        }
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "epa-32-round-1",
+      "kind": "photo",
+      "passed": false,
+      "errorCode": "PROVIDER_UNAVAILABLE",
+      "elapsedMs": 14428,
+      "expectedTags": null,
+      "actualTags": [],
+      "score": null,
+      "result": null,
+      "httpDiagnostics": [
+        {
+          "responseMs": 1099,
+          "status": 500,
+          "apiStatus": "INTERNAL",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        },
+        {
+          "responseMs": 12510,
+          "status": 500,
+          "apiStatus": "INTERNAL",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        }
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "epa-29-round-1",
+      "kind": "photo",
+      "passed": false,
+      "errorCode": "PROVIDER_UNAVAILABLE",
+      "elapsedMs": 42709,
+      "expectedTags": null,
+      "actualTags": [],
+      "score": null,
+      "result": null,
+      "httpDiagnostics": [
+        {
+          "responseMs": 2330,
+          "status": 500,
+          "apiStatus": "INTERNAL",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        },
+        {
+          "responseMs": 39566,
+          "status": 504,
+          "apiStatus": "DEADLINE_EXCEEDED",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        }
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "epa-89-round-1",
+      "kind": "photo",
+      "passed": true,
+      "errorCode": null,
+      "elapsedMs": 32224,
+      "expectedTags": null,
+      "actualTags": [],
+      "score": null,
+      "result": {
+        "findings": [],
+        "unassessedComponents": [
+          "roof",
+          "heating_system",
+          "cooling_system",
+          "water_heater",
+          "electrical",
+          "plumbing",
+          "ceiling",
+          "foundation",
+          "structure",
+          "attic",
+          "ventilation",
+          "kitchen",
+          "bathroom",
+          "appliances",
+          "interior",
+          "windows_doors",
+          "exterior",
+          "deck",
+          "drainage",
+          "landscaping",
+          "fireplace",
+          "garage",
+          "pests",
+          "environmental",
+          "sewer_septic",
+          "well_water",
+          "pool",
+          "other"
+        ],
+        "sources": [
+          {
+            "id": "photo-1",
+            "kind": "image",
+            "label": "Photo 1"
+          }
+        ],
+        "reviewRequired": true,
+        "conditionReview": {
+          "knowledgeVersion": "whole-home-2026-10-24-v2",
+          "cards": [],
+          "patternCandidates": [],
+          "coverage": [
+            {
+              "component": "roof",
+              "status": "no_evidence"
+            },
+            {
+              "component": "heating_system",
+              "status": "no_evidence"
+            },
+            {
+              "component": "cooling_system",
+              "status": "no_evidence"
+            },
+            {
+              "component": "water_heater",
+              "status": "no_evidence"
+            },
+            {
+              "component": "electrical",
+              "status": "no_evidence"
+            },
+            {
+              "component": "plumbing",
+              "status": "no_evidence"
+            },
+            {
+              "component": "ceiling",
+              "status": "no_evidence"
+            },
+            {
+              "component": "foundation",
+              "status": "no_evidence"
+            },
+            {
+              "component": "structure",
+              "status": "no_evidence"
+            },
+            {
+              "component": "attic",
+              "status": "no_evidence"
+            },
+            {
+              "component": "ventilation",
+              "status": "no_evidence"
+            },
+            {
+              "component": "kitchen",
+              "status": "no_evidence"
+            },
+            {
+              "component": "bathroom",
+              "status": "no_evidence"
+            },
+            {
+              "component": "appliances",
+              "status": "no_evidence"
+            },
+            {
+              "component": "interior",
+              "status": "no_evidence"
+            },
+            {
+              "component": "windows_doors",
+              "status": "no_evidence"
+            },
+            {
+              "component": "exterior",
+              "status": "no_evidence"
+            },
+            {
+              "component": "deck",
+              "status": "no_evidence"
+            },
+            {
+              "component": "drainage",
+              "status": "no_evidence"
+            },
+            {
+              "component": "landscaping",
+              "status": "no_evidence"
+            },
+            {
+              "component": "fireplace",
+              "status": "no_evidence"
+            },
+            {
+              "component": "garage",
+              "status": "no_evidence"
+            },
+            {
+              "component": "pests",
+              "status": "no_evidence"
+            },
+            {
+              "component": "environmental",
+              "status": "no_evidence"
+            },
+            {
+              "component": "sewer_septic",
+              "status": "no_evidence"
+            },
+            {
+              "component": "well_water",
+              "status": "no_evidence"
+            },
+            {
+              "component": "pool",
+              "status": "no_evidence"
+            }
+          ],
+          "limits": [
+            "No component is certified safe or fully inspected.",
+            "Hidden damage requires inspection or testing.",
+            "Repair cost is not a resale-value adjustment."
+          ]
+        },
+        "metadata": {
+          "provider": "google-gemini-api",
+          "modelId": "gemma-4-31b-it",
+          "modelVersion": "gemma-4-31b-it",
+          "promptVersion": "whole-home-state-v4",
+          "pipelineVersion": "condition-state-photo-deadline-v3",
+          "attempts": 1,
+          "inputTokens": 2594,
+          "outputTokens": 187,
+          "thinkingTokens": null,
+          "totalTokens": 2781,
+          "latencyMs": 32216
+        }
+      },
+      "httpDiagnostics": [
+        {
+          "responseMs": 32214,
+          "status": 200,
+          "apiStatus": null,
+          "finishReason": "STOP",
+          "thinkingTokens": null,
+          "totalTokens": 2781
+        }
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "epa-17-round-2",
+      "kind": "photo",
+      "passed": true,
+      "errorCode": null,
+      "elapsedMs": 62782,
+      "expectedTags": null,
+      "actualTags": [
+        "wall_surface_stain"
+      ],
+      "score": null,
+      "result": {
+        "findings": [
+          {
+            "id": "wall_stain_01",
+            "component": "interior",
+            "conditionState": "current",
+            "indicatorIds": [
+              "wall_surface_stain"
+            ],
+            "description": "Visible discolored patches and staining on the interior wall surface.",
+            "evidenceClass": "visual_observation",
+            "evidence": [
+              {
+                "kind": "image",
+                "sourceId": "photo-1"
+              }
+            ],
+            "needsProfessionalAssessment": true,
+            "followUpQuestion": "What is the source of the moisture causing these wall stains?"
+          }
+        ],
+        "unassessedComponents": [
+          "roof",
+          "heating_system",
+          "cooling_system",
+          "water_heater",
+          "electrical",
+          "plumbing",
+          "ceiling",
+          "foundation",
+          "structure",
+          "attic",
+          "ventilation",
+          "kitchen",
+          "bathroom",
+          "appliances",
+          "windows_doors",
+          "exterior",
+          "deck",
+          "drainage",
+          "landscaping",
+          "fireplace",
+          "garage",
+          "pests",
+          "environmental",
+          "sewer_septic",
+          "well_water",
+          "pool",
+          "other"
+        ],
+        "sources": [
+          {
+            "id": "photo-1",
+            "kind": "image",
+            "label": "Photo 1"
+          }
+        ],
+        "reviewRequired": true,
+        "conditionReview": {
+          "knowledgeVersion": "whole-home-2026-10-24-v2",
+          "cards": [
+            {
+              "findingId": "wall_stain_01",
+              "indicatorId": "wall_surface_stain",
+              "priority": "investigate",
+              "alternativeExplanations": "Prior wetting, condensation, surface contamination or other discoloration; a photo does not establish active moisture or mold.",
+              "verification": "Verify material and location; assess moisture and history before identifying a cause.",
+              "costCatalogIds": [],
+              "costStatus": "scope_confirmation_required",
+              "sources": [
+                {
+                  "id": "moisture-observations",
+                  "publisher": "US EPA",
+                  "title": "Moisture damage and prevention image library",
+                  "url": "https://www.epa.gov/mold/mold-image-library",
+                  "basis": "technical_guidance",
+                  "publishedAt": "2026-08-17",
+                  "checkedAt": "2026-10-24"
+                },
+                {
+                  "id": "walls",
+                  "publisher": "DOE / PNNL",
+                  "title": "Pre-Retrofit Assessment of Walls, Windows, and Doors",
+                  "url": "https://basc.pnnl.gov/information/pre-retrofit-assessment-walls-windows-and-doors",
+                  "basis": "technical_guidance",
+                  "publishedAt": null,
+                  "checkedAt": "2026-10-24"
+                }
+              ]
+            }
+          ],
+          "patternCandidates": [],
+          "coverage": [
+            {
+              "component": "roof",
+              "status": "no_evidence"
+            },
+            {
+              "component": "heating_system",
+              "status": "no_evidence"
+            },
+            {
+              "component": "cooling_system",
+              "status": "no_evidence"
+            },
+            {
+              "component": "water_heater",
+              "status": "no_evidence"
+            },
+            {
+              "component": "electrical",
+              "status": "no_evidence"
+            },
+            {
+              "component": "plumbing",
+              "status": "no_evidence"
+            },
+            {
+              "component": "ceiling",
+              "status": "no_evidence"
+            },
+            {
+              "component": "foundation",
+              "status": "no_evidence"
+            },
+            {
+              "component": "structure",
+              "status": "no_evidence"
+            },
+            {
+              "component": "attic",
+              "status": "no_evidence"
+            },
+            {
+              "component": "ventilation",
+              "status": "no_evidence"
+            },
+            {
+              "component": "kitchen",
+              "status": "no_evidence"
+            },
+            {
+              "component": "bathroom",
+              "status": "no_evidence"
+            },
+            {
+              "component": "appliances",
+              "status": "no_evidence"
+            },
+            {
+              "component": "interior",
+              "status": "observations_only"
+            },
+            {
+              "component": "windows_doors",
+              "status": "no_evidence"
+            },
+            {
+              "component": "exterior",
+              "status": "no_evidence"
+            },
+            {
+              "component": "deck",
+              "status": "no_evidence"
+            },
+            {
+              "component": "drainage",
+              "status": "no_evidence"
+            },
+            {
+              "component": "landscaping",
+              "status": "no_evidence"
+            },
+            {
+              "component": "fireplace",
+              "status": "no_evidence"
+            },
+            {
+              "component": "garage",
+              "status": "no_evidence"
+            },
+            {
+              "component": "pests",
+              "status": "no_evidence"
+            },
+            {
+              "component": "environmental",
+              "status": "no_evidence"
+            },
+            {
+              "component": "sewer_septic",
+              "status": "no_evidence"
+            },
+            {
+              "component": "well_water",
+              "status": "no_evidence"
+            },
+            {
+              "component": "pool",
+              "status": "no_evidence"
+            }
+          ],
+          "limits": [
+            "No component is certified safe or fully inspected.",
+            "Hidden damage requires inspection or testing.",
+            "Repair cost is not a resale-value adjustment."
+          ]
+        },
+        "metadata": {
+          "provider": "google-gemini-api",
+          "modelId": "gemma-4-31b-it",
+          "modelVersion": "gemma-4-31b-it",
+          "promptVersion": "whole-home-state-v4",
+          "pipelineVersion": "condition-state-photo-deadline-v3",
+          "attempts": 2,
+          "inputTokens": null,
+          "outputTokens": null,
+          "thinkingTokens": null,
+          "totalTokens": null,
+          "latencyMs": 62774
+        }
+      },
+      "httpDiagnostics": [
+        {
+          "responseMs": 28381,
+          "status": 500,
+          "apiStatus": "INTERNAL",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        },
+        {
+          "responseMs": 33587,
+          "status": 200,
+          "apiStatus": null,
+          "finishReason": "STOP",
+          "thinkingTokens": null,
+          "totalTokens": 2928
+        }
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "epa-32-round-2",
+      "kind": "photo",
+      "passed": false,
+      "errorCode": "PROVIDER_ERROR",
+      "elapsedMs": 40022,
+      "expectedTags": null,
+      "actualTags": [],
+      "score": null,
+      "result": null,
+      "httpDiagnostics": [
+        {
+          "responseMs": 40005,
+          "status": null,
+          "apiStatus": "TRANSPORT_FAILURE",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        }
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "epa-29-round-2",
+      "kind": "photo",
+      "passed": true,
+      "errorCode": null,
+      "elapsedMs": 36133,
+      "expectedTags": null,
+      "actualTags": [
+        "downspout_disconnected"
+      ],
+      "score": null,
+      "result": {
+        "findings": [
+          {
+            "id": "downspout-gap",
+            "component": "drainage",
+            "conditionState": "current",
+            "indicatorIds": [
+              "downspout_disconnected"
+            ],
+            "description": "There is a visible gap and separation between the upper and lower sections of the downspout.",
+            "evidenceClass": "visual_observation",
+            "evidence": [
+              {
+                "kind": "image",
+                "sourceId": "photo-1"
+              }
+            ],
+            "needsProfessionalAssessment": true,
+            "followUpQuestion": "Is the downspout properly connected and directing water away from the foundation?"
+          }
+        ],
+        "unassessedComponents": [
+          "roof",
+          "heating_system",
+          "cooling_system",
+          "water_heater",
+          "electrical",
+          "plumbing",
+          "ceiling",
+          "foundation",
+          "structure",
+          "attic",
+          "ventilation",
+          "kitchen",
+          "bathroom",
+          "appliances",
+          "interior",
+          "windows_doors",
+          "exterior",
+          "deck",
+          "landscaping",
+          "fireplace",
+          "garage",
+          "pests",
+          "environmental",
+          "sewer_septic",
+          "well_water",
+          "pool",
+          "other"
+        ],
+        "sources": [
+          {
+            "id": "photo-1",
+            "kind": "image",
+            "label": "Photo 1"
+          }
+        ],
+        "reviewRequired": true,
+        "conditionReview": {
+          "knowledgeVersion": "whole-home-2026-10-24-v2",
+          "cards": [
+            {
+              "findingId": "downspout-gap",
+              "indicatorId": "downspout_disconnected",
+              "priority": "investigate",
+              "alternativeExplanations": "A disconnected joint can interrupt water routing; it does not establish interior damage or the final outlet location.",
+              "verification": "Check continuity, connections and discharge routing from ground level or through a qualified contractor.",
+              "costCatalogIds": [],
+              "costStatus": "scope_confirmation_required",
+              "sources": [
+                {
+                  "id": "moisture-observations",
+                  "publisher": "US EPA",
+                  "title": "Moisture damage and prevention image library",
+                  "url": "https://www.epa.gov/mold/mold-image-library",
+                  "basis": "technical_guidance",
+                  "publishedAt": "2026-08-17",
+                  "checkedAt": "2026-10-24"
+                },
+                {
+                  "id": "wet-rooms",
+                  "publisher": "U.S. EPA",
+                  "title": "Remodeling Your Home and Indoor Air Quality",
+                  "url": "https://www.epa.gov/indoor-air-quality-iaq/remodeling-your-home-and-indoor-air-quality",
+                  "basis": "technical_guidance",
+                  "publishedAt": null,
+                  "checkedAt": "2026-10-24"
+                }
+              ]
+            }
+          ],
+          "patternCandidates": [],
+          "coverage": [
+            {
+              "component": "roof",
+              "status": "no_evidence"
+            },
+            {
+              "component": "heating_system",
+              "status": "no_evidence"
+            },
+            {
+              "component": "cooling_system",
+              "status": "no_evidence"
+            },
+            {
+              "component": "water_heater",
+              "status": "no_evidence"
+            },
+            {
+              "component": "electrical",
+              "status": "no_evidence"
+            },
+            {
+              "component": "plumbing",
+              "status": "no_evidence"
+            },
+            {
+              "component": "ceiling",
+              "status": "no_evidence"
+            },
+            {
+              "component": "foundation",
+              "status": "no_evidence"
+            },
+            {
+              "component": "structure",
+              "status": "no_evidence"
+            },
+            {
+              "component": "attic",
+              "status": "no_evidence"
+            },
+            {
+              "component": "ventilation",
+              "status": "no_evidence"
+            },
+            {
+              "component": "kitchen",
+              "status": "no_evidence"
+            },
+            {
+              "component": "bathroom",
+              "status": "no_evidence"
+            },
+            {
+              "component": "appliances",
+              "status": "no_evidence"
+            },
+            {
+              "component": "interior",
+              "status": "no_evidence"
+            },
+            {
+              "component": "windows_doors",
+              "status": "no_evidence"
+            },
+            {
+              "component": "exterior",
+              "status": "no_evidence"
+            },
+            {
+              "component": "deck",
+              "status": "no_evidence"
+            },
+            {
+              "component": "drainage",
+              "status": "observations_only"
+            },
+            {
+              "component": "landscaping",
+              "status": "no_evidence"
+            },
+            {
+              "component": "fireplace",
+              "status": "no_evidence"
+            },
+            {
+              "component": "garage",
+              "status": "no_evidence"
+            },
+            {
+              "component": "pests",
+              "status": "no_evidence"
+            },
+            {
+              "component": "environmental",
+              "status": "no_evidence"
+            },
+            {
+              "component": "sewer_septic",
+              "status": "no_evidence"
+            },
+            {
+              "component": "well_water",
+              "status": "no_evidence"
+            },
+            {
+              "component": "pool",
+              "status": "no_evidence"
+            }
+          ],
+          "limits": [
+            "No component is certified safe or fully inspected.",
+            "Hidden damage requires inspection or testing.",
+            "Repair cost is not a resale-value adjustment."
+          ]
+        },
+        "metadata": {
+          "provider": "google-gemini-api",
+          "modelId": "gemma-4-31b-it",
+          "modelVersion": "gemma-4-31b-it",
+          "promptVersion": "whole-home-state-v4",
+          "pipelineVersion": "condition-state-photo-deadline-v3",
+          "attempts": 2,
+          "inputTokens": null,
+          "outputTokens": null,
+          "thinkingTokens": null,
+          "totalTokens": null,
+          "latencyMs": 36124
+        }
+      },
+      "httpDiagnostics": [
+        {
+          "responseMs": 2437,
+          "status": 500,
+          "apiStatus": "INTERNAL",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        },
+        {
+          "responseMs": 32883,
+          "status": 200,
+          "apiStatus": null,
+          "finishReason": "STOP",
+          "thinkingTokens": null,
+          "totalTokens": 2935
+        }
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "epa-89-round-2",
+      "kind": "photo",
+      "passed": false,
+      "errorCode": "PROVIDER_UNAVAILABLE",
+      "elapsedMs": 58061,
+      "expectedTags": null,
+      "actualTags": [],
+      "score": null,
+      "result": null,
+      "httpDiagnostics": [
+        {
+          "responseMs": 38685,
+          "status": 504,
+          "apiStatus": "DEADLINE_EXCEEDED",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        },
+        {
+          "responseMs": 18563,
+          "status": 500,
+          "apiStatus": "INTERNAL",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        }
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "resolved-cabinet",
+      "kind": "text-regression",
+      "passed": true,
+      "errorCode": null,
+      "elapsedMs": 36171,
+      "expectedTags": [],
+      "actualTags": [],
+      "score": null,
+      "result": {
+        "findings": [
+          {
+            "id": "plumbing-leak-historical",
+            "component": "plumbing",
+            "conditionState": "historical",
+            "indicatorIds": [],
+            "description": "A prior plumbing leak was reported as repaired.",
+            "evidenceClass": "reported_inspection_finding",
+            "evidence": [
+              {
+                "kind": "report",
+                "sourceId": "report-1",
+                "page": 1,
+                "quote": "A prior plumbing leak was repaired."
+              }
+            ],
+            "needsProfessionalAssessment": true,
+            "followUpQuestion": "Can documentation for the plumbing repair be provided?"
+          }
+        ],
+        "unassessedComponents": [
+          "roof",
+          "heating_system",
+          "cooling_system",
+          "water_heater",
+          "electrical",
+          "ceiling",
+          "foundation",
+          "structure",
+          "attic",
+          "ventilation",
+          "kitchen",
+          "bathroom",
+          "appliances",
+          "interior",
+          "windows_doors",
+          "exterior",
+          "deck",
+          "drainage",
+          "landscaping",
+          "fireplace",
+          "garage",
+          "pests",
+          "environmental",
+          "sewer_septic",
+          "well_water",
+          "pool",
+          "other",
+          "plumbing"
+        ],
+        "sources": [
+          {
+            "id": "report-1",
+            "kind": "inspection_report",
+            "pages": [
+              "A prior plumbing leak was repaired. The sink cabinet is currently dry and undamaged. No active leak was observed. Concealed conditions were not inspected."
+            ]
+          }
+        ],
+        "reviewRequired": true,
+        "conditionReview": {
+          "knowledgeVersion": "whole-home-2026-10-24-v2",
+          "cards": [],
+          "patternCandidates": [],
+          "coverage": [
+            {
+              "component": "roof",
+              "status": "no_evidence"
+            },
+            {
+              "component": "heating_system",
+              "status": "no_evidence"
+            },
+            {
+              "component": "cooling_system",
+              "status": "no_evidence"
+            },
+            {
+              "component": "water_heater",
+              "status": "no_evidence"
+            },
+            {
+              "component": "electrical",
+              "status": "no_evidence"
+            },
+            {
+              "component": "plumbing",
+              "status": "no_evidence"
+            },
+            {
+              "component": "ceiling",
+              "status": "no_evidence"
+            },
+            {
+              "component": "foundation",
+              "status": "no_evidence"
+            },
+            {
+              "component": "structure",
+              "status": "no_evidence"
+            },
+            {
+              "component": "attic",
+              "status": "no_evidence"
+            },
+            {
+              "component": "ventilation",
+              "status": "no_evidence"
+            },
+            {
+              "component": "kitchen",
+              "status": "no_evidence"
+            },
+            {
+              "component": "bathroom",
+              "status": "no_evidence"
+            },
+            {
+              "component": "appliances",
+              "status": "no_evidence"
+            },
+            {
+              "component": "interior",
+              "status": "no_evidence"
+            },
+            {
+              "component": "windows_doors",
+              "status": "no_evidence"
+            },
+            {
+              "component": "exterior",
+              "status": "no_evidence"
+            },
+            {
+              "component": "deck",
+              "status": "no_evidence"
+            },
+            {
+              "component": "drainage",
+              "status": "no_evidence"
+            },
+            {
+              "component": "landscaping",
+              "status": "no_evidence"
+            },
+            {
+              "component": "fireplace",
+              "status": "no_evidence"
+            },
+            {
+              "component": "garage",
+              "status": "no_evidence"
+            },
+            {
+              "component": "pests",
+              "status": "no_evidence"
+            },
+            {
+              "component": "environmental",
+              "status": "no_evidence"
+            },
+            {
+              "component": "sewer_septic",
+              "status": "no_evidence"
+            },
+            {
+              "component": "well_water",
+              "status": "no_evidence"
+            },
+            {
+              "component": "pool",
+              "status": "no_evidence"
+            }
+          ],
+          "limits": [
+            "No component is certified safe or fully inspected.",
+            "Hidden damage requires inspection or testing.",
+            "Repair cost is not a resale-value adjustment."
+          ]
+        },
+        "metadata": {
+          "provider": "google-gemini-api",
+          "modelId": "gemma-4-31b-it",
+          "modelVersion": "gemma-4-31b-it",
+          "promptVersion": "whole-home-state-v4",
+          "pipelineVersion": "condition-state-photo-deadline-v3",
+          "attempts": 1,
+          "inputTokens": 2360,
+          "outputTokens": 337,
+          "thinkingTokens": null,
+          "totalTokens": 2697,
+          "latencyMs": 36168
+        }
+      },
+      "httpDiagnostics": [
+        {
+          "responseMs": 36162,
+          "status": 200,
+          "apiStatus": null,
+          "finishReason": "STOP",
+          "thinkingTokens": null,
+          "totalTokens": 2697
+        }
+      ],
+      "visualReview": null
+    }
+  ],
+  "modelId": "gemma-4-31b-it",
+  "promptVersion": "whole-home-state-v4",
+  "pipelineVersion": "condition-state-photo-deadline-v3",
+  "pacingMs": 21000,
+  "stopReason": "Eight photo requests completed with four failures; existing 26B default retained. Original repaired-cabinet case also completed. Remaining planned text cases not run. SDK photo timeout subsequently aligned with outer75s in pipeline v4."
+}

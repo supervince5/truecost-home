@@ -1,0 +1,147 @@
+{
+  "startedAt": "2026-10-24T21:56:10.417Z",
+  "finishedAt": "2026-10-24T21:56:22.508Z",
+  "status": "finished",
+  "modelId": "gemma-4-26b-a4b-it",
+  "promptVersion": "whole-home-evidence-v2",
+  "knowledgeVersion": "whole-home-2026-10-24-v1",
+  "promptSha256": "f43239c45d3f781fb9dbe13ecdd65f147a98b053e395d607f19b798700b09a01",
+  "casesSha256": "6070e73c9ad97e10c8598fe063926bfc18f2c392b440d5633f682aacde226ab2",
+  "limitations": [
+    "Constructed text scenarios, not independently labeled property inspections.",
+    "Tag scores do not establish semantic correctness or photo detection accuracy.",
+    "Failed-call token usage may be unavailable; usage is not billed cost.",
+    "No training or model-weight updates."
+  ],
+  "summary": {
+    "cases": 1,
+    "passed": 1,
+    "contractFailures": 0,
+    "truePositives": 2,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "tagPrecision": 1,
+    "tagRecall": 1,
+    "inputTokensOnSuccessfulExtractions": 3538,
+    "outputTokensOnSuccessfulExtractions": 546,
+    "tokenAccountingComplete": true,
+    "billedDollars": null,
+    "humanSemanticReviewComplete": false,
+    "photoDetectionAccuracy": null
+  },
+  "rows": [
+    {
+      "id": "roof-ceiling-path",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 2,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 12089,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3538,
+        "outputTokens": 546,
+        "latencyMs": 12089
+      },
+      "findings": [
+        {
+          "id": "finding_001",
+          "component": "roof",
+          "indicatorIds": [
+            "missing_shingles"
+          ],
+          "description": "Missing shingles are reported on the rear slope of the roof.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Missing shingles on the rear slope."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a roofer inspected the rear slope to determine the extent of the shingle loss and the condition of the underlying substrate?"
+        },
+        {
+          "id": "finding_002",
+          "component": "ceiling",
+          "indicatorIds": [
+            "ceiling_stain"
+          ],
+          "description": "A brown stain is present on the upstairs ceiling; the source and age of the stain were not determined.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "A brown stain is present on the upstairs ceiling. The source and age of the stain were not determined."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Can a professional trace the source of the staining and confirm if there is an active leak or moisture issue in the ceiling or the area above it?"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "roof_ceiling",
+          "status": "hypothesis_requires_verification",
+          "hypothesis": "A roof defect could be related to the ceiling staining.",
+          "supportingFindingIds": [
+            "finding_001",
+            "finding_002"
+          ],
+          "verification": "Verify spatial relationship and trace moisture; plumbing or historical staining remain alternatives.",
+          "limitation": "Co-occurring clues may be unrelated. Their location, timing and shared mechanism have not been verified.",
+          "sources": [
+            {
+              "id": "roof-flashing",
+              "publisher": "DOE / PNNL",
+              "title": "Flashing of Penetrations in Existing Roofs",
+              "url": "https://basc.pnnl.gov/resource-guides/flashing-penetrations-existing-roofs",
+              "basis": "technical_guidance",
+              "publishedAt": null,
+              "checkedAt": "2026-10-24"
+            },
+            {
+              "id": "wet-rooms",
+              "publisher": "U.S. EPA",
+              "title": "Remodeling Your Home and Indoor Air Quality",
+              "url": "https://www.epa.gov/indoor-air-quality-iaq/remodeling-your-home-and-indoor-air-quality",
+              "basis": "technical_guidance",
+              "publishedAt": null,
+              "checkedAt": "2026-10-24"
+            }
+          ]
+        }
+      ],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "roof-covering",
+        "wet-rooms"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    }
+  ]
+}

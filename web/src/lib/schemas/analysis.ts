@@ -13,7 +13,7 @@ export const analysisInputSchema = z.strictObject({
   budget: budgetSchema,
   sources: z.array(sourceSchema).max(12),
   findings: z.array(findingSchema).max(40),
-  unassessedComponents: z.array(componentSchema).max(10),
+  unassessedComponents: z.array(componentSchema).max(componentSchema.options.length),
 }).superRefine((data, ctx) => {
   const issue = (path: (string | number)[], message: string) => ctx.addIssue({ code: "custom", path, message });
   if (data.property.priceCents !== null && data.budget.downPaymentCents !== null && data.budget.downPaymentCents > data.property.priceCents) {

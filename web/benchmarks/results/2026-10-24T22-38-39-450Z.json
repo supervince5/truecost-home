@@ -1,0 +1,86 @@
+{
+  "selectedCaseIds": [
+    "negative-repaired-leak"
+  ],
+  "totalAvailableCases": 24,
+  "fullSuiteRun": false,
+  "pacingMs": 31000,
+  "pipelineVersion": "condition-state-photo-deadline-v4",
+  "startedAt": "2026-10-24T22:38:39.450Z",
+  "finishedAt": "2026-10-24T22:38:44.058Z",
+  "status": "finished",
+  "modelId": "gemma-4-26b-a4b-it",
+  "promptVersion": "whole-home-state-v4",
+  "knowledgeVersion": "whole-home-2026-10-24-v2",
+  "promptSha256": "08f688eb06469d01b9d1520203c66eef507efa77e7ce5aefe45578093d67ba87",
+  "casesSha256": "6070e73c9ad97e10c8598fe063926bfc18f2c392b440d5633f682aacde226ab2",
+  "limitations": [
+    "Constructed text scenarios, not independently labeled property inspections.",
+    "Tag scores do not establish semantic correctness or photo detection accuracy.",
+    "Failed-call token usage may be unavailable; usage is not billed cost.",
+    "No training or model-weight updates."
+  ],
+  "summary": {
+    "cases": 1,
+    "passed": 1,
+    "contractFailures": 0,
+    "truePositives": 0,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "tagPrecision": null,
+    "tagRecall": null,
+    "inputTokensOnSuccessfulExtractions": 2362,
+    "outputTokensOnSuccessfulExtractions": 176,
+    "providerTotalTokensOnSuccessfulExtractions": 2538,
+    "tokenAccountingComplete": true,
+    "billedDollars": null,
+    "humanSemanticReviewComplete": false,
+    "photoDetectionAccuracy": null
+  },
+  "rows": [
+    {
+      "id": "negative-repaired-leak",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 4601,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-state-v4",
+        "pipelineVersion": "condition-state-photo-deadline-v4",
+        "attempts": 1,
+        "inputTokens": 2362,
+        "outputTokens": 176,
+        "thinkingTokens": null,
+        "totalTokens": 2538,
+        "latencyMs": 4601
+      },
+      "findings": [],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "wet-rooms"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    }
+  ]
+}

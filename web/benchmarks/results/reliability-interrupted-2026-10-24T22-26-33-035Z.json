@@ -1,0 +1,32 @@
+{
+  "startedAt": "2026-10-24T22:26:33.035Z",
+  "status": "interrupted_for_deadline_fix",
+  "rows": [
+    {
+      "id": "epa-17-round-1",
+      "kind": "photo",
+      "passed": false,
+      "errorCode": "TIMEOUT",
+      "elapsedMs": 40012,
+      "expectedTags": null,
+      "actualTags": [],
+      "score": null,
+      "result": null,
+      "httpDiagnostics": [
+        {
+          "responseMs": 21025,
+          "status": 500,
+          "apiStatus": "INTERNAL",
+          "finishReason": null,
+          "thinkingTokens": null,
+          "totalTokens": null
+        }
+      ],
+      "visualReview": "pending"
+    }
+  ],
+  "modelId": "gemma-4-31b-it",
+  "promptVersion": "whole-home-state-v4",
+  "pipelineVersion": "condition-state-gate-v2",
+  "reason": "Stopped after recording a photo timeout: HTTP500 at21s left insufficient shared40s retry time. Original completed rows retained; not a full-suite result."
+}

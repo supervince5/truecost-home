@@ -1,5 +1,5 @@
 import "server-only";
-import { GoogleGenAI, ThinkingLevel, type Part } from "@google/genai";
+import { ApiError, GoogleGenAI, ThinkingLevel, type Part } from "@google/genai";
 import { AnalysisError } from "../errors";
 import { CONDITION_PROMPT } from "./prompt";
 import type { ModelProvider } from "./provider";
@@ -17,8 +17,8 @@ export function createGemmaProvider(config: { apiKey: string; modelId: string },
   return {
     modelId: config.modelId,
     async generate(evidence, options) {
-      const parts: Part[] = [{ text: JSON.stringify({ property: evidence.property, sources: evidence.sources }) }];
-      for (const image of evidence.images) parts.push({ text: `Image source ID: ${image.sourceId}` }, { inlineData: { mimeType: image.mimeType, data: image.data } });
+      const parts: Part[] = evidence.images.map((image) => ({ inlineData: { mimeType: image.mimeType, data: image.data } }));
+      parts.push({ text: JSON.stringify({ imageOrder: evidence.images.map((image) => image.sourceId), property: evidence.property, sources: evidence.sources }) });
       if (options.correctiveAttempt) parts.push({ text: "The preceding attempt did not satisfy the output contract. Re-extract from the original evidence. Return only valid JSON and verifiable references. Omit unsupported findings." });
       const response = await ai.models.generateContent({
         model: config.modelId,
@@ -31,12 +31,17 @@ export function createGemmaProvider(config: { apiKey: string; modelId: string },
           thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
           abortSignal: options.signal,
           automaticContinuation: false,
-          httpOptions: { timeout: 40000, retryOptions: { attempts: 1 } },
+          httpOptions: { timeout: evidence.images.length ? 75000 : 40000, retryOptions: { attempts: 1 } },
         },
+      }).catch((error: unknown) => {
+        if (error instanceof ApiError && error.status === 429) throw new AnalysisError("RATE_LIMITED");
+        if (error instanceof ApiError && [500, 502, 503, 504].includes(error.status)) throw new AnalysisError("PROVIDER_UNAVAILABLE");
+        throw error;
       });
       if (response.promptFeedback?.blockReason || response.candidates?.[0]?.finishReason !== "STOP") throw new AnalysisError("PROVIDER_ERROR");
       // Prompted JSON, not an unverified claim of provider-enforced structured output.
-      return { text: response.text ?? "", modelVersion: response.modelVersion ?? null, inputTokens: response.usageMetadata?.promptTokenCount ?? null, outputTokens: response.usageMetadata?.candidatesTokenCount ?? null };
+      return { text: response.text ?? "", modelVersion: response.modelVersion ?? null, inputTokens: response.usageMetadata?.promptTokenCount ?? null, outputTokens: response.usageMetadata?.candidatesTokenCount ?? null,
+        thinkingTokens: response.usageMetadata?.thoughtsTokenCount ?? null, totalTokens: response.usageMetadata?.totalTokenCount ?? null };
     },
   };
 }

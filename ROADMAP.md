@@ -1,6 +1,6 @@
 # Build roadmap
 
-Status: foundation steps 1–3 are implemented locally: demo specification and fixtures, Next.js scaffold/VS Code, shared schemas and contract tests. The bounded Gemma wrapper is now implemented and tested at the contract/transport level. Live model checks are recorded separately; calculation, persistence and deployment work remains planned.
+Status: foundation steps 1–3, the bounded Gemma wrapper, a whole-property indicator library and a sourced repair-cost API are implemented locally. The repaired-condition state gate and aligned photo deadlines are implemented and regression-tested. Live development runs include successes, provider failures and visual misses; see [demo reliability](docs/DEMO_RELIABILITY.md). Financial calculations, buyer-facing review screens, persistence and deployment remain planned.
 
 ## 0. Understand and agree
 
@@ -22,7 +22,7 @@ Acceptance: zero-interest mortgage, no loan, immediate shortfall, late repair, p
 
 ## 3. Agree on API contracts
 
-Initial property, budget, finding, source-reference, reviewed-analysis and result contracts are implemented in `web/src/lib/schemas/`. Remaining work: upload/extraction contracts, full timeline scenarios, and actual route/UI integration.
+Initial property, budget, finding, source-reference, reviewed-analysis, extraction and result contracts are implemented in `web/src/lib/schemas/`. Remaining work: full timeline scenarios and route/UI integration. `/api/analyze` and `/api/estimate` are implemented.
 
 Acceptance: invalid or missing material fields are rejected or represented as unknown; the same sample payload works for frontend and backend development.
 
@@ -36,11 +36,15 @@ Acceptance: adjusting savings updates the cash gap without a new image-analysis 
 
 ## 5. Add sourced costs and assistance routes
 
+Implemented: 15 published planning scopes, source dates and exclusions, explicit geography/fallback checks, unknown-cost handling and an estimate API. See [research and costs](docs/WHOLE_HOME_RESEARCH.md). Assistance matching and broader price coverage remain planned.
+
 Create a small versioned dataset for the chosen locality. Record scope, units, dates, sources, exclusions, and unknown eligibility criteria.
 
 Acceptance: every displayed cost and program statement has provenance; no unapproved funding improves the baseline.
 
 ## 6. Evaluate the pipeline
+
+Implemented: a reproducible development benchmark with 24 constructed text cases, four attributed educational photographs and saved live outputs. See [results and limitations](docs/DETECTION_BENCHMARK_RESULTS.md). Independent professional annotation and a controlled basic-prompt comparison remain outstanding.
 
 Compare a basic prompt with the full pipeline on the same held-out fixtures and model version. Review correct findings, misses, unsupported claims, evidence attribution, abstentions, latency, and model usage. Keep prompt-development examples separate and report both raw and user-visible errors.
 

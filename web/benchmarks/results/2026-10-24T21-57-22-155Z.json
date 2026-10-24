@@ -1,0 +1,714 @@
+{
+  "startedAt": "2026-10-24T21:57:22.155Z",
+  "finishedAt": "2026-10-24T22:04:08.592Z",
+  "status": "finished",
+  "modelId": "gemma-4-26b-a4b-it",
+  "promptVersion": "whole-home-evidence-v2",
+  "knowledgeVersion": "whole-home-2026-10-24-v1",
+  "promptSha256": "f43239c45d3f781fb9dbe13ecdd65f147a98b053e395d607f19b798700b09a01",
+  "casesSha256": "6070e73c9ad97e10c8598fe063926bfc18f2c392b440d5633f682aacde226ab2",
+  "limitations": [
+    "Constructed text scenarios, not independently labeled property inspections.",
+    "Tag scores do not establish semantic correctness or photo detection accuracy.",
+    "Failed-call token usage may be unavailable; usage is not billed cost.",
+    "No training or model-weight updates."
+  ],
+  "summary": {
+    "cases": 11,
+    "passed": 9,
+    "contractFailures": 1,
+    "truePositives": 9,
+    "falsePositives": 1,
+    "falseNegatives": 2,
+    "tagPrecision": 0.9,
+    "tagRecall": 0.8181818181818182,
+    "inputTokensOnSuccessfulExtractions": 38882,
+    "outputTokensOnSuccessfulExtractions": 4049,
+    "tokenAccountingComplete": false,
+    "billedDollars": null,
+    "humanSemanticReviewComplete": false,
+    "photoDetectionAccuracy": null
+  },
+  "rows": [
+    {
+      "id": "cooling-differential",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 2,
+        "missed": [
+          "cooling_ice",
+          "hvac_airflow_obstruction"
+        ],
+        "unexpected": [],
+        "missingPatterns": [
+          "cooling_airflow"
+        ],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 298,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "cooling"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 500,
+          "apiStatus": "INTERNAL",
+          "finishReason": null
+        }
+      ]
+    },
+    {
+      "id": "electrical-warning",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 2,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 9152,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3531,
+        "outputTokens": 388,
+        "latencyMs": 9151
+      },
+      "findings": [
+        {
+          "id": "electrical_damage_001",
+          "component": "electrical",
+          "indicatorIds": [
+            "electrical_heat_damage",
+            "exposed_wiring"
+          ],
+          "description": "Reported scorched and melted outlet faceplate with an exposed conductor and a broken cover; circuit condition was not tested.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Electrical report: Outlet faceplate is scorched and melted. A conductor is exposed where the cover is broken. Circuit condition was not tested."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a licensed electrician inspected the wiring behind the damaged outlet and tested the circuit for safety and integrity?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "electrical"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    },
+    {
+      "id": "movement-clues",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 2,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 11899,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3538,
+        "outputTokens": 542,
+        "latencyMs": 11898
+      },
+      "findings": [
+        {
+          "id": "foundation_cracks_found",
+          "component": "foundation",
+          "indicatorIds": [
+            "foundation_cracks"
+          ],
+          "description": "Displaced cracks are reported in the foundation wall, though the cause and progression are unknown.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Foundation report: Displaced cracks are visible in the foundation wall."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a structural engineer evaluated the displaced cracks to determine if they are active and what the underlying cause is?"
+        },
+        {
+          "id": "uneven_floors_doors",
+          "component": "structure",
+          "indicatorIds": [
+            "movement_cluster"
+          ],
+          "description": "Reported uneven floors and door openings that are out of square.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Structure report: Floors are uneven and door openings are out of square. Cause and progression were not determined."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Can a structural professional confirm if the uneven floors and out-of-square openings are related to the foundation cracks?"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "movement",
+          "status": "hypothesis_requires_verification",
+          "hypothesis": "Multiple movement indicators warrant a coordinated structural assessment.",
+          "supportingFindingIds": [
+            "foundation_cracks_found",
+            "uneven_floors_doors"
+          ],
+          "verification": "Engineer determines alignment, progression and cause; co-occurrence is not proof of foundation failure.",
+          "limitation": "Co-occurring clues may be unrelated. Their location, timing and shared mechanism have not been verified.",
+          "sources": [
+            {
+              "id": "inspection-scope",
+              "publisher": "InterNACHI",
+              "title": "Home Inspection Standards of Practice",
+              "url": "https://www.nachi.org/sop.htm",
+              "basis": "technical_guidance",
+              "publishedAt": null,
+              "checkedAt": "2026-10-24"
+            }
+          ]
+        }
+      ],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "inspection-scope"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    },
+    {
+      "id": "window-moisture",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 12124,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3531,
+        "outputTokens": 548,
+        "latencyMs": 12124
+      },
+      "findings": [
+        {
+          "id": "window_trim_stain",
+          "component": "windows_doors",
+          "indicatorIds": [
+            "window_wall_moisture"
+          ],
+          "description": "The lower window trim is reported as water-stained; interior humidity, flashing, and hidden framing were not assessed.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Paint is peeling and the lower window trim is water-stained. Interior humidity, flashing and hidden framing were not assessed."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a professional evaluated the flashing and framing behind the stained trim to rule out active moisture intrusion?"
+        },
+        {
+          "id": "window_paint_peeling",
+          "component": "windows_doors",
+          "indicatorIds": [
+            "window_wall_moisture"
+          ],
+          "description": "Paint is reported as peeling on the windows.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Paint is peeling and the lower window trim is water-stained."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Is the paint peeling due to surface age or moisture infiltration from the window assembly?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "walls"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    },
+    {
+      "id": "landscape-tree",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 8573,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3530,
+        "outputTokens": 374,
+        "latencyMs": 8573
+      },
+      "findings": [
+        {
+          "id": "tree_damage_finding",
+          "component": "landscaping",
+          "indicatorIds": [
+            "tree_damage"
+          ],
+          "description": "A large tree is reported to have dead limbs above a walkway and a split in its main trunk.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "A large tree has dead limbs above the walkway and a split in its main trunk."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a certified arborist evaluated the tree to determine the stability of the trunk split and the risk posed by the dead limbs?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "trees"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    },
+    {
+      "id": "termite-uncertainty",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 8732,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3537,
+        "outputTokens": 390,
+        "latencyMs": 8731
+      },
+      "findings": [
+        {
+          "id": "pest_finding_001",
+          "component": "pests",
+          "indicatorIds": [
+            "termite_signs"
+          ],
+          "description": "Reported presence of mud shelter tubes and soil-lined galleries in damaged wood, though no live insects were observed at the time of inspection.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Pest report: Mud shelter tubes and soil-lined galleries are present in damaged wood. No live insects were observed. Activity and age of the damage are undetermined."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a pest specialist evaluated the extent of the damage and determined if the infestation is currently active?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "termites"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    },
+    {
+      "id": "septic-signs",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 8781,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3533,
+        "outputTokens": 392,
+        "latencyMs": 8780
+      },
+      "findings": [
+        {
+          "id": "septic_failure_finding",
+          "component": "sewer_septic",
+          "indicatorIds": [
+            "septic_failure_signs"
+          ],
+          "description": "Reported sewage backup into a fixture, wet ground at the drainfield, and sewage odor.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Septic report: Sewage backed up into a fixture. The drainfield has wet ground and sewage odor. No excavation or tank inspection was performed."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Can a septic professional perform a full inspection, including tank examination and drainfield evaluation, to determine the cause of the backup and ground saturation?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "septic"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    },
+    {
+      "id": "cosmetic-not-defect",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 16920,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 2,
+        "inputTokens": 7093,
+        "outputTokens": 664,
+        "latencyMs": 16919
+      },
+      "findings": [
+        {
+          "id": "dated_kitchen_cabinets",
+          "component": "kitchen",
+          "indicatorIds": [
+            "dated_finish"
+          ],
+          "description": "Kitchen cabinet style is described as dated.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Kitchen report: Cabinet style is dated."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Is the dated cabinet style a functional concern or strictly a cosmetic preference?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "inspection-scope"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        },
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    },
+    {
+      "id": "negative-repaired-leak",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 0,
+        "falsePositives": 1,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [
+          "cabinet_water_damage"
+        ],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": false
+      },
+      "errorCode": null,
+      "latencyMs": 8633,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3535,
+        "outputTokens": 387,
+        "latencyMs": 8633
+      },
+      "findings": [
+        {
+          "id": "sink_cabinet_history",
+          "component": "kitchen",
+          "indicatorIds": [
+            "cabinet_water_damage"
+          ],
+          "description": "A prior plumbing leak was reported in the sink cabinet area, though the cabinet is currently described as dry and undamaged.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "A prior plumbing leak was repaired. The sink cabinet is currently dry and undamaged. No active leak was observed. Concealed conditions were not inspected."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has the plumbing repair been verified by a licensed professional, and were the concealed areas behind the cabinet inspected for residual moisture or damage?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "wet-rooms"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    },
+    {
+      "id": "negative-age-alone",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 4447,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3532,
+        "outputTokens": 182,
+        "latencyMs": 4447
+      },
+      "findings": [],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "lead",
+        "asbestos"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    },
+    {
+      "id": "negative-out-of-scope",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 6837,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3522,
+        "outputTokens": 182,
+        "latencyMs": 6837
+      },
+      "findings": [],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "inspection-scope"
+      ],
+      "httpDiagnostics": [
+        {
+          "httpStatus": 200,
+          "apiStatus": null,
+          "finishReason": "STOP"
+        }
+      ]
+    }
+  ]
+}

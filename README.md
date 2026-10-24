@@ -4,7 +4,7 @@
 
 TrueCost Home is a planned buyer-facing tool that connects listing information and property-condition evidence to repair scenarios, monthly ownership budgets, upfront cash gaps, and assistance pathways.
 
-**Status: foundation implemented locally.** A runnable Next.js preview, three synthetic demo fixtures, and shared validated contracts are in place. The server-side Gemma wrapper and analysis API are implemented, with [successful live text/image smoke checks](docs/MODEL_SMOKE_RESULTS.md). Financial calculations, buyer-facing analysis screens, persistence, accounts, production datasets, and deployment remain unimplemented.
+**Status: backend MVP in progress.** A runnable Next.js preview, three synthetic demo fixtures, and shared validated contracts are in place. The server-side Gemma wrapper and analysis API are implemented, with [successful live text/image smoke checks](docs/MODEL_SMOKE_RESULTS.md). Whole-home condition guidance, evidence-linked pattern candidates, and a deterministic source-backed repair-cost API are implemented. Buyer-facing analysis screens, monthly financial calculations, persistence, accounts and deployment remain unimplemented. The cost catalog is a limited set of published planning prices, not a production valuation dataset.
 
 ## Start here
 
@@ -14,7 +14,10 @@ TrueCost Home is a planned buyer-facing tool that connects listing information a
 4. [Product plan](docs/PROJECT_PLAN.md) — scope, math, sources, limitations, and demo.
 5. [Demo specification](docs/DEMO_SPEC.md) — sample inputs, hand-computed expectations, and implemented contracts.
 6. [Gemma wrapper](docs/GEMMA_WRAPPER.md) — setup, endpoint format, limits, evidence checks, and evaluation.
-7. [Model development](docs/MODEL_DEVELOPMENT.md) — prompting versus training and how we will measure improvements.
+7. [Whole-home research and cost engine](docs/WHOLE_HOME_RESEARCH.md) — source library, conditions, pricing and API.
+8. [Detection benchmark](docs/DETECTION_BENCHMARK.md) — constructed scenarios and real educational photographs.
+9. [Demo reliability](docs/DEMO_RELIABILITY.md) — repaired-condition guard, photo deadlines and measured reruns.
+10. [Model development](docs/MODEL_DEVELOPMENT.md) — prompting versus training and how we will measure improvements.
 
 ## The product in one flow
 

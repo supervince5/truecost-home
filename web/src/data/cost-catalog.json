@@ -1,0 +1,261 @@
+[
+  {
+    "id": "roof_pipe_boot",
+    "components": [
+      "roof"
+    ],
+    "title": "Localized roof vent collar replacement",
+    "lowCents": 25000,
+    "highCents": 65000,
+    "sourceId": "roof-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "Localized work on an accessible residential asphalt-shingle roof; ordinary conditions.",
+    "exclusions": "Specialty materials, steep access, large areas, hidden decking/framing damage and interior restoration are outside this scope. Tax/permit treatment is not specified.",
+    "conflicts": [],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "roof_flashing",
+    "components": [
+      "roof"
+    ],
+    "title": "Localized roof flashing repair",
+    "lowCents": 40000,
+    "highCents": 140000,
+    "sourceId": "roof-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "Localized work on an accessible residential asphalt-shingle roof; ordinary conditions.",
+    "exclusions": "Specialty materials, steep access, large areas, hidden decking/framing damage and interior restoration are outside this scope. Tax/permit treatment is not specified.",
+    "conflicts": [],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "roof_shingle_section",
+    "components": [
+      "roof"
+    ],
+    "title": "Localized shingle section repair",
+    "lowCents": 35000,
+    "highCents": 120000,
+    "sourceId": "roof-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "Localized work on an accessible residential asphalt-shingle roof; ordinary conditions.",
+    "exclusions": "Specialty materials, steep access, large areas, hidden decking/framing damage and interior restoration are outside this scope. Tax/permit treatment is not specified.",
+    "conflicts": [],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "roof_valley",
+    "components": [
+      "roof"
+    ],
+    "title": "Roof valley repair",
+    "lowCents": 65000,
+    "highCents": 180000,
+    "sourceId": "roof-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "Localized work on an accessible residential asphalt-shingle roof; ordinary conditions.",
+    "exclusions": "Specialty materials, steep access, large areas, hidden decking/framing damage and interior restoration are outside this scope. Tax/permit treatment is not specified.",
+    "conflicts": [],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "roof_ridge_vent",
+    "components": [
+      "roof"
+    ],
+    "title": "Ridge vent repair",
+    "lowCents": 45000,
+    "highCents": 120000,
+    "sourceId": "roof-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "Localized work on an accessible residential asphalt-shingle roof; ordinary conditions.",
+    "exclusions": "Specialty materials, steep access, large areas, hidden decking/framing damage and interior restoration are outside this scope. Tax/permit treatment is not specified.",
+    "conflicts": [],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "hvac_matched",
+    "components": [
+      "heating_system",
+      "cooling_system"
+    ],
+    "title": "Matched gas furnace and central AC replacement",
+    "lowCents": 889800,
+    "highCents": 2300000,
+    "sourceId": "hvac-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "One installed system. Broad vendor range; sizing and equipment selection require assessment.",
+    "exclusions": "Duct, line-set, electrical and venting changes may alter quote. No rebates or financing assumed; tax/permit detail must be confirmed.",
+    "conflicts": [
+      "heat_pump",
+      "furnace_gas",
+      "ac_only"
+    ],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "heat_pump",
+    "components": [
+      "heating_system",
+      "cooling_system"
+    ],
+    "title": "Heat pump and air handler replacement",
+    "lowCents": 849900,
+    "highCents": 2165000,
+    "sourceId": "hvac-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "One installed system. Broad vendor range; sizing and equipment selection require assessment.",
+    "exclusions": "Duct, line-set, electrical and venting changes may alter quote. No rebates or financing assumed; tax/permit detail must be confirmed.",
+    "conflicts": [
+      "hvac_matched",
+      "furnace_gas",
+      "ac_only"
+    ],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "furnace_gas",
+    "components": [
+      "heating_system"
+    ],
+    "title": "Gas furnace replacement",
+    "lowCents": 428500,
+    "highCents": 1404000,
+    "sourceId": "hvac-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "One installed system. Broad vendor range; sizing and equipment selection require assessment.",
+    "exclusions": "Duct, line-set, electrical and venting changes may alter quote. No rebates or financing assumed; tax/permit detail must be confirmed.",
+    "conflicts": [
+      "hvac_matched",
+      "heat_pump",
+      "ac_only"
+    ],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "ac_only",
+    "components": [
+      "cooling_system"
+    ],
+    "title": "Central AC replacement",
+    "lowCents": 594200,
+    "highCents": 1445000,
+    "sourceId": "hvac-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "One installed system. Broad vendor range; sizing and equipment selection require assessment.",
+    "exclusions": "Duct, line-set, electrical and venting changes may alter quote. No rebates or financing assumed; tax/permit detail must be confirmed.",
+    "conflicts": [
+      "hvac_matched",
+      "heat_pump",
+      "furnace_gas"
+    ],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "hvac_diagnostic",
+    "components": [
+      "heating_system",
+      "cooling_system"
+    ],
+    "title": "HVAC diagnostic visit",
+    "lowCents": 9900,
+    "highCents": 9900,
+    "sourceId": "hvac-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "Published diagnostic visit price.",
+    "exclusions": "Repairs and replacement excluded; confirm dispatch conditions.",
+    "conflicts": [],
+    "purpose": "assessment"
+  },
+  {
+    "id": "window_vinyl",
+    "components": [
+      "windows_doors"
+    ],
+    "title": "Standard vinyl double-hung window replacement",
+    "lowCents": 65000,
+    "highCents": 95000,
+    "sourceId": "window-cost",
+    "unit": "each",
+    "geography": "northern_virginia",
+    "assumptions": "Standard ProVia vinyl double-hung unit; removal, installation, trim and seal included.",
+    "exclusions": "Custom opening, structural repair and upgraded glass are outside this scope. Confirm tax, permit and lead-safe work.",
+    "conflicts": [],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "water_heater_tank",
+    "components": [
+      "water_heater"
+    ],
+    "title": "Basic tank water heater replacement",
+    "lowCents": 160000,
+    "highCents": 240000,
+    "sourceId": "water-heater-cost",
+    "unit": "project",
+    "geography": "us_national",
+    "assumptions": "Basic tank, installation materials/labor, permit and removal included.",
+    "exclusions": "Hybrid/premium tanks, relocation, code upgrades and concealed damage excluded. National range, not a DMV quote.",
+    "conflicts": [],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "yard_french_drain",
+    "components": [
+      "drainage"
+    ],
+    "title": "Yard French drain planning scenario",
+    "lowCents": 3000,
+    "highCents": 9000,
+    "sourceId": "drain-cost",
+    "unit": "linear_foot",
+    "geography": "northern_virginia",
+    "assumptions": "Measured yard drain length; fabric, stone and pipe; professional drainage design already selected.",
+    "exclusions": "Site depth/access, haul-off, utilities, outlet, pumps and restoration may exceed the range. Not a basement perimeter system.",
+    "conflicts": [],
+    "purpose": "repair_scenario"
+  },
+  {
+    "id": "kitchen_remodel",
+    "components": [
+      "kitchen"
+    ],
+    "title": "Kitchen remodel in existing location",
+    "lowCents": 7500000,
+    "highCents": 15000000,
+    "sourceId": "remodel-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "Full-service remodel in current location; scope must be selected explicitly.",
+    "exclusions": "Appliances excluded. Not a cabinet leak repair price; finish level and project scope need a quote.",
+    "conflicts": [],
+    "purpose": "elective_remodel"
+  },
+  {
+    "id": "hall_bath_remodel",
+    "components": [
+      "bathroom"
+    ],
+    "title": "Hall bathroom remodel in existing location",
+    "lowCents": 2500000,
+    "highCents": 4000000,
+    "sourceId": "remodel-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "Full-service bathroom remodel in current location.",
+    "exclusions": "Relocation and differing finish/scope need a quote. Not a caulking or localized leak repair price.",
+    "conflicts": [],
+    "purpose": "elective_remodel"
+  }
+]

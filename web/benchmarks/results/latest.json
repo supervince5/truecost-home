@@ -1,0 +1,1262 @@
+{
+  "startedAt": "2026-10-24T21:50:06.214Z",
+  "finishedAt": "2026-10-24T21:55:14.906Z",
+  "status": "finished",
+  "modelId": "gemma-4-26b-a4b-it",
+  "promptVersion": "whole-home-evidence-v2",
+  "knowledgeVersion": "whole-home-2026-10-24-v1",
+  "promptSha256": "f43239c45d3f781fb9dbe13ecdd65f147a98b053e395d607f19b798700b09a01",
+  "casesSha256": "6070e73c9ad97e10c8598fe063926bfc18f2c392b440d5633f682aacde226ab2",
+  "limitations": [
+    "Constructed text scenarios, not independently labeled property inspections.",
+    "Tag scores do not establish semantic correctness or photo detection accuracy.",
+    "Failed-call token usage may be unavailable; usage is not billed cost.",
+    "No training or model-weight updates."
+  ],
+  "summary": {
+    "cases": 24,
+    "passed": 12,
+    "contractFailures": 12,
+    "truePositives": 16,
+    "falsePositives": 0,
+    "falseNegatives": 13,
+    "tagPrecision": 1,
+    "tagRecall": 0.5517241379310345,
+    "inputTokensOnSuccessfulExtractions": 49502,
+    "outputTokensOnSuccessfulExtractions": 5942,
+    "tokenAccountingComplete": false,
+    "billedDollars": null,
+    "humanSemanticReviewComplete": false,
+    "photoDetectionAccuracy": null
+  },
+  "rows": [
+    {
+      "id": "roof-penetration",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 2,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 15067,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3533,
+        "outputTokens": 688,
+        "latencyMs": 15067
+      },
+      "findings": [
+        {
+          "id": "pipe_boot_damage_finding",
+          "component": "roof",
+          "indicatorIds": [
+            "pipe_boot_damage"
+          ],
+          "description": "The rubber collar around the plumbing vent is reported as split.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "The rubber collar around the plumbing vent is split."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a roofer inspected the plumbing vent collar and the underlying decking to ensure it is watertight?"
+        },
+        {
+          "id": "flashing_damage_finding",
+          "component": "roof",
+          "indicatorIds": [
+            "flashing_damage"
+          ],
+          "description": "The chimney flashing is reported to have an open joint.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "The chimney flashing has an open joint."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Can a roofer verify the integrity of the chimney flashing and check for any water intrusion at the joint?"
+        },
+        {
+          "id": "inaccessible_decking_finding",
+          "component": "roof",
+          "indicatorIds": [],
+          "description": "Decking beneath the plumbing vent and chimney flashing was reported as inaccessible during inspection.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Decking beneath both locations was inaccessible."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Can a roofing professional access and inspect the substrate/decking at these penetration points to check for rot or moisture damage?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "roof-flashing"
+      ]
+    },
+    {
+      "id": "roof-covering",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 2,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 11753,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3529,
+        "outputTokens": 509,
+        "latencyMs": 11752
+      },
+      "findings": [
+        {
+          "id": "missing_shingles_west_slope",
+          "component": "roof",
+          "indicatorIds": [
+            "missing_shingles"
+          ],
+          "description": "Reported missing shingles on the west slope of the roof.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Three shingles are missing on the west slope."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a roofer inspected the substrate/decking beneath the missing shingles for moisture damage?"
+        },
+        {
+          "id": "curled_shingles_roof",
+          "component": "roof",
+          "indicatorIds": [
+            "curled_shingles"
+          ],
+          "description": "Reported curled edges on several shingles.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Several other shingles have curled edges."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Does a roofing professional recommend replacement due to weathering or adhesion issues?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "roof-covering"
+      ]
+    },
+    {
+      "id": "roof-ceiling-path",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 2,
+        "missed": [
+          "missing_shingles",
+          "ceiling_stain"
+        ],
+        "unexpected": [],
+        "missingPatterns": [
+          "roof_ceiling"
+        ],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 1599,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "roof-covering",
+        "wet-rooms"
+      ]
+    },
+    {
+      "id": "runoff-basement",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 2,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 11817,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3535,
+        "outputTokens": 522,
+        "latencyMs": 11817
+      },
+      "findings": [
+        {
+          "id": "finding_001",
+          "component": "drainage",
+          "indicatorIds": [
+            "grade_toward_house"
+          ],
+          "description": "The soil grades toward the north foundation wall.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Exterior report: Soil grades toward the north foundation wall."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a professional evaluated the grading to ensure proper water diversion away from the foundation?"
+        },
+        {
+          "id": "finding_002",
+          "component": "foundation",
+          "indicatorIds": [
+            "basement_moisture"
+          ],
+          "description": "The north basement wall is reported as damp.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Basement report: The north basement wall is damp. A connection between these observations has not been established."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has the source of the dampness in the north basement wall been identified and addressed?"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "runoff_basement",
+          "status": "hypothesis_requires_verification",
+          "hypothesis": "Exterior water routing may contribute to basement moisture.",
+          "supportingFindingIds": [
+            "finding_001",
+            "finding_002"
+          ],
+          "verification": "Confirm sides of house, timing and a water pathway; also assess groundwater, plumbing and condensation.",
+          "limitation": "Co-occurring clues may be unrelated. Their location, timing and shared mechanism have not been verified.",
+          "sources": [
+            {
+              "id": "basement",
+              "publisher": "DOE / PNNL",
+              "title": "Pre-Retrofit Assessment of Crawlspaces and Basements",
+              "url": "https://basc.pnnl.gov/information/pre-retrofit-assessment-crawlspaces-and-basements",
+              "basis": "technical_guidance",
+              "publishedAt": null,
+              "checkedAt": "2026-10-24"
+            },
+            {
+              "id": "wet-rooms",
+              "publisher": "U.S. EPA",
+              "title": "Remodeling Your Home and Indoor Air Quality",
+              "url": "https://www.epa.gov/indoor-air-quality-iaq/remodeling-your-home-and-indoor-air-quality",
+              "basis": "technical_guidance",
+              "publishedAt": null,
+              "checkedAt": "2026-10-24"
+            }
+          ]
+        }
+      ],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "basement"
+      ]
+    },
+    {
+      "id": "attic-exhaust",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 2,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 12834,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3538,
+        "outputTokens": 561,
+        "latencyMs": 12833
+      },
+      "findings": [
+        {
+          "id": "exhaust_in_attic_finding",
+          "component": "ventilation",
+          "indicatorIds": [
+            "exhaust_into_attic"
+          ],
+          "description": "The bathroom exhaust duct is reported to terminate inside the attic space.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Ventilation report: Bathroom exhaust duct terminates inside the attic."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a professional verified that the exhaust duct is properly routed to the exterior to prevent moisture buildup in the attic?"
+        },
+        {
+          "id": "attic_moisture_finding",
+          "component": "attic",
+          "indicatorIds": [
+            "attic_moisture"
+          ],
+          "description": "Moisture droplets and staining were observed on the roof sheathing within the attic, and the possibility of rain leakage could not be ruled out.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Attic report: Moisture droplets and staining are present on the roof sheathing. Rain leakage was not ruled out."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Can a professional determine if the moisture is caused by roof leaks, condensation from the exhaust duct, or inadequate attic ventilation?"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "attic_exhaust",
+          "status": "hypothesis_requires_verification",
+          "hypothesis": "Indoor exhaust may contribute to attic condensation.",
+          "supportingFindingIds": [
+            "exhaust_in_attic_finding",
+            "attic_moisture_finding"
+          ],
+          "verification": "Verify duct termination, season, humidity and moisture distribution; rule out rain entry.",
+          "limitation": "Co-occurring clues may be unrelated. Their location, timing and shared mechanism have not been verified.",
+          "sources": [
+            {
+              "id": "wet-rooms",
+              "publisher": "U.S. EPA",
+              "title": "Remodeling Your Home and Indoor Air Quality",
+              "url": "https://www.epa.gov/indoor-air-quality-iaq/remodeling-your-home-and-indoor-air-quality",
+              "basis": "technical_guidance",
+              "publishedAt": null,
+              "checkedAt": "2026-10-24"
+            },
+            {
+              "id": "attic-moisture",
+              "publisher": "DOE / PNNL",
+              "title": "Condensation Control in Attics and Roofs in Cold Weather",
+              "url": "https://basc.pnnl.gov/resource-guides/condensation-control-attics-and-roofs-cold-weather",
+              "basis": "technical_guidance",
+              "publishedAt": null,
+              "checkedAt": "2026-10-24"
+            }
+          ]
+        }
+      ],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "wet-rooms",
+        "attic-moisture"
+      ]
+    },
+    {
+      "id": "kitchen-leak",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 2,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 11204,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3540,
+        "outputTokens": 510,
+        "latencyMs": 11202
+      },
+      "findings": [
+        {
+          "id": "kitchen_sink_leak",
+          "component": "plumbing",
+          "indicatorIds": [
+            "plumbing_leak"
+          ],
+          "description": "Reported water dripping from the kitchen sink supply connection.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Water drips from the kitchen sink supply connection."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a plumber repaired the supply connection and verified there are no further leaks?"
+        },
+        {
+          "id": "kitchen_cabinet_damage",
+          "component": "kitchen",
+          "indicatorIds": [
+            "cabinet_water_damage"
+          ],
+          "description": "The cabinet base below the kitchen sink is reported as swollen and delaminated.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "The cabinet base below that sink is swollen and delaminated."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has the moisture source been identified and the condition of the underlying subfloor assessed?"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "wet_cabinet",
+          "status": "hypothesis_requires_verification",
+          "hypothesis": "Plumbing leakage could extend beyond the visible finish.",
+          "supportingFindingIds": [
+            "kitchen_sink_leak",
+            "kitchen_cabinet_damage"
+          ],
+          "verification": "Confirm shared location and moisture readings; concealed damage extent is unknown.",
+          "limitation": "Co-occurring clues may be unrelated. Their location, timing and shared mechanism have not been verified.",
+          "sources": [
+            {
+              "id": "wet-rooms",
+              "publisher": "U.S. EPA",
+              "title": "Remodeling Your Home and Indoor Air Quality",
+              "url": "https://www.epa.gov/indoor-air-quality-iaq/remodeling-your-home-and-indoor-air-quality",
+              "basis": "technical_guidance",
+              "publishedAt": null,
+              "checkedAt": "2026-10-24"
+            }
+          ]
+        }
+      ],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "wet-rooms",
+        "inspection-scope"
+      ]
+    },
+    {
+      "id": "bath-waterproofing",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 9246,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3534,
+        "outputTokens": 381,
+        "latencyMs": 9246
+      },
+      "findings": [
+        {
+          "id": "finding_001",
+          "component": "bathroom",
+          "indicatorIds": [
+            "wet_area_damage"
+          ],
+          "description": "Shower-wall tile is cracked and perimeter joints have gaps; waterproofing behind the tile was not accessible and moisture was not measured.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Shower-wall tile is cracked and perimeter joints have gaps. Waterproofing behind the tile was not accessible. No moisture measurement was taken."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a professional evaluated the integrity of the waterproofing behind the cracked tile and confirmed the absence of moisture?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "wet-rooms"
+      ]
+    },
+    {
+      "id": "cooling-differential",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 2,
+        "missed": [
+          "cooling_ice",
+          "hvac_airflow_obstruction"
+        ],
+        "unexpected": [],
+        "missingPatterns": [
+          "cooling_airflow"
+        ],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 458,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "cooling"
+      ]
+    },
+    {
+      "id": "heating-combustion",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 16488,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 2,
+        "inputTokens": 7077,
+        "outputTokens": 724,
+        "latencyMs": 16486
+      },
+      "findings": [
+        {
+          "id": "combustion_vent_issue",
+          "component": "heating_system",
+          "indicatorIds": [
+            "combustion_vent_damage"
+          ],
+          "description": "The furnace flue connection is reported as disconnected; no combustion testing or carbon monoxide measurement was performed.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Heating report: Furnace flue connection is disconnected. No combustion testing or carbon monoxide measurement was performed."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a qualified professional repaired the flue connection and performed combustion and carbon monoxide safety testing?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "combustion"
+      ]
+    },
+    {
+      "id": "electrical-warning",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 2,
+        "missed": [
+          "electrical_heat_damage",
+          "exposed_wiring"
+        ],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 388,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "electrical"
+      ]
+    },
+    {
+      "id": "movement-clues",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 2,
+        "missed": [
+          "foundation_cracks",
+          "movement_cluster"
+        ],
+        "unexpected": [],
+        "missingPatterns": [
+          "movement"
+        ],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 194,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "inspection-scope"
+      ]
+    },
+    {
+      "id": "window-moisture",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 1,
+        "missed": [
+          "window_wall_moisture"
+        ],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 215,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "walls"
+      ]
+    },
+    {
+      "id": "landscape-tree",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 1,
+        "missed": [
+          "tree_damage"
+        ],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 221,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "trees"
+      ]
+    },
+    {
+      "id": "deck-connection",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 8895,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3528,
+        "outputTokens": 382,
+        "latencyMs": 8894
+      },
+      "findings": [
+        {
+          "id": "deck_conn_det",
+          "component": "deck",
+          "indicatorIds": [
+            "deck_connection_damage"
+          ],
+          "description": "The deck connection to the house is reported as visibly separated and the support wood is reported as deteriorated.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Deck report: The connection to the house is visibly separated. Support wood is deteriorated. Load capacity has not been determined."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Can a qualified structural professional evaluate the deck connection and the extent of the wood deterioration to determine necessary repairs and load capacity?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "inspection-scope"
+      ]
+    },
+    {
+      "id": "dryer-exhaust",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 7944,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3526,
+        "outputTokens": 354,
+        "latencyMs": 7943
+      },
+      "findings": [
+        {
+          "id": "dryer_vent_issue",
+          "component": "appliances",
+          "indicatorIds": [
+            "dryer_vent_restriction"
+          ],
+          "description": "The dryer exhaust hose is reported as crushed and the outlet is obstructed by lint.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Dryer exhaust hose is crushed and lint obstructs the outlet."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a qualified service technician cleared the lint obstruction and replaced the crushed hose to ensure proper airflow?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "dryer"
+      ]
+    },
+    {
+      "id": "water-heater-source",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 9325,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3535,
+        "outputTokens": 385,
+        "latencyMs": 9325
+      },
+      "findings": [
+        {
+          "id": "water_heater_leak_finding",
+          "component": "water_heater",
+          "indicatorIds": [
+            "water_heater_leak"
+          ],
+          "description": "Water is present at the base of the tank and corrosion is visible at a connection; the source of the water was not established.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Water-heater report: Water is present at the base of the tank and corrosion is visible at a connection. The source of the water was not established."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has a plumber identified the specific source of the water and the corrosion at the connection?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "inspection-scope"
+      ]
+    },
+    {
+      "id": "termite-uncertainty",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 1,
+        "missed": [
+          "termite_signs"
+        ],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 278,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "termites"
+      ]
+    },
+    {
+      "id": "septic-signs",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 1,
+        "missed": [
+          "septic_failure_signs"
+        ],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 207,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "septic"
+      ]
+    },
+    {
+      "id": "well-testing",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 1,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 16772,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 2,
+        "inputTokens": 7085,
+        "outputTokens": 744,
+        "latencyMs": 16772
+      },
+      "findings": [
+        {
+          "id": "well_water_issue",
+          "component": "well_water",
+          "indicatorIds": [
+            "well_water_change"
+          ],
+          "description": "The owner reports a recent change in the color and odor of the well water.",
+          "evidenceClass": "reported_inspection_finding",
+          "evidence": [
+            {
+              "kind": "report",
+              "sourceId": "report-1",
+              "page": 1,
+              "quote": "Owner reports a recent change in water color and odor. No laboratory sample results are available."
+            }
+          ],
+          "needsProfessionalAssessment": true,
+          "followUpQuestion": "Has the well water been tested by a certified laboratory for contaminants, bacteria, or mineral content following these changes?"
+        }
+      ],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "well"
+      ]
+    },
+    {
+      "id": "cosmetic-not-defect",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 1,
+        "missed": [
+          "dated_finish"
+        ],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 7702,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "inspection-scope"
+      ]
+    },
+    {
+      "id": "negative-repaired-leak",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 209,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "wet-rooms"
+      ]
+    },
+    {
+      "id": "negative-age-alone",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "well_water",
+          "pool"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 207,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "lead",
+        "asbestos"
+      ]
+    },
+    {
+      "id": "negative-out-of-scope",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": false,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [
+          "roof",
+          "foundation",
+          "kitchen",
+          "electrical"
+        ],
+        "passed": false
+      },
+      "errorCode": "PROVIDER_ERROR",
+      "latencyMs": 191,
+      "metadata": null,
+      "findings": null,
+      "patterns": null,
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "inspection-scope"
+      ]
+    },
+    {
+      "id": "adversarial-listing",
+      "kind": "constructed_report",
+      "score": {
+        "contractPassed": true,
+        "truePositives": 0,
+        "falsePositives": 0,
+        "falseNegatives": 0,
+        "missed": [],
+        "unexpected": [],
+        "missingPatterns": [],
+        "unexpectedPatterns": [],
+        "coverageOverclaims": [],
+        "passed": true
+      },
+      "errorCode": null,
+      "latencyMs": 4392,
+      "metadata": {
+        "provider": "google-gemini-api",
+        "modelId": "gemma-4-26b-a4b-it",
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "promptVersion": "whole-home-evidence-v2",
+        "attempts": 1,
+        "inputTokens": 3542,
+        "outputTokens": 182,
+        "latencyMs": 4392
+      },
+      "findings": [],
+      "patterns": [],
+      "humanReviewStatus": "pending",
+      "sourceIds": [
+        "inspection-scope"
+      ]
+    }
+  ],
+  "selectedCaseIds": [
+    "roof-penetration",
+    "roof-covering",
+    "roof-ceiling-path",
+    "runoff-basement",
+    "attic-exhaust",
+    "kitchen-leak",
+    "bath-waterproofing",
+    "cooling-differential",
+    "heating-combustion",
+    "electrical-warning",
+    "movement-clues",
+    "window-moisture",
+    "landscape-tree",
+    "deck-connection",
+    "dryer-exhaust",
+    "water-heater-source",
+    "termite-uncertainty",
+    "septic-signs",
+    "well-testing",
+    "cosmetic-not-defect",
+    "negative-repaired-leak",
+    "negative-age-alone",
+    "negative-out-of-scope",
+    "adversarial-listing"
+  ],
+  "totalAvailableCases": 24,
+  "fullSuiteRun": true,
+  "pacingMs": 7000,
+  "pipelineVersion": "contract-correction-only-v1",
+  "reportingAnnotation": "Selection and execution-policy metadata restored from recorded invocation; original dated artifact unchanged."
+}

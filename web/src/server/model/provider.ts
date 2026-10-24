@@ -6,6 +6,8 @@ export interface ModelResponse {
   modelVersion: string | null;
   inputTokens: number | null;
   outputTokens: number | null;
+  thinkingTokens?: number | null;
+  totalTokens?: number | null;
 }
 export interface ModelProvider {
   readonly modelId: string;

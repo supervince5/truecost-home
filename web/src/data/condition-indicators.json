@@ -1,0 +1,738 @@
+[
+  {
+    "id": "missing_shingles",
+    "components": [
+      "roof"
+    ],
+    "sign": "Missing, torn or cracked shingle sections.",
+    "alternativeExplanations": "Damage extent and concealed decking condition remain unknown.",
+    "verification": "Roofer examines covering and substrate; do not climb the roof.",
+    "sourceIds": [
+      "roof-covering"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "roof_shingle_section"
+    ]
+  },
+  {
+    "id": "curled_shingles",
+    "components": [
+      "roof"
+    ],
+    "sign": "Lifted, curled or buckled shingle edges.",
+    "alternativeExplanations": "Installation, weathering and movement can look similar.",
+    "verification": "Roofer checks adhesion, layers and ventilation.",
+    "sourceIds": [
+      "roof-covering"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "flashing_damage",
+    "components": [
+      "roof"
+    ],
+    "sign": "Open, corroded or displaced flashing at penetrations or transitions.",
+    "alternativeExplanations": "A visible joint is not necessarily a leaking joint.",
+    "verification": "Roofer checks water-shedding overlaps and traces entry.",
+    "sourceIds": [
+      "roof-flashing"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "roof_flashing"
+    ]
+  },
+  {
+    "id": "pipe_boot_damage",
+    "components": [
+      "roof"
+    ],
+    "sign": "Split or separated collar around a roof vent.",
+    "alternativeExplanations": "Nearby damage may have a separate cause.",
+    "verification": "Roofer verifies collar, adjacent flashing and deck.",
+    "sourceIds": [
+      "roof-flashing"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "roof_pipe_boot"
+    ]
+  },
+  {
+    "id": "valley_damage",
+    "components": [
+      "roof"
+    ],
+    "sign": "Damaged roof-valley water path.",
+    "alternativeExplanations": "Surface debris alone does not prove concealed damage.",
+    "verification": "Roofer checks drainage, covering and underlayment.",
+    "sourceIds": [
+      "roof-flashing"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "roof_valley"
+    ]
+  },
+  {
+    "id": "roof_sagging",
+    "components": [
+      "roof"
+    ],
+    "sign": "Visible roof-plane depression or reported sagging.",
+    "alternativeExplanations": "Perspective or framing movement; cause unverified.",
+    "verification": "Structural assessment of framing and supports.",
+    "sourceIds": [
+      "inspection-scope"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "surface_streaking",
+    "components": [
+      "roof"
+    ],
+    "sign": "Surface streaks without demonstrated covering failure.",
+    "alternativeExplanations": "Staining alone does not establish a leak or replacement need.",
+    "verification": "Ask roofer to distinguish surface growth from deterioration.",
+    "sourceIds": [
+      "roof-covering"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "ceiling_stain",
+    "components": [
+      "ceiling"
+    ],
+    "sign": "Localized ceiling staining or peeling.",
+    "alternativeExplanations": "Old repair, roof/plumbing leak or condensation.",
+    "verification": "Check moisture, history and sources above; trace water path.",
+    "sourceIds": [
+      "wet-rooms"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "active_water",
+    "components": [
+      "roof",
+      "ceiling",
+      "plumbing",
+      "foundation",
+      "kitchen",
+      "bathroom"
+    ],
+    "sign": "Visible water entering or a report of an active leak.",
+    "alternativeExplanations": "Entry location may differ from the source.",
+    "verification": "Professional traces source; avoid wet electrical equipment.",
+    "sourceIds": [
+      "wet-rooms"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "attic_moisture",
+    "components": [
+      "attic"
+    ],
+    "sign": "Sheathing moisture, frost, staining or corrosion.",
+    "alternativeExplanations": "Rain entry and condensation can resemble each other.",
+    "verification": "Assess weather timing, moisture, ventilation and air leakage.",
+    "sourceIds": [
+      "attic-moisture"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "ice_dam_signs",
+    "components": [
+      "roof"
+    ],
+    "sign": "Ice accumulation at eaves with snow or reported water backup.",
+    "alternativeExplanations": "Icicles alone do not prove water entered the house.",
+    "verification": "Roofer assesses snowmelt, insulation and air leakage.",
+    "sourceIds": [
+      "ice-dams"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "foundation_cracks",
+    "components": [
+      "foundation"
+    ],
+    "sign": "Foundation cracks or displacement.",
+    "alternativeExplanations": "Settlement, shrinkage and other movement need differentiation.",
+    "verification": "Engineer documents width, displacement and progression.",
+    "sourceIds": [
+      "inspection-scope"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "movement_cluster",
+    "components": [
+      "structure"
+    ],
+    "sign": "Reported uneven floors or racked/sticking openings.",
+    "alternativeExplanations": "Humidity or installation can also affect fit.",
+    "verification": "Engineer checks framing and foundation alignment.",
+    "sourceIds": [
+      "inspection-scope"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "framing_damage",
+    "components": [
+      "structure",
+      "attic",
+      "deck"
+    ],
+    "sign": "Visible damaged or cut framing.",
+    "alternativeExplanations": "Strength cannot be determined from appearance alone.",
+    "verification": "Structural professional assesses loads and repair scope.",
+    "sourceIds": [
+      "basement"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "basement_moisture",
+    "components": [
+      "foundation"
+    ],
+    "sign": "Basement/crawlspace dampness, deposits or water staining.",
+    "alternativeExplanations": "Exterior runoff, groundwater, condensation or plumbing.",
+    "verification": "Measure moisture and inspect drainage and plumbing paths.",
+    "sourceIds": [
+      "basement"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "grade_toward_house",
+    "components": [
+      "drainage"
+    ],
+    "sign": "Ground slopes toward foundation or runoff reaches walls.",
+    "alternativeExplanations": "Photo perspective cannot quantify grade.",
+    "verification": "Measure elevations and trace runoff on site.",
+    "sourceIds": [
+      "basement"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "yard_french_drain"
+    ]
+  },
+  {
+    "id": "downspout_at_foundation",
+    "components": [
+      "drainage"
+    ],
+    "sign": "Downspout discharges beside foundation.",
+    "alternativeExplanations": "Discharge direction does not prove basement leakage.",
+    "verification": "Verify outlet routing and ground drainage.",
+    "sourceIds": [
+      "wet-rooms"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "standing_water",
+    "components": [
+      "drainage",
+      "landscaping"
+    ],
+    "sign": "Persistent ponding, erosion or runoff damage.",
+    "alternativeExplanations": "Recent rain or irrigation may be temporary.",
+    "verification": "Assess soil, elevations, utilities and lawful outlet.",
+    "sourceIds": [
+      "basement"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "yard_french_drain"
+    ]
+  },
+  {
+    "id": "tree_damage",
+    "components": [
+      "landscaping"
+    ],
+    "sign": "Dead limbs, trunk splits, decay or a new lean.",
+    "alternativeExplanations": "Seasonal leaf loss alone does not show a dead tree.",
+    "verification": "Arborist assesses tree and nearby targets.",
+    "sourceIds": [
+      "trees"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "retaining_wall_movement",
+    "components": [
+      "landscaping"
+    ],
+    "sign": "Reported or visible retaining-wall displacement.",
+    "alternativeExplanations": "No photograph establishes wall stability.",
+    "verification": "Engineer assesses wall, drainage and soil.",
+    "sourceIds": [
+      "inspection-scope"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "hvac_poor_performance",
+    "components": [
+      "heating_system",
+      "cooling_system"
+    ],
+    "sign": "Reported poor temperature control, noise or changed energy use.",
+    "alternativeExplanations": "Controls, ducts, envelope and equipment can contribute.",
+    "verification": "HVAC technician tests operation and load/airflow.",
+    "sourceIds": [
+      "hvac"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "hvac_diagnostic"
+    ]
+  },
+  {
+    "id": "hvac_airflow_obstruction",
+    "components": [
+      "heating_system",
+      "cooling_system"
+    ],
+    "sign": "Blocked filter, dirty coil or obstructed outdoor unit.",
+    "alternativeExplanations": "Appearance alone cannot quantify performance loss.",
+    "verification": "HVAC technician checks filter, coil and airflow.",
+    "sourceIds": [
+      "cooling"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "hvac_diagnostic"
+    ]
+  },
+  {
+    "id": "cooling_ice",
+    "components": [
+      "cooling_system"
+    ],
+    "sign": "Ice on cooling coil or refrigerant tubing.",
+    "alternativeExplanations": "Low airflow and refrigerant issues require different remedies.",
+    "verification": "HVAC technician measures airflow and refrigerant condition.",
+    "sourceIds": [
+      "cooling"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "hvac_diagnostic"
+    ]
+  },
+  {
+    "id": "condensate_water",
+    "components": [
+      "cooling_system"
+    ],
+    "sign": "Water at air handler or condensate drain.",
+    "alternativeExplanations": "Drain blockage, condensation or a separate leak.",
+    "verification": "Trace drain and check condensate system.",
+    "sourceIds": [
+      "cooling"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "hvac_diagnostic"
+    ]
+  },
+  {
+    "id": "combustion_vent_damage",
+    "components": [
+      "heating_system",
+      "water_heater",
+      "fireplace"
+    ],
+    "sign": "Disconnected, corroded or obstructed combustion vent.",
+    "alternativeExplanations": "CO concentration and heat-exchanger integrity are not visible.",
+    "verification": "Qualified combustion-safety assessment before use.",
+    "sourceIds": [
+      "combustion"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "system_age",
+    "components": [
+      "heating_system",
+      "cooling_system",
+      "water_heater"
+    ],
+    "sign": "Documented installation age or legible equipment label.",
+    "alternativeExplanations": "Age is not a failure diagnosis or replacement deadline.",
+    "verification": "Confirm model, service history and current operation.",
+    "sourceIds": [
+      "hvac"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "electrical_heat_damage",
+    "components": [
+      "electrical"
+    ],
+    "sign": "Scorching, melted insulation or reported hot outlet.",
+    "alternativeExplanations": "Hidden wiring condition and load are unknown.",
+    "verification": "Stop using affected equipment; electrician assesses.",
+    "sourceIds": [
+      "electrical"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "exposed_wiring",
+    "components": [
+      "electrical"
+    ],
+    "sign": "Exposed conductors or damaged electrical covers.",
+    "alternativeExplanations": "Energization cannot be established visually.",
+    "verification": "Avoid contact; electrician checks and repairs.",
+    "sourceIds": [
+      "electrical"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "electrical_trip_reports",
+    "components": [
+      "electrical"
+    ],
+    "sign": "Repeated breaker trips or reported flickering.",
+    "alternativeExplanations": "Device fault, connection or load issue.",
+    "verification": "Electrician traces fault; do not repeatedly reset.",
+    "sourceIds": [
+      "electrical"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "plumbing_leak",
+    "components": [
+      "plumbing"
+    ],
+    "sign": "Dripping connection or reported active plumbing leak.",
+    "alternativeExplanations": "Staining alone may reflect a historical leak.",
+    "verification": "Plumber tests source and checks affected material.",
+    "sourceIds": [
+      "inspection-scope"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "drain_slow",
+    "components": [
+      "plumbing",
+      "sewer_septic"
+    ],
+    "sign": "Reported slow drainage or backups.",
+    "alternativeExplanations": "Local trap, branch drain, sewer or septic issue.",
+    "verification": "Plumber localizes blockage; scope underground piping if indicated.",
+    "sourceIds": [
+      "septic"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "water_heater_leak",
+    "components": [
+      "water_heater"
+    ],
+    "sign": "Water or corrosion at water heater.",
+    "alternativeExplanations": "Supply joint, relief valve or tank; replacement not automatic.",
+    "verification": "Plumber identifies source before choosing repair.",
+    "sourceIds": [
+      "inspection-scope"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "water_heater_tank"
+    ]
+  },
+  {
+    "id": "cabinet_water_damage",
+    "components": [
+      "kitchen",
+      "bathroom"
+    ],
+    "sign": "Swollen, stained or delaminated sink cabinet base.",
+    "alternativeExplanations": "Past spill, condensation or plumbing leak.",
+    "verification": "Check moisture and plumbing; assess concealed base only if warranted.",
+    "sourceIds": [
+      "wet-rooms"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "wet_area_damage",
+    "components": [
+      "bathroom",
+      "kitchen"
+    ],
+    "sign": "Cracked wet-area finish or failed-looking joints.",
+    "alternativeExplanations": "Surface cracks do not prove waterproofing failure.",
+    "verification": "Assess moisture and waterproofing before finish replacement.",
+    "sourceIds": [
+      "wet-rooms"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "exhaust_into_attic",
+    "components": [
+      "ventilation"
+    ],
+    "sign": "Bathroom/kitchen exhaust visibly or reportedly terminates in attic.",
+    "alternativeExplanations": "Fan sound alone does not establish outdoor exhaust.",
+    "verification": "Verify duct termination and measured airflow.",
+    "sourceIds": [
+      "wet-rooms"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "floor_water_damage",
+    "components": [
+      "interior"
+    ],
+    "sign": "Floor cupping, swelling or lifting associated with moisture.",
+    "alternativeExplanations": "Installation and substrate movement can also distort flooring.",
+    "verification": "Measure moisture; identify source and substrate condition.",
+    "sourceIds": [
+      "wet-rooms"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "dated_finish",
+    "components": [
+      "kitchen",
+      "bathroom",
+      "interior"
+    ],
+    "sign": "Dated finish or style without functional damage.",
+    "alternativeExplanations": "Preference is not deterioration.",
+    "verification": "Separate optional remodeling from necessary repairs.",
+    "sourceIds": [
+      "inspection-scope"
+    ],
+    "priority": "preference_only",
+    "costCatalogIds": []
+  },
+  {
+    "id": "window_wall_moisture",
+    "components": [
+      "windows_doors",
+      "exterior"
+    ],
+    "sign": "Staining, peeling or deterioration around openings.",
+    "alternativeExplanations": "Condensation and rain entry need different fixes.",
+    "verification": "Assess flashing, seals and moisture source.",
+    "sourceIds": [
+      "walls"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": [
+      "window_vinyl"
+    ]
+  },
+  {
+    "id": "cladding_damage",
+    "components": [
+      "exterior"
+    ],
+    "sign": "Damaged siding or trim with possible moisture entry.",
+    "alternativeExplanations": "Hidden wall condition remains unknown.",
+    "verification": "Inspect drainage plane and flashing where warranted.",
+    "sourceIds": [
+      "walls"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "deck_connection_damage",
+    "components": [
+      "deck"
+    ],
+    "sign": "Separated connection or deteriorated deck support.",
+    "alternativeExplanations": "Fastener capacity cannot be established from overview images.",
+    "verification": "Qualified structural assessment before loading suspect deck.",
+    "sourceIds": [
+      "inspection-scope"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "dryer_vent_restriction",
+    "components": [
+      "appliances",
+      "ventilation"
+    ],
+    "sign": "Crushed exhaust duct, lint obstruction or reported long drying time.",
+    "alternativeExplanations": "Clothes load or appliance faults can also extend drying.",
+    "verification": "Qualified service checks exhaust path and operation.",
+    "sourceIds": [
+      "dryer"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "appliance_failed_test",
+    "components": [
+      "appliances"
+    ],
+    "sign": "Report states an appliance failed an operating test.",
+    "alternativeExplanations": "A listing photo does not establish appliance function.",
+    "verification": "Service technician diagnoses before replacement.",
+    "sourceIds": [
+      "inspection-scope"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "termite_signs",
+    "components": [
+      "pests"
+    ],
+    "sign": "Shelter tubes or damaged wood with soil-lined galleries.",
+    "alternativeExplanations": "Old damage does not establish active infestation.",
+    "verification": "Pest specialist checks activity and damage extent.",
+    "sourceIds": [
+      "termites"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "suspect_asbestos_material",
+    "components": [
+      "environmental"
+    ],
+    "sign": "Reported suspect insulation or damaged material that may contain asbestos.",
+    "alternativeExplanations": "Appearance cannot identify asbestos.",
+    "verification": "Do not disturb; qualified professional evaluates sampling need.",
+    "sourceIds": [
+      "asbestos"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "deteriorated_paint",
+    "components": [
+      "environmental",
+      "interior",
+      "exterior"
+    ],
+    "sign": "Peeling paint with documented pre-1978 context.",
+    "alternativeExplanations": "Build year is a screening flag, not proof of lead.",
+    "verification": "Certified professional checks before disturbing paint.",
+    "sourceIds": [
+      "lead"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "septic_failure_signs",
+    "components": [
+      "sewer_septic"
+    ],
+    "sign": "Sewage backup or reported wet drainfield with odor.",
+    "alternativeExplanations": "Ponding alone does not prove septic failure.",
+    "verification": "Septic professional and local authority assess.",
+    "sourceIds": [
+      "septic"
+    ],
+    "priority": "prompt_assessment",
+    "costCatalogIds": []
+  },
+  {
+    "id": "well_water_change",
+    "components": [
+      "well_water"
+    ],
+    "sign": "Reported changed water color, odor or taste.",
+    "alternativeExplanations": "Clear-looking water can still contain contaminants.",
+    "verification": "Use appropriate laboratory water testing.",
+    "sourceIds": [
+      "well"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "downspout_disconnected",
+    "components": [
+      "drainage"
+    ],
+    "sign": "Visible gap, separation or disconnected joint in a downspout.",
+    "alternativeExplanations": "A disconnected joint can interrupt water routing; it does not establish interior damage or the final outlet location.",
+    "verification": "Check continuity, connections and discharge routing from ground level or through a qualified contractor.",
+    "sourceIds": [
+      "moisture-observations",
+      "wet-rooms"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  },
+  {
+    "id": "wall_surface_stain",
+    "components": [
+      "interior",
+      "exterior"
+    ],
+    "sign": "Visible wall or wall-panel staining, tide marks or discolored patches.",
+    "alternativeExplanations": "Prior wetting, condensation, surface contamination or other discoloration; a photo does not establish active moisture or mold.",
+    "verification": "Verify material and location; assess moisture and history before identifying a cause.",
+    "sourceIds": [
+      "moisture-observations",
+      "walls"
+    ],
+    "priority": "investigate",
+    "costCatalogIds": []
+  }
+]

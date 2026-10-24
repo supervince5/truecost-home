@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { componentSchema, findingSchema } from "./finding";
+import { componentSchema, conditionStateSchema, findingSchema } from "./finding";
 import { sourceSchema } from "./evidence";
 import { validateEvidence } from "./validate-evidence";
 
@@ -17,10 +17,11 @@ export const extractionRequestSchema = z.strictObject({
   if ((data.listingText?.length ?? 0) + data.reportPages.reduce((n, p) => n + p.length, 0) > 16000) ctx.addIssue({ code: "custom", message: "Combined source text exceeds the input limit." });
 });
 export const extractionOutputSchema = z.strictObject({
-  findings: z.array(findingSchema.extend({
+  findings: z.array(findingSchema.safeExtend({
+    conditionState: conditionStateSchema,
     evidenceClass: z.enum(["disclosed_fact", "reported_inspection_finding", "visual_observation"]),
   })).max(20),
-  unassessedComponents: z.array(componentSchema).max(10),
+  unassessedComponents: z.array(componentSchema).max(componentSchema.options.length),
 });
 export const attributedExtractionSchema = extractionOutputSchema.extend({ sources: z.array(sourceSchema).max(8) }).superRefine(validateEvidence);
 export type ExtractionRequest = z.infer<typeof extractionRequestSchema>;

@@ -1,0 +1,63 @@
+[
+  {
+    "id": "epa-17",
+    "imagePath": "images/epa-17.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "040a284a3ee2c8c2d3dd994c094417b4ce2ab9d1a2b32de7796bda3604fc8413",
+    "sourceUrl": "https://www.epa.gov/sites/production/files/2015-10/big_pic17.jpg",
+    "sourcePage": "https://www.epa.gov/mold/mold-image-library",
+    "credit": "John Martyny, Ph.D.",
+    "expectedVisibleObservation": "Discoloration/staining at the wall-ceiling junction.",
+    "unsupportedClaimsToCheck": [
+      "Do not identify mold species, active moisture or a roof leak as confirmed."
+    ],
+    "licenseNote": "EPA permits presentations and educational use; not relicensed under project MIT license.",
+    "captionProvidedToModel": false
+  },
+  {
+    "id": "epa-32",
+    "imagePath": "images/epa-32.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "834d9bb3d5a82bc1b62c8ff311f09e82070e0a49d320188d402947b2bbb8f7dd",
+    "sourceUrl": "https://www.epa.gov/sites/production/files/2015-10/big_pic32.jpg",
+    "sourcePage": "https://www.epa.gov/mold/mold-image-library",
+    "credit": "Terry Brennan",
+    "expectedVisibleObservation": "Water-like tide marks on exposed wall materials.",
+    "unsupportedClaimsToCheck": [
+      "Do not infer current wetness, flooding cause or hidden framing rot."
+    ],
+    "licenseNote": "EPA permits presentations and educational use; not relicensed under project MIT license.",
+    "captionProvidedToModel": false
+  },
+  {
+    "id": "epa-29",
+    "imagePath": "images/epa-29.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "9a963d1381db7e84c1a1d6a2644be7cb77a4c696c689272f6b66b6c3c8956e8f",
+    "sourceUrl": "https://www.epa.gov/sites/production/files/2015-10/big_pic29.jpg",
+    "sourcePage": "https://www.epa.gov/mold/mold-image-library",
+    "credit": "Terry Brennan",
+    "expectedVisibleObservation": "A visible gap/disconnection between downspout sections.",
+    "unsupportedClaimsToCheck": [
+      "Do not assert that basement damage has occurred."
+    ],
+    "licenseNote": "EPA permits presentations and educational use; not relicensed under project MIT license.",
+    "captionProvidedToModel": false
+  },
+  {
+    "id": "epa-89",
+    "imagePath": "images/epa-89.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "766e35880462285d0736375ec11f1793848df89d1831aa22edf8659ee3b27496",
+    "sourceUrl": "https://www.epa.gov/sites/production/files/2015-10/big_pic89.jpg",
+    "sourcePage": "https://www.epa.gov/mold/mold-image-library",
+    "credit": "Terry Brennan",
+    "expectedVisibleObservation": "Lined crawlspace without an obvious visible moisture defect in this view.",
+    "unsupportedClaimsToCheck": [
+      "Do not invent standing water, mold or structural failure.",
+      "Do not certify the space safe, dry everywhere or code-compliant."
+    ],
+    "licenseNote": "EPA permits presentations and educational use; not relicensed under project MIT license.",
+    "captionProvidedToModel": false
+  }
+]

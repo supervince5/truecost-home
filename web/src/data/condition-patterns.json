@@ -1,0 +1,107 @@
+[
+  {
+    "id": "runoff_basement",
+    "allOf": [
+      [
+        "grade_toward_house",
+        "downspout_at_foundation",
+        "standing_water"
+      ],
+      [
+        "basement_moisture"
+      ]
+    ],
+    "hypothesis": "Exterior water routing may contribute to basement moisture.",
+    "verification": "Confirm sides of house, timing and a water pathway; also assess groundwater, plumbing and condensation.",
+    "sourceIds": [
+      "basement",
+      "wet-rooms"
+    ]
+  },
+  {
+    "id": "attic_exhaust",
+    "allOf": [
+      [
+        "exhaust_into_attic"
+      ],
+      [
+        "attic_moisture"
+      ]
+    ],
+    "hypothesis": "Indoor exhaust may contribute to attic condensation.",
+    "verification": "Verify duct termination, season, humidity and moisture distribution; rule out rain entry.",
+    "sourceIds": [
+      "wet-rooms",
+      "attic-moisture"
+    ]
+  },
+  {
+    "id": "roof_ceiling",
+    "allOf": [
+      [
+        "flashing_damage",
+        "pipe_boot_damage",
+        "missing_shingles",
+        "valley_damage"
+      ],
+      [
+        "ceiling_stain"
+      ]
+    ],
+    "hypothesis": "A roof defect could be related to the ceiling staining.",
+    "verification": "Verify spatial relationship and trace moisture; plumbing or historical staining remain alternatives.",
+    "sourceIds": [
+      "roof-flashing",
+      "wet-rooms"
+    ]
+  },
+  {
+    "id": "wet_cabinet",
+    "allOf": [
+      [
+        "plumbing_leak"
+      ],
+      [
+        "cabinet_water_damage",
+        "floor_water_damage"
+      ]
+    ],
+    "hypothesis": "Plumbing leakage could extend beyond the visible finish.",
+    "verification": "Confirm shared location and moisture readings; concealed damage extent is unknown.",
+    "sourceIds": [
+      "wet-rooms"
+    ]
+  },
+  {
+    "id": "movement",
+    "allOf": [
+      [
+        "foundation_cracks"
+      ],
+      [
+        "movement_cluster"
+      ]
+    ],
+    "hypothesis": "Multiple movement indicators warrant a coordinated structural assessment.",
+    "verification": "Engineer determines alignment, progression and cause; co-occurrence is not proof of foundation failure.",
+    "sourceIds": [
+      "inspection-scope"
+    ]
+  },
+  {
+    "id": "cooling_airflow",
+    "allOf": [
+      [
+        "cooling_ice"
+      ],
+      [
+        "hvac_airflow_obstruction"
+      ]
+    ],
+    "hypothesis": "Restricted airflow is one possible contributor to cooling-system icing.",
+    "verification": "Technician checks airflow and refrigerant; do not assume a recharge or replacement is needed.",
+    "sourceIds": [
+      "cooling"
+    ]
+  }
+]

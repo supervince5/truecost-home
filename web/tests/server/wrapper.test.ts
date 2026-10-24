@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import sharp from "sharp";
+import { setTimeout as realDelay } from "node:timers/promises";
+import { AnalysisError } from "../../src/server/errors";
 import { prepareEvidence } from "../../src/server/evidence/prepare";
 import { extract } from "../../src/server/analysis/extract";
 import { createGemmaProvider } from "../../src/server/model/gemma";
@@ -7,7 +9,7 @@ import { createAnalyzeHandler } from "../../src/server/analysis/handler";
 import type { ModelProvider } from "../../src/server/model/provider";
 
 const input = { listingText: "Heating system installed in 2006." };
-const good = { findings: [{ id: "f1", component: "heating_system", description: "Listing reports installation in 2006; condition unknown.", evidenceClass: "disclosed_fact", evidence: [{ kind: "text", sourceId: "listing-1", quote: "Heating system installed in 2006." }], needsProfessionalAssessment: true, followUpQuestion: "Has its condition been professionally assessed?" }], unassessedComponents: ["roof"] };
+const good = { findings: [{ id: "f1", component: "heating_system", conditionState: "unknown", description: "Listing reports installation in 2006; condition unknown.", evidenceClass: "disclosed_fact", evidence: [{ kind: "text", sourceId: "listing-1", quote: "Heating system installed in 2006." }], needsProfessionalAssessment: true, followUpQuestion: "Has its condition been professionally assessed?" }], unassessedComponents: ["roof"] };
 function provider(outputs: string[]): ModelProvider {
   let call = 0;
   return { modelId: "gemma-4-26b-a4b-it", generate: async () => ({ text: outputs[Math.min(call++, outputs.length - 1)], modelVersion: "gemma-4-26b-a4b-it", inputTokens: 100, outputTokens: 40 }) };
@@ -46,6 +48,40 @@ describe("evidence preparation", () => {
 });
 
 describe("extraction pipeline", () => {
+  it.each([[false, 40000], [true, 75000]] as const)("bounds a stalled provider with photo=%s", async (photo, deadline) => {
+    const evidence = await prepareEvidence(input);
+    if (photo) evidence.images.push({ sourceId: "photo-1", mimeType: "image/jpeg", data: "test" });
+    const fake = provider([]); fake.generate = () => new Promise(() => {});
+    vi.useFakeTimers();
+    try {
+      const pending = extract(evidence, fake).then(() => "unexpected success", (error) => error.code);
+      await vi.advanceTimersByTimeAsync(deadline);
+      expect(await pending).toBe("TIMEOUT");
+    } finally { vi.useRealTimers(); }
+  });
+  it("lets a photo retry finish after a slow upstream failure", async () => {
+    const evidence = await prepareEvidence(input);
+    evidence.images.push({ sourceId: "photo-1", mimeType: "image/jpeg", data: "test" });
+    evidence.sources.push({ id: "photo-1", kind: "image", label: "Photo 1" });
+    const fake = provider([]);
+    let calls = 0;
+    fake.generate = async () => {
+      await new Promise((resolve) => setTimeout(resolve, ++calls === 1 ? 21000 : 30000));
+      if (calls === 1) throw new AnalysisError("PROVIDER_UNAVAILABLE");
+      return { text: JSON.stringify(good), modelVersion: null, inputTokens: 10, outputTokens: 10 };
+    };
+    vi.useFakeTimers();
+    try {
+      const pending = extract(evidence, fake).then((result) => ({ result, error: null }), (error) => ({ result: null, error }));
+      await vi.advanceTimersByTimeAsync(21000);
+      // Node promise-timers remain real under this Vitest timer implementation.
+      await realDelay(850);
+      await vi.advanceTimersByTimeAsync(30000);
+      const outcome = await pending;
+      expect(outcome.error).toBeNull();
+      expect(outcome.result?.metadata).toMatchObject({ attempts: 2, inputTokens: null });
+    } finally { vi.useRealTimers(); }
+  });
   it("returns validated findings with attribution, usage and mandatory review", async () => {
     const result = await extract(await prepareEvidence(input), provider([JSON.stringify(good)]));
     expect(result.findings[0].evidence[0].sourceId).toBe("listing-1");
@@ -89,6 +125,62 @@ describe("extraction pipeline", () => {
 });
 
 describe("Google SDK boundary", () => {
+  it("allows a photo response beyond 40 seconds through the real SDK", async () => {
+    const bytes = await sharp({ create: { width: 8, height: 8, channels: 3, background: "white" } }).png().toBuffer();
+    const evidence = await prepareEvidence({ images: [{ mimeType: "image/png", data: bytes.toString("base64") }] });
+    const transport: typeof fetch = (_, init) => new Promise((resolve, reject) => {
+      const timer = setTimeout(() => resolve(sdkResponse(JSON.stringify({ findings: [], unassessedComponents: [] }))), 50000);
+      init?.signal?.addEventListener("abort", () => { clearTimeout(timer); reject(new DOMException("Aborted", "AbortError")); }, { once: true });
+    });
+    vi.useFakeTimers();
+    try {
+      const pending = extract(evidence, createGemmaProvider({ apiKey: "test", modelId: "gemma-4-26b-a4b-it" }, transport))
+        .then((result) => ({ result, error: null }), (error) => ({ result: null, error }));
+      await vi.advanceTimersByTimeAsync(50000);
+      const outcome = await pending;
+      expect(outcome.error).toBeNull();
+      expect(outcome.result?.metadata.attempts).toBe(1);
+    } finally { vi.useRealTimers(); }
+  });
+  it("preserves image order and source mapping before the text task", async () => {
+    const bytes = await sharp({ create: { width: 8, height: 8, channels: 3, background: "white" } }).png().toBuffer();
+    let parts: Array<{ inlineData?: unknown; text?: string }> = [];
+    const transport: typeof fetch = async (_, init) => {
+      parts = JSON.parse(String(init?.body)).contents[0].parts;
+      return sdkResponse(JSON.stringify({ findings: [], unassessedComponents: [] }));
+    };
+    await extract(await prepareEvidence({ images: [{ mimeType: "image/png", data: bytes.toString("base64") }] }), createGemmaProvider({ apiKey: "test", modelId: "gemma-4-26b-a4b-it" }, transport));
+    expect(parts[0].inlineData).toBeDefined();
+    expect(JSON.parse(parts.at(-1)!.text!)).toMatchObject({ imageOrder: ["photo-1"], sources: [{ id: "photo-1", kind: "image" }] });
+  });
+  const sdkResponse = (text: string) => new Response(JSON.stringify({ candidates: [{ content: { role: "model", parts: [{ text }] }, finishReason: "STOP" }], usageMetadata: { promptTokenCount: 100, candidatesTokenCount: 40, thoughtsTokenCount: 20, totalTokenCount: 160 } }), { headers: { "Content-Type": "application/json" } });
+  const unavailable = () => new Response(JSON.stringify({ error: { code: 500, message: "private upstream detail", status: "INTERNAL" } }), { status: 500 });
+  it("retries one server failure without pretending failed-call usage is known", async () => {
+    const bodies: string[] = [];
+    const transport: typeof fetch = async (_, init) => { bodies.push(String(init?.body)); return bodies.length === 1 ? unavailable() : sdkResponse(JSON.stringify(good)); };
+    const result = await extract(await prepareEvidence(input), createGemmaProvider({ apiKey: "test", modelId: "gemma-4-26b-a4b-it" }, transport));
+    expect(result.metadata).toMatchObject({ attempts: 2, inputTokens: null, outputTokens: null });
+    expect(bodies).toHaveLength(2);
+    expect(bodies[1]).not.toContain("preceding attempt did not satisfy");
+  });
+  it("stops after two server failures and sanitizes the error", async () => {
+    const transport = vi.fn(async () => unavailable());
+    await expect(extract(await prepareEvidence(input), createGemmaProvider({ apiKey: "test", modelId: "gemma-4-26b-a4b-it" }, transport))).rejects.toMatchObject({ code: "PROVIDER_UNAVAILABLE", message: "The model provider is temporarily unavailable. Try again later." });
+    expect(transport).toHaveBeenCalledTimes(2);
+  });
+  it.each(["deadline", "cancellation"])("stops during retry backoff on %s", async (reason) => {
+    const controller = new AbortController();
+    const transport = vi.fn(async () => { if (reason === "cancellation") setTimeout(() => controller.abort(), 10); return unavailable(); });
+    await expect(extract(await prepareEvidence(input), createGemmaProvider({ apiKey: "test", modelId: "gemma-4-26b-a4b-it" }, transport), { signal: controller.signal, timeoutMs: reason === "deadline" ? 30 : 40000 })).rejects.toMatchObject({ code: reason === "deadline" ? "TIMEOUT" : "CANCELLED" });
+    expect(transport).toHaveBeenCalledTimes(1);
+  });
+  it("shares the two-call budget across contract and server failures", async () => {
+    const bodies: string[] = [];
+    const transport: typeof fetch = async (_, init) => { bodies.push(String(init?.body)); return bodies.length === 1 ? sdkResponse("invalid json") : unavailable(); };
+    await expect(extract(await prepareEvidence(input), createGemmaProvider({ apiKey: "test", modelId: "gemma-4-26b-a4b-it" }, transport))).rejects.toMatchObject({ code: "PROVIDER_UNAVAILABLE" });
+    expect(bodies).toHaveLength(2);
+    expect(bodies[1]).toContain("preceding attempt did not satisfy");
+  });
   it("pins the Google endpoint and API mode despite ambient SDK configuration", async () => {
     vi.stubEnv("GOOGLE_GEMINI_BASE_URL", "https://unexpected.example");
     vi.stubEnv("GOOGLE_VERTEX_BASE_URL", "https://unexpected.example");
@@ -109,7 +201,7 @@ describe("Google SDK boundary", () => {
     let url = ""; let body: Record<string, unknown> = {}; let key = "";
     const transport: typeof fetch = async (request, init) => {
       url = String(request); body = JSON.parse(String(init?.body)); key = new Headers(init?.headers).get("x-goog-api-key") ?? "";
-      return new Response(JSON.stringify({ candidates: [{ content: { role: "model", parts: [{ text: JSON.stringify(good) }] }, finishReason: "STOP" }], modelVersion: "gemma-4-26b-a4b-it", usageMetadata: { promptTokenCount: 100, candidatesTokenCount: 40 } }), { headers: { "Content-Type": "application/json" } });
+      return new Response(JSON.stringify({ candidates: [{ content: { role: "model", parts: [{ text: JSON.stringify(good) }] }, finishReason: "STOP" }], modelVersion: "gemma-4-26b-a4b-it", usageMetadata: { promptTokenCount: 100, candidatesTokenCount: 40, thoughtsTokenCount: 20, totalTokenCount: 160 } }), { headers: { "Content-Type": "application/json" } });
     };
     const result = await extract(await prepareEvidence(input), createGemmaProvider({ apiKey: "test-key", modelId: "gemma-4-26b-a4b-it" }, transport));
     expect(url).toContain("/models/gemma-4-26b-a4b-it:generateContent");
@@ -118,11 +210,12 @@ describe("Google SDK boundary", () => {
     expect(body).not.toHaveProperty("tools");
     expect(JSON.stringify(body)).not.toContain("test-key");
     expect(result.metadata.modelId).toBe("gemma-4-26b-a4b-it");
+    expect(result.metadata).toMatchObject({ thinkingTokens: 20, totalTokens: 160 });
   });
-  it("does not let SDK retry a 429", async () => {
+  it("returns a rate-limit error without retrying upstream 429", async () => {
     let calls = 0;
     const transport: typeof fetch = async () => { calls++; return new Response(JSON.stringify({ error: { code: 429, message: "rate limited", status: "RESOURCE_EXHAUSTED" } }), { status: 429 }); };
-    await expect(extract(await prepareEvidence(input), createGemmaProvider({ apiKey: "test", modelId: "gemma-4-26b-a4b-it" }, transport))).rejects.toMatchObject({ code: "PROVIDER_ERROR" });
+    await expect(extract(await prepareEvidence(input), createGemmaProvider({ apiKey: "test", modelId: "gemma-4-26b-a4b-it" }, transport))).rejects.toMatchObject({ code: "RATE_LIMITED" });
     expect(calls).toBe(1);
   });
   it("does not let SDK automatically continue a partial generation", async () => {

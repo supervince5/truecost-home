@@ -1,0 +1,236 @@
+[
+  {
+    "id": "inspection-scope",
+    "publisher": "InterNACHI",
+    "title": "Home Inspection Standards of Practice",
+    "url": "https://www.nachi.org/sop.htm",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "roof-covering",
+    "publisher": "GAF",
+    "title": "Residential Roofing FAQs",
+    "url": "https://www.gaf.com/en-us/blog/your-home/residential-roofing-faqs-90870023-32ff-462b-bced-7d22f27e7cb0",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "roof-flashing",
+    "publisher": "DOE / PNNL",
+    "title": "Flashing of Penetrations in Existing Roofs",
+    "url": "https://basc.pnnl.gov/resource-guides/flashing-penetrations-existing-roofs",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "attic-moisture",
+    "publisher": "DOE / PNNL",
+    "title": "Condensation Control in Attics and Roofs in Cold Weather",
+    "url": "https://basc.pnnl.gov/resource-guides/condensation-control-attics-and-roofs-cold-weather",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "ice-dams",
+    "publisher": "DOE / PNNL",
+    "title": "Construct Roofs and Attics for Ice Dam Prevention",
+    "url": "https://basc.pnnl.gov/resource-guides/construct-roofs-and-attics-ice-dam-prevention",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "basement",
+    "publisher": "DOE / PNNL",
+    "title": "Pre-Retrofit Assessment of Crawlspaces and Basements",
+    "url": "https://basc.pnnl.gov/information/pre-retrofit-assessment-crawlspaces-and-basements",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "walls",
+    "publisher": "DOE / PNNL",
+    "title": "Pre-Retrofit Assessment of Walls, Windows, and Doors",
+    "url": "https://basc.pnnl.gov/information/pre-retrofit-assessment-walls-windows-and-doors",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "hvac",
+    "publisher": "DOE / PNNL",
+    "title": "Pre-Retrofit Assessment of Existing HVAC Systems",
+    "url": "https://basc.pnnl.gov/information/pre-retrofit-assessment-existing-hvac-systems",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "cooling",
+    "publisher": "U.S. Department of Energy",
+    "title": "Home Cooling 101",
+    "url": "https://www.energy.gov/sites/prod/files/HomeCooling101-final.pdf",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "combustion",
+    "publisher": "DOE / PNNL",
+    "title": "Pre-Retrofit Assessment of Combustion Appliances",
+    "url": "https://basc.pnnl.gov/information/pre-retrofit-assessment-combustion-appliances",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "electrical",
+    "publisher": "U.S. CPSC",
+    "title": "Home Electrical Safety Checklist",
+    "url": "https://www.cpsc.gov/s3fs-public/513.pdf",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "wet-rooms",
+    "publisher": "U.S. EPA",
+    "title": "Remodeling Your Home and Indoor Air Quality",
+    "url": "https://www.epa.gov/indoor-air-quality-iaq/remodeling-your-home-and-indoor-air-quality",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "dryer",
+    "publisher": "DOE / PNNL",
+    "title": "Proper Clothes Dryer Venting",
+    "url": "https://basc.pnnl.gov/resource-guides/proper-clothes-dryer-venting",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "trees",
+    "publisher": "University of Maryland Extension",
+    "title": "How Do You Decide When to Remove a Tree?",
+    "url": "https://extension.umd.edu/resource/how-do-you-decide-when-remove-tree",
+    "basis": "technical_guidance",
+    "publishedAt": "2023-05-18",
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "termites",
+    "publisher": "Mississippi State University Extension",
+    "title": "Signs of Termite Infestation",
+    "url": "https://www.extension.msstate.edu/insects/termites/signs-termite-infestation",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "asbestos",
+    "publisher": "U.S. EPA",
+    "title": "Protect Your Family from Exposures to Asbestos",
+    "url": "https://www.epa.gov/asbestos/protect-your-family-exposures-asbestos",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "lead",
+    "publisher": "U.S. EPA",
+    "title": "How can I tell if my home contains lead-based paint?",
+    "url": "https://www.epa.gov/lead/how-can-i-tell-if-my-home-contains-lead-based-paint",
+    "basis": "technical_guidance",
+    "publishedAt": "2025-12-29",
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "septic",
+    "publisher": "U.S. EPA",
+    "title": "Frequent Questions on Septic Systems",
+    "url": "https://www.epa.gov/septic/frequent-questions-septic-systems",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "well",
+    "publisher": "U.S. EPA",
+    "title": "Protect Your Home's Water",
+    "url": "https://www.epa.gov/privatewells/protect-your-homes-water",
+    "basis": "technical_guidance",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "roof-cost",
+    "publisher": "Rain Guard Roofs",
+    "title": "Roof Repair Cost in Northern Virginia (2026)",
+    "url": "https://rainguardroofs.com/blog/roof-repair-cost-northern-virginia/",
+    "basis": "contractor_planning_range",
+    "publishedAt": "2026-08-05",
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "hvac-cost",
+    "publisher": "SwiftPro",
+    "title": "HVAC Installation and Replacement in Northern Virginia",
+    "url": "https://goswiftpro.com/hvac-replacement/",
+    "basis": "contractor_published_range",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "window-cost",
+    "publisher": "Milcon Design and Build",
+    "title": "Window Replacement in Northern Virginia",
+    "url": "https://milcondesignandbuild.com/window-replacement-guide-northern-virginia/",
+    "basis": "contractor_planning_range",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "water-heater-cost",
+    "publisher": "The Home Depot",
+    "title": "Water Heater Replacement Cost Guide",
+    "url": "https://www.homedepot.com/services/c/cost-install-water-heater/9058c024e",
+    "basis": "retailer_national_range",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "drain-cost",
+    "publisher": "myYardPros",
+    "title": "French Drain Installation in Northern Virginia",
+    "url": "https://myyardpros.com/water-management/french-drain-installation/",
+    "basis": "contractor_planning_range",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "remodel-cost",
+    "publisher": "Rendon Remodeling and Design",
+    "title": "Northern Virginia Remodeling Pricing Guide",
+    "url": "https://www.rendonremodeling.com/pricing/",
+    "basis": "contractor_planning_range",
+    "publishedAt": null,
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "moisture-observations",
+    "publisher": "US EPA",
+    "title": "Moisture damage and prevention image library",
+    "url": "https://www.epa.gov/mold/mold-image-library",
+    "basis": "technical_guidance",
+    "publishedAt": "2026-08-17",
+    "checkedAt": "2026-10-24"
+  }
+]

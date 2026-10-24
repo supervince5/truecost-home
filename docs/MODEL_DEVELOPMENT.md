@@ -2,7 +2,7 @@
 
 ## What we are doing now
 
-We use a pretrained Gemma model through Google's API. Its weights are unchanged. `server/model/prompt.ts` supplies a condition checklist and examples at request time (in-context guidance). The wrapper validates the model's output and asks once for corrected extraction if needed. This improves enforceable structure and evidence attribution; it does not, by itself, demonstrate improved visual recognition.
+We use a pretrained Gemma model through Google's API. Its weights are unchanged. `server/model/prompt.ts` supplies a researched library of 49 condition indicators across 27 property-system categories and examples at request time (in-context guidance). The wrapper validates the model's output and asks once for corrected extraction if needed. This improves enforceable structure and evidence attribution; it does not, by itself, demonstrate improved visual recognition.
 
 Example: if a photo contains a stain, the desired response describes discoloration and asks for an assessment. It must not jump straight to a mold diagnosis or a roof-replacement estimate. Financial calculations and cost records belong in separate deterministic code and sourced datasets.
 
@@ -14,7 +14,7 @@ Example: if a photo contains a stain, the desired response describes discolorati
 4. Run a basic prompt and the complete wrapper with the same model on those held-out inputs. Record raw responses separately from accepted findings; rejecting a bad output is different from recognizing the image better.
 5. Report false unsupported findings, missed visible findings, evidence attribution, correct abstentions, correction rate, latency, usage and failures. Show counts and denominators; a tiny test set is not field validation.
 
-The current JSON cases are a starting review checklist, not a completed benchmark. Automated unit tests prove specific code behavior, not the model's inspection skill.
+The [development benchmark](DETECTION_BENCHMARK.md) now includes 24 constructed report scenarios and four licensed educational photographs with source manifests. Live results are recorded separately from offline code tests. These author-designed scenarios are not independent expert ground truth, and no controlled before/after improvement has been demonstrated. Automated unit tests prove specific code behavior, not the model's inspection skill.
 
 ## Fine-tuning, if evidence warrants it later
 
