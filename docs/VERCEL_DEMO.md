@@ -1,10 +1,10 @@
 # Vercel demo deployment
 
-[Open TrueCost Home](https://truecost-home-3n9ovsjc1-vincents-projects-e9423c09.vercel.app)
+[Open TrueCost Home](https://truecost-home-demo.vercel.app)
 
 The demo is a Vercel Hobby preview deployment of the `web` directory. Vercel Authentication was disabled at the project owner's request on October 25, 2026. An unauthenticated request returned HTTP 200 with the TrueCost page and no login redirect.
 
-The deployed application was built from commit `7ce5094`. Later final-v2 integration preserves the application under `web/` and the team's earlier root-level UI prototype. Use `main` for the integrated repository and set the hosting root directory to `web`.
+The current application code matches commit `984af6e`, including sourced downspout pricing. The stable alias above points to the corrected preview deployment. Later final-v2 integration preserves the application under `web/` and the team's earlier root-level UI prototype. Use `main` for the integrated repository and set the hosting root directory to `web`.
 
 ## Configuration
 
@@ -22,6 +22,6 @@ The deployment was uploaded with the Vercel CLI. GitHub automatic deployment was
 
 ## Verification scope
 
-The cloud build completed successfully. Public landing-page access was verified after disabling authentication. At the owner's request, no lengthy hosted photo-analysis retest was run. The successful local software checks and photo runs are documented separately; they are not evidence of hosted model accuracy.
+The cloud build completed successfully. Public landing-page access was verified after disabling authentication. The one-photo hosted workflow and catalog correction are documented in [Live cost demo](LIVE_COST_DEMO.md). Local software checks are not evidence of general model accuracy.
 
 Hosting allowances and model-provider quotas are separate. [Vercel Hobby](https://vercel.com/docs/plans/hobby), [function duration](https://vercel.com/docs/functions/configuring-functions/duration), and [Vercel Authentication](https://vercel.com/docs/deployment-protection/methods-to-protect-deployments/vercel-authentication).

@@ -8,7 +8,7 @@ TrueCost Home is a buyer-facing demo that connects listing information and prope
 
 No accounts or Google Cloud setup are needed for this demo. Reports stay in browser memory; uploaded evidence is sent to the configured model provider for analysis. Firestore persistence is future work. PDF parsing is not implemented: paste inspection text instead.
 
-**[Open the public demo](https://truecost-home-3n9ovsjc1-vincents-projects-e9423c09.vercel.app)**. No Vercel login required. See [deployment details](docs/VERCEL_DEMO.md) and the [spoken walkthrough](docs/DEMO_WALKTHROUGH.md).
+**[Open the public demo](https://truecost-home-demo.vercel.app)**. No Vercel login required. See [deployment details](docs/VERCEL_DEMO.md) and the [spoken walkthrough](docs/DEMO_WALKTHROUGH.md).
 
 The current application is in **`web/`**. The root-level UI prototype from the team’s earlier work is preserved separately; run and deploy `web/` for the integrated Gemma demo.
 
