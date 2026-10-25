@@ -22,3 +22,13 @@ On failure, the review stops and names the failed view. It does not certify the 
 ## Verification
 
 Automated checks cover seven single-image requests, text sent once, unique source and finding IDs, cancellation before and during the queue, failure stopping later calls, mixed-version rejection, and unavailable usage remaining unknown. These are software checks, not vision accuracy scores. No model training or alternative model is used.
+
+### Live browser run, October 25, 2026
+
+All seven images completed through the UI in deliberate mode using `gemma-4-26b-a4b-it`. The displayed elapsed time was 334.8 seconds. Token usage was unavailable and displayed as unknown. No listing text, inspection report, or financial inputs were supplied.
+
+The result contained two observations: exterior siding staining in photo 3, and ceiling staining near the fan in photo 5. Both retained the correct original photo reference. The ceiling observation is ambiguous because the image includes a spinning fan, shadows and uneven illumination; this run does not establish a stain or leak. Other visible features, including weathered deck boards and unfinished bathroom work, were not surfaced. No qualified inspection labels were available, so this is not a measured accuracy score.
+
+The queue and result presentation completed successfully, but this set is **not an approved demonstration of reliable whole-home defect detection**. It is useful for showing seven-photo intake, evidence review and honest unknowns. Exclude unsupported observations before selecting repair scopes. This run did not validate repair estimates, affordability, market value or hidden conditions.
+
+Final software verification: lint, TypeScript, 130 unit tests and the production build passed. The interactive area tabs were checked using pointer and keyboard input. These checks do not resolve the visual-recognition limitations above.
