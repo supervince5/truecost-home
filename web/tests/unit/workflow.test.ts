@@ -1,0 +1,5 @@
+import { expect, it } from "vitest";
+import { makeEvidenceRequest, parseAmount, selectedPlans } from "../../src/lib/workflow";
+it('keeps finances out of model evidence and preserves report pages',()=>{const r=makeEvidenceRequest({listing:'House',report:'Page one\fPage two',yearBuilt:'1985',images:[]});expect(r).toEqual({listingText:'House',reportPages:['Page one','Page two'],property:{yearBuilt:1985},images:[]});expect(JSON.stringify(r)).not.toMatch(/budget|savings|income/i);});
+it('blank is unknown while entered zero is zero',()=>{expect(parseAmount('')).toBeNull();expect(parseAmount('0')).toBe(0);expect(parseAmount('12.34')).toBe(1234);expect(()=>parseAmount('-3')).toThrow();expect(()=>parseAmount('abc')).toThrow();});
+it('counts only separately confirmed scopes and leaves missing quotes unresolved',()=>{const r=selectedPlans([{id:'a',confirmed:false,lowCents:10,highCents:20,earliestMonth:0,latestMonth:1},{id:'b',confirmed:true,lowCents:null,highCents:null,earliestMonth:0,latestMonth:1}]);expect(r).toHaveLength(1);expect(r[0].lowCents).toBeNull();});

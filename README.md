@@ -2,9 +2,11 @@
 
 **Can I afford to own this home, not just buy it?**
 
-TrueCost Home is a planned buyer-facing tool that connects listing information and property-condition evidence to repair scenarios, monthly ownership budgets, upfront cash gaps, and assistance pathways.
+TrueCost Home is a buyer-facing demo that connects listing information and property-condition evidence to repair scenarios, monthly ownership budgets, upfront cash gaps, and assistance pathways.
 
-**Status: backend MVP in progress.** A runnable Next.js preview, three synthetic demo fixtures, and shared validated contracts are in place. The server-side Gemma wrapper and analysis API are implemented, with [successful live text/image smoke checks](docs/MODEL_SMOKE_RESULTS.md). Whole-home condition guidance, evidence-linked pattern candidates, and a deterministic source-backed repair-cost API are implemented. Buyer-facing analysis screens, monthly financial calculations, persistence, accounts and deployment remain unimplemented. The cost catalog is a limited set of published planning prices, not a production valuation dataset.
+**Status: local demo implemented.** The three-screen flow accepts photos and pasted evidence, calls Gemma, lets buyers review findings and confirm repair scopes, and calculates sourced repair scenarios and five-year cash flow. The interface uses Tailwind/CSS with a cream, sage and tan palette. Photo interpretation remains experimental: deliberate mode can recover small visible details, but can also produce false positives and takes longer. It supports one photo per analysis; standard mode supports up to six. See [photo evaluation](docs/PHOTO_DETECTION_EVAL.md).
+
+No accounts or Google Cloud setup are needed for this demo. Reports stay in browser memory; uploaded evidence is sent to the configured model provider for analysis. Firestore persistence and deployment are future work. PDF parsing is not implemented: paste inspection text instead.
 
 ## Start here
 
@@ -22,9 +24,9 @@ TrueCost Home is a planned buyer-facing tool that connects listing information a
 
 ## The product in one flow
 
-A buyer provides listing information, photos or a supported inspection PDF, property facts, budget, and available cash. The backend prepares source-linked evidence, asks Gemma for focused findings, validates those findings, and lets the buyer correct them. Versioned repair costs and program rules feed deterministic calculations of monthly ownership costs and upfront cash gaps. Every result retains its evidence and assumptions.
+A buyer provides listing information, photos or pasted inspection text, property facts, budget, and available cash. The backend prepares source-linked evidence, asks Gemma for focused findings, validates those findings, and lets the buyer correct them. Versioned repair costs feed deterministic calculations of monthly ownership costs and upfront cash gaps. Assistance is a region-filtered directory of sourced program links, not an eligibility engine; no assistance amount is deducted from the budget. Every result retains its evidence and assumptions.
 
-Pipeline: **prepare evidence → focused extraction → validate → review/correct → retrieve sourced costs and rules → calculate → explain with evidence**. We compare this pipeline against a basic prompt on held-out examples before claiming an accuracy improvement.
+Pipeline: **prepare evidence → focused extraction → validate → review/correct → retrieve sourced costs → calculate → explain with evidence**. We compare this pipeline against a basic prompt on held-out examples before claiming an accuracy improvement.
 
 The memorable result is not just a larger monthly number: **a monthly payment can fit while an early repair bill creates a cash shortfall.**
 
@@ -37,11 +39,11 @@ The memorable result is not just a larger monthly number: **a monthly payment ca
 | Image/text interpretation | Gemma 4 through a verified provider adapter |
 | Financial calculations | Pure TypeScript modules, independently tested |
 | Cost/program reference data | Small versioned JSON datasets with sources |
-| UI charts | Recharts, when the cash-flow screen is built |
-| Deployment | Next.js container on Google Cloud Run |
-| Uploaded media | Private Cloud Storage with scoped access and expiration |
-| Persisted reports | Firestore for scoped analysis records and revisions |
-| Secrets | Google Secret Manager; server-only access |
+| Cash-flow display | Accessible scenario summaries and monthly ledger |
+| Demo hosting | Local Next.js server; cloud deployment deferred |
+| Uploaded media | Browser memory and bounded server request; Cloud Storage deferred |
+| Persisted reports | None for the demo; Firestore deferred |
+| Secrets | Ignored web/.env.local; server-only access |
 | Collaboration | GitHub branches, pull requests, and automated checks |
 
 Paperclip is not part of the MVP. A bounded request pipeline is sufficient.
@@ -58,7 +60,7 @@ npm ci
 npm run dev
 ```
 
-If you do not use nvm, install Node 24.22.1 through your normal Node version manager first. Open `http://localhost:3000`. The current page is a foundation preview, not a functioning property analyzer. No credentials are required for the preview or automated tests. The analysis API needs a server-only Gemma key; follow the wrapper setup guide.
+If you do not use nvm, install Node 24.22.1 through your normal Node version manager first. Open `http://localhost:3000`. The analyzer needs a server-only Gemma key in `web/.env.local`; follow the wrapper setup guide. No account or cloud project setup is required by the interface. Automated tests use test providers.
 
 Run checks from `web/`:
 
@@ -66,9 +68,9 @@ Run checks from `web/`:
 npm run check
 ```
 
-This runs ESLint, route-type generation and TypeScript checking, contract tests, and a production build. Individual scripts: `lint`, `typecheck`, `test`, `build`. After building, `npm start` serves the production preview. VS Code includes **Web: dev** and **Web: checks** tasks.
+This runs ESLint, route-type generation and TypeScript checking, contract tests, and a production build. Individual scripts: `lint`, `typecheck`, `test`, `build`. After building, `ENABLE_ANALYZE_API=true npm start` serves the local production demo with analysis enabled. Keep this unauthenticated demo private. VS Code includes **Web: dev** and **Web: checks** tasks.
 
-`web/src/app/` contains pages and future API routes; `web/src/lib/schemas/` contains shared runtime contracts; `web/fixtures/` contains synthetic examples; `web/tests/` contains tests. `.tsx` files render React interfaces, `.ts` files hold logic/types, `.json` files hold data/configuration, and `.md` files explain the project.
+`web/src/app/` contains pages and API routes; `web/src/lib/schemas/` contains shared runtime contracts; `web/fixtures/` contains synthetic examples; `web/tests/` contains tests. `.tsx` files render React interfaces, `.ts` files hold logic/types, `.json` files hold data/configuration, and `.md` files explain the project.
 
 `.env.example` at the repository root lists the model configuration and reserved future cloud settings. Copy it to ignored `web/.env.local` and set `GEMMA_API_KEY` to use the analysis API. Never put secrets in `NEXT_PUBLIC_*` variables.
 

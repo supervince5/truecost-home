@@ -1,6 +1,8 @@
 # Photo detection evaluation — October 25, 2026
 
-**Decision: photo-detection fix not validated.** None of four candidates met the full acceptance gate. Production keeps the existing 26B MINIMAL single-pass extraction. The shipped change replaces photo follow-up questions that may presume an unproved cause with a neutral verification question. It does not correct false object descriptions or recover missed signs. Photo interpretation remains experimental and requires review.
+**Current demo behavior:** the API defaults to standard 26B MINIMAL extraction. The UI offers and defaults to deliberate 26B HIGH review, limited to one photo, with explicit review and latency caveats. This is a visible speed/recall tradeoff, not a validated accuracy fix. No alternate model, saved-answer substitution, image-specific rules, or fine-tuning is used.
+
+Two subsequent five-image single-photo rounds retained all attempts: seven of ten outcomes were semantically usable, one service failure occurred, and the kitchen-hood control produced an unsupported stain finding twice. The downspout gap was recovered in both rounds. The original all-controls acceptance gate remains failed. A separate six-photo deliberate request timed out, motivating the one-photo limit. Raw reports are in `web/benchmarks/results/demo-readiness*.json`. The comparison decisions below are historical and remain unchanged.
 
 ## Question and frozen comparison
 

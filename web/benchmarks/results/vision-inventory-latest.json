@@ -1,0 +1,80 @@
+{
+  "startedAt": "2026-10-25T13:59:15.787Z",
+  "model": "gemma-4-26b-a4b-it",
+  "prompt": "Describe only what is visible in these views of one property photograph. First identify the scene and physical objects using their connections and surrounding context. Then examine visible surface changes, geometry, gaps, connections and alignment. Do not diagnose hidden causes, estimate costs, or force an object identity. Distinguish what you can see from uncertainty. The first image is the whole photo; the next four are overlapping top-left, top-right, bottom-left, bottom-right crops of it. They are the same scene, not five separate defects. Return JSON {\"scene\":string,\"observations\":[{\"object\":string,\"visibleDetail\":string,\"location\":string,\"uncertainty\":string}],\"limitations\":[string]}. Include useful spatial relationships and visible irregularities. Do not guess material composition or condition behind surfaces. No markdown.",
+  "status": "finished",
+  "rows": [
+    {
+      "id": "epa-32",
+      "elapsedMs": 45163,
+      "text": "{\n\"scene\": \"A large, light-colored rectangular object, possibly a crate, standing on a tiled floor.\",\n\"observations\": [\n{\n\"object\": \"Large rectangular object\",\n\"visibleDetail\": \"Light-colored surface with irregular, wavy-edged brown stains. Contains a circular logo, text 'TN-7', '206385', and blue text 'ings' on the side.\",\n\"location\": \"Central part of the scene\",\n\"uncertainty\": \"The exact material of the object is not identified.\"\n},\n{\n\"object\": \"Brown stains\",\n\"visibleDetail\": \"Irregular, wavy-edged patterns in varying shades of brown.\",\n\"location\": \"Lower portion and along the edges of the object's surface.\",\n\"uncertainty\": \"The cause of the staining is not visible.\"\n},\n{\n\"object\": \"Tiled floor\",\n\"visibleDetail\": \"Light-colored tiles with visible grout lines.\",\n\"location\": \"Underneath the object.\",\n\"uncertainty\": \"None.\"\n},\n{\n\"object\": \"Wooden supports\",\n\"visibleDetail\": \"Vertical wooden pieces and a horizontal base forming a frame.\",\n\"location\": \"At the base of the large object.\",\n\"uncertainty\": \"None.\"\n},\n{\n\"object\": \"White trim\",\n\"visibleDetail\": \"A vertical white piece positioned near the base.\",\n\"location\": \"Adjacent to the wooden supports at the bottom left.\",\n\"uncertainty\": \"The material and purpose of the trim are not specified.\"\n}\n],\n\"limitations\": [\n\"The cause of the surface staining cannot be determined.\",\n\"The contents of the object are not visible.\",\n\"The material composition of the object and trim is not explicitly stated.\"\n]\n}",
+      "usage": {
+        "promptTokenCount": 1453,
+        "candidatesTokenCount": 387,
+        "totalTokenCount": 3579,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 163
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1290
+          }
+        ],
+        "thoughtsTokenCount": 1739,
+        "serviceTier": "standard"
+      },
+      "finishReason": "STOP",
+      "modelVersion": "gemma-4-26b-a4b-it"
+    },
+    {
+      "id": "epa-29",
+      "elapsedMs": 59873,
+      "text": "{\n\"scene\": \"Close-up view of an exterior wall corner featuring horizontal siding, a vertical corner post, and two fluted vertical elements.\",\n\"observations\": [\n{\n\"object\": \"Horizontal siding\",\n\"visibleDetail\": \"Overlapping horizontal planks with shadow lines at the joints.\",\n\"location\": \"On both the left and right sides of the vertical corner post.\",\n\"uncertainty\": \"None\"\n},\n{\n\"object\": \"Vertical corner post\",\n\"visibleDetail\": \"A flat, white vertical surface.\",\n\"location\": \"Centrally located, separating the two siding sections.\",\n\"uncertainty\": \"None\"\n},\n{\n\"object\": \"Upper fluted element\",\n\"visibleDetail\": \"A vertical piece with longitudinal ridges. It is not flush with the corner post, leaving a visible gap.\",\n\"location\": \"On the left side of the upper portion of the corner post.\",\n\"uncertainty\": \"None\"\n},\n{\n\"object\": \"Lower fluted element\",\n\"visibleDetail\": \"A vertical piece with longitudinal ridges.\",\n\"location\": \"On the left side of the lower portion of the corner post.\",\n\"uncertainty\": \"None\"\n},\n{\n\"object\": \"Gap\",\n\"visibleDetail\": \"A space between the right edge of the upper fluted element and the left edge of the vertical corner post.\",\n\"location\": \"Between the upper fluted element and the corner post.\",\n\"uncertainty\": \"None\"\n},\n{\n\"object\": \"Corner post edge\",\n\"visibleDetail\": \"The left edge of the white vertical post appears irregular where it meets the fluted elements.\",\n\"location\": \"Along the left edge of the vertical corner post.\",\n\"uncertainty\": \"None\"\n}\n],\n\"limitations\": [\n\"Material composition of the siding, post, and fluted elements cannot be determined.\",\n\"The full extent of the wall and the objects is not visible.\"\n]\n}",
+      "usage": {
+        "promptTokenCount": 1453,
+        "candidatesTokenCount": 428,
+        "totalTokenCount": 4218,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 163
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1290
+          }
+        ],
+        "thoughtsTokenCount": 2337,
+        "serviceTier": "standard"
+      },
+      "finishReason": "STOP",
+      "modelVersion": "gemma-4-26b-a4b-it"
+    },
+    {
+      "id": "epa-93",
+      "elapsedMs": 33477,
+      "text": "{\"scene\":\"A kitchen area featuring a stovetop, backsplash, and upper cabinets.\",\"observations\":[{\"object\":\"Upper cabinets\",\"visibleDetail\":\"Wood-grain surface with dark, decorative hinges and vertical handles\",\"location\":\"Top portion of the scene\",\"uncertainty\":\"None\"},{\"object\":\"Range hood\",\"visibleDetail\":\"Black horizontal structure with an integrated light fixture that is illuminated\",\"location\":\"Below the cabinets and above the backsplash\",\"uncertainty\":\"None\"},{\"object\":\"Backsplash\",\"visibleDetail\":\"Grid pattern of light-colored square tiles with dark grout lines\",\"location\":\"Between the range hood and the stovetop\",\"uncertainty\":\"None\"},{\"object\":\"Plume\",\"visibleDetail\":\"A wispy, greyish-blue vertical column\",\"location\":\"Rising from the left side of the stovetop towards the range hood, in front of the tiles\",\"uncertainty\":\"Whether it is steam or smoke is not certain\"},{\"object\":\"Stovetop\",\"visibleDetail\":\"Metal surface containing multiple circular electric coil burners and a set of control knobs\",\"location\":\"Bottom portion of the scene\",\"uncertainty\":\"None\"},{\"object\":\"Kettle\",\"visibleDetail\":\"Black, reflective object with a handle\",\"location\":\"On the left side of the stovetop\",\"uncertainty\":\"None\"},{\"object\":\"Jar\",\"visibleDetail\":\"White container with a dark pattern\",\"location\":\"On the right side of the stovetop\",\"uncertainty\":\"None\"}],\"limitations\":[\"Low image resolution limits fine detail visibility.\",\"The exact composition of the plume cannot be determined.\"]}",
+      "usage": {
+        "promptTokenCount": 1453,
+        "candidatesTokenCount": 303,
+        "totalTokenCount": 3022,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 163
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1290
+          }
+        ],
+        "thoughtsTokenCount": 1266,
+        "serviceTier": "standard"
+      },
+      "finishReason": "STOP",
+      "modelVersion": "gemma-4-26b-a4b-it"
+    }
+  ]
+}

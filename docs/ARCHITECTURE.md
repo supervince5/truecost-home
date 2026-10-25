@@ -1,5 +1,7 @@
 # How TrueCost Home works
 
+> Current demo status (October 25, 2026): buyer screens, Gemma extraction, sourced cost scenarios and five-year cash-flow calculations are implemented in `web/`. No accounts, Firestore persistence or Google Cloud setup are needed for the local demo. Those services remain future architecture only. The design and milestone descriptions below include historical plans; see README for current run instructions. Photo analysis still requires human review.
+
 Selected direction: **Next.js + TypeScript on Google Cloud**, with hosted Gemma inference. This document describes the planned application; no application code, cloud resources, or model integration has been implemented yet.
 
 ## The pieces

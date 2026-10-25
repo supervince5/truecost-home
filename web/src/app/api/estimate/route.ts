@@ -1,3 +1,4 @@
+import { assertSameOrigin } from "../../../server/origin";
 import { readJson } from "../../../server/analysis/handler";
 import { costCatalog, estimateCosts } from "../../../server/costs/engine";
 import { sourceById } from "../../../lib/condition/knowledge";
@@ -10,8 +11,7 @@ export async function GET() {
 }
 export async function POST(request: Request) {
   try {
-    const origin = request.headers.get("origin");
-    if ((origin && origin !== new URL(request.url).origin) || request.headers.get("sec-fetch-site") === "cross-site") throw new AnalysisError("FORBIDDEN");
+    assertSameOrigin(request);
     if (request.headers.get("content-type")?.split(";")[0].trim().toLowerCase() !== "application/json") throw new AnalysisError("UNSUPPORTED_MEDIA");
     const input = await readJson(request, 65536);
     return Response.json(estimateCosts(input), { headers });

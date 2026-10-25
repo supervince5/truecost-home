@@ -1,6 +1,6 @@
 import "server-only";
 import { setTimeout as delay } from "node:timers/promises";
-import { attributedExtractionSchema } from "../../lib/schemas/extraction";
+import { attributedExtractionSchema, extractionOutputSchema } from "../../lib/schemas/extraction";
 import { componentSchema } from "../../lib/schemas/finding";
 import { AnalysisError } from "../errors";
 import type { PreparedEvidence } from "../evidence/prepare";
@@ -8,7 +8,7 @@ import type { ModelProvider } from "../model/provider";
 import { PROMPT_VERSION } from "../model/prompt";
 import { buildConditionReview } from "../condition/review";
 
-export const PIPELINE_VERSION = "photo-evidence-review-v5";
+export const PIPELINE_VERSION = "reviewed-evidence-v7";
 
 export async function extract(evidence: PreparedEvidence, provider: ModelProvider, options: { signal?: AbortSignal; timeoutMs?: number } = {}) {
   const started = Date.now();
@@ -53,7 +53,18 @@ export async function extract(evidence: PreparedEvidence, provider: ModelProvide
       } catch { continue; }
       // Preserve strict response keys before attaching our own trusted source records.
       if (typeof raw !== "object" || raw === null || Array.isArray(raw) || "sources" in raw) continue;
-      const parsed = attributedExtractionSchema.safeParse({ ...raw, sources: evidence.sources });
+      const shape = extractionOutputSchema.safeParse(raw);
+      if (!shape.success) continue;
+      // Provenance belongs to the supplied source, not a model's interpretation of its wording.
+      // Exact quote, reference-kind, and page checks still run below on every finding.
+      const attributed = shape.data.findings.map(finding => {
+        const kinds = new Set(finding.evidence.map(ref => evidence.sources.find(source => source.id === ref.sourceId)?.kind));
+        if(kinds.size !== 1) return finding;
+        const kind = [...kinds][0];
+        const evidenceClass = kind === "listing_text" ? "disclosed_fact" as const : kind === "inspection_report" ? "reported_inspection_finding" as const : kind === "image" ? "visual_observation" as const : finding.evidenceClass;
+        return {...finding,evidenceClass};
+      });
+      const parsed = attributedExtractionSchema.safeParse({ ...shape.data, findings: attributed, sources: evidence.sources });
       if (!parsed.success) continue;
       const findings = parsed.data.findings.map((finding) => ({ ...finding,
         indicatorIds: finding.conditionState === "current" ? finding.indicatorIds : [],
@@ -61,14 +72,14 @@ export async function extract(evidence: PreparedEvidence, provider: ModelProvide
         // Specific verification steps are supplied by the sourced review cards.
         followUpQuestion: finding.evidenceClass === "visual_observation"
           ? "What could explain this visible condition, and what should a qualified professional check?"
-          : finding.followUpQuestion,
+          : finding.followUpQuestion ?? "What should a qualified professional verify about this reported condition?",
         needsProfessionalAssessment: true as const }));
       if (findings.some((finding) => !finding.followUpQuestion)) continue;
       const unassessedComponents = Array.from(new Set([...parsed.data.unassessedComponents, ...componentSchema.options.filter((component) => component !== "other" && !findings.some((finding) => finding.component === component && finding.conditionState === "current"))]));
       return {
         findings, unassessedComponents, sources: evidence.sources, reviewRequired: true as const,
         conditionReview: buildConditionReview(findings),
-        metadata: { provider: "google-gemini-api", modelId: provider.modelId, modelVersion: response.modelVersion, promptVersion: PROMPT_VERSION, pipelineVersion: PIPELINE_VERSION, attempts: attempt, inputTokens, outputTokens, thinkingTokens, totalTokens, latencyMs: Date.now() - started },
+        metadata: { photoReviewMode: evidence.images.length ? evidence.photoReviewMode ?? "standard" : "text", provider: "google-gemini-api", modelId: provider.modelId, modelVersion: response.modelVersion, promptVersion: PROMPT_VERSION, pipelineVersion: PIPELINE_VERSION, attempts: attempt, inputTokens, outputTokens, thinkingTokens, totalTokens, latencyMs: Date.now() - started },
       };
     }
     throw new AnalysisError("INVALID_MODEL_OUTPUT");

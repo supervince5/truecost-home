@@ -1,4 +1,5 @@
 import "server-only";
+import { assertSameOrigin } from "../origin";
 import { randomUUID } from "node:crypto";
 import { AnalysisError } from "../errors";
 import { prepareEvidence } from "../evidence/prepare";
@@ -46,8 +47,7 @@ export function createAnalyzeHandler(providerFactory: () => ModelProvider) {
     let admitted = false;
     try {
       if (process.env.NODE_ENV === "production" && process.env.ENABLE_ANALYZE_API !== "true") throw new AnalysisError("DISABLED");
-      const origin = request.headers.get("origin");
-      if ((origin && origin !== new URL(request.url).origin) || request.headers.get("sec-fetch-site") === "cross-site") throw new AnalysisError("FORBIDDEN");
+      assertSameOrigin(request);
       if (request.headers.get("content-type")?.split(";")[0].trim().toLowerCase() !== "application/json") throw new AnalysisError("UNSUPPORTED_MEDIA");
       if (Date.now() - windowStarted >= 60000) { windowStarted = Date.now(); count = 0; }
       if (active >= 2 || count >= 10) throw new AnalysisError("RATE_LIMITED");

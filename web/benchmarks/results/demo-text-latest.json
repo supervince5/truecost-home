@@ -1,0 +1,87 @@
+{
+  "result": null,
+  "error": "The model response could not be verified. No findings were accepted.",
+  "calls": [
+    {
+      "status": 200,
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "",
+                  "thought": true
+                },
+                {
+                  "text": "```json\n{\n  \"findings\": [\n    {\n      \"id\": \"system_age\",\n      \"component\": \"heating_system\",\n      \"conditionState\": \"current\",\n      \"indicatorIds\": [],\n      \"description\": \"The heating system is reported to be 20 years old.\",\n      \"evidenceClass\": \"disclosed_fact\",\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"sourceId\": \"listing-1\",\n          \"quote\": \"The seller discloses that the heating system is 20 years old.\"\n        }\n      ],\n      \"needsProfessionalAssessment\": true,\n      \"followUpQuestion\": \"What is the remaining service life of the heating system?\"\n    },\n    {\n      \"id\": \"downspout_disconnected\",\n      \"component\": \"drainage\",\n      \"conditionState\": \"current\",\n      \"indicatorIds\": [],\n      \"description\": \"The downspout is disconnected at the exterior corner.\",\n      \"evidenceClass\": \"reported_inspection_finding\",\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"sourceId\": \"listing-1\",\n          \"quote\": \"the downspout is disconnected at the exterior corner.\"\n        }\n      ],\n      \"needsProfessionalAssessment\": true,\n      \"followUpQuestion\": \"Can the downspout be reconnected to ensure proper water diversion?\"\n    },\n    {\n      \"id\": \"cabinet_water_damage\",\n      \"component\": \"kitchen\",\n      \"conditionState\": \"resolved\",\n      \"indicatorIds\": [],\n      \"description\": \"A prior kitchen sink leak was repaired and the cabinet is now dry.\",\n      \"evidenceClass\": \"disclosed_fact\",\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"sourceId\": \"listing-1\",\n          \"quote\": \"A prior kitchen sink leak was repaired and the cabinet is now dry.\"\n        }\n      ],\n      \"needsProfessionalAssessment\": false,\n      \"followUpQuestion\": null\n    }\n  ],\n  \"unassessedComponents\": [\n    \"roof\",\n    \"cooling_system\",\n    \"water_heater\",\n    \"electrical\",\n    \"plumbing\",\n    \"ceiling\",\n    \"foundation\",\n    \"structure\",\n    \"attic\",\n    \"ventilation\",\n    \"bathroom\",\n    \"appliances\",\n    \"interior\",\n    \"windows_doors\",\n    \"exterior\",\n    \"deck\",\n    \"landscaping\",\n    \"fireplace\",\n    \"garage\",\n    \"pests\",\n    \"environmental\",\n    \"sewer_septic\",\n    \"well_water\",\n    \"pool\",\n    \"other\"\n  ]\n}\n```"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2380,
+          "candidatesTokenCount": 627,
+          "totalTokenCount": 3007,
+          "cachedContentTokenCount": 2037,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2380
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2037
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "responseId": "DQ_earqWNbG_ytMPmp-WUA"
+      }
+    },
+    {
+      "status": 200,
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "",
+                  "thought": true
+                },
+                {
+                  "text": "```json\n{\n  \"findings\": [\n    {\n      \"id\": \"system_age\",\n      \"component\": \"heating_system\",\n      \"conditionState\": \"current\",\n      \"indicatorIds\": [\n        \"system_age\"\n      ],\n      \"description\": \"The seller discloses that the heating system is 20 years old.\",\n      \"evidenceClass\": \"disclosed_fact\",\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"sourceId\": \"listing-1\",\n          \"quote\": \"The seller discloses that the heating system is 20 years old.\"\n        }\n      ],\n      \"needsProfessionalAssessment\": false,\n      \"followUpQuestion\": null\n    },\n    {\n      \"id\": \"downspout_disconnected\",\n      \"component\": \"drainage\",\n      \"conditionState\": \"current\",\n      \"indicatorIds\": [\n        \"downspout_disconnected\"\n      ],\n      \"description\": \"The downspout is disconnected at the exterior corner.\",\n      \"evidenceClass\": \"reported_inspection_finding\",\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"sourceId\": \"listing-1\",\n          \"quote\": \"the downspout is disconnected at the exterior corner.\"\n        }\n      ],\n      \"needsProfessionalAssessment\": true,\n      \"followUpQuestion\": \"Is the downspout properly reconnected to direct water away from the foundation?\"\n    },\n    {\n      \"id\": \"cabinet_water_damage_resolved\",\n      \"component\": \"kitchen\",\n      \"conditionState\": \"resolved\",\n      \"indicatorIds\": [],\n      \"description\": \"A prior kitchen sink leak was repaired and the cabinet is now dry.\",\n      \"evidenceClass\": \"disclosed_fact\",\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"sourceId\": \"listing-1\",\n          \"quote\": \"A prior kitchen sink leak was repaired and the cabinet is now dry.\"\n        }\n      ],\n      \"needsProfessionalAssessment\": false,\n      \"followUpQuestion\": null\n    }\n  ],\n  \"unassessedComponents\": [\n    \"roof\",\n    \"cooling_system\",\n    \"water_heater\",\n    \"electrical\",\n    \"plumbing\",\n    \"ceiling\",\n    \"foundation\",\n    \"structure\",\n    \"attic\",\n    \"ventilation\",\n    \"bathroom\",\n    \"appliances\",\n    \"interior\",\n    \"windows_doors\",\n    \"exterior\",\n    \"deck\",\n    \"landscaping\",\n    \"fireplace\",\n    \"garage\",\n    \"pests\",\n    \"environmental\",\n    \"sewer_septic\",\n    \"well_water\",\n    \"pool\",\n    \"other\"\n  ]\n}\n```"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2411,
+          "candidatesTokenCount": 643,
+          "totalTokenCount": 3054,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2411
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemma-4-26b-a4b-it",
+        "responseId": "Gw_eatOLG_rhytMP1cPf2A4"
+      }
+    }
+  ]
+}

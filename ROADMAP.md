@@ -1,5 +1,7 @@
 # Build roadmap
 
+> Current demo status (October 25, 2026): buyer screens, Gemma extraction, sourced cost scenarios and five-year cash-flow calculations are implemented in `web/`. No accounts, Firestore persistence or Google Cloud setup are needed for the local demo. Those services remain future architecture only. The design and milestone descriptions below include historical plans; see README for current run instructions. Photo analysis still requires human review.
+
 Status: foundation steps 1–3, the bounded Gemma wrapper, a whole-property indicator library and a sourced repair-cost API are implemented locally. The repaired-condition state gate and aligned photo deadlines are implemented and regression-tested. Live development runs include successes, provider failures and visual misses; see [demo reliability](docs/DEMO_RELIABILITY.md). Financial calculations, buyer-facing review screens, persistence and deployment remain planned.
 
 ## 0. Understand and agree

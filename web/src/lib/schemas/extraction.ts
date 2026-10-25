@@ -6,6 +6,7 @@ import { validateEvidence } from "./validate-evidence";
 const text = z.string().trim().min(1).max(16000);
 export const extractionRequestSchema = z.strictObject({
   listingText: text.optional(),
+  photoReviewMode: z.enum(["standard", "deliberate"]).optional(),
   reportPages: z.array(text).max(20).default([]),
   images: z.array(z.strictObject({
     mimeType: z.enum(["image/jpeg", "image/png", "image/webp"]),
@@ -13,6 +14,7 @@ export const extractionRequestSchema = z.strictObject({
   })).max(6).default([]),
   property: z.strictObject({ yearBuilt: z.number().int().min(1600).max(new Date().getFullYear()).nullable() }).optional(),
 }).superRefine((data, ctx) => {
+  if (data.photoReviewMode === "deliberate" && data.images.length > 1) ctx.addIssue({ code: "custom", message: "Deliberate photo review supports one photo per analysis. Choose standard mode for up to six." });
   if (!data.listingText && !data.reportPages.length && !data.images.length) ctx.addIssue({ code: "custom", message: "Provide at least one evidence source." });
   if ((data.listingText?.length ?? 0) + data.reportPages.reduce((n, p) => n + p.length, 0) > 16000) ctx.addIssue({ code: "custom", message: "Combined source text exceeds the input limit." });
 });

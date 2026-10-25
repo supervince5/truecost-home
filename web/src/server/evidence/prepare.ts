@@ -5,6 +5,7 @@ import type { EvidenceSource } from "../../lib/schemas/evidence";
 import { AnalysisError } from "../errors";
 
 export interface PreparedEvidence {
+  photoReviewMode?: "standard" | "deliberate";
   sources: EvidenceSource[];
   images: { sourceId: string; mimeType: "image/jpeg"; data: string }[];
   property: { yearBuilt: number | null } | null;
@@ -33,5 +34,5 @@ export async function prepareEvidence(raw: unknown): Promise<PreparedEvidence> {
       images.push({ sourceId, mimeType: "image/jpeg", data: normalized.toString("base64") });
     } catch { throw new AnalysisError("INVALID_IMAGE"); }
   }
-  return { sources, images, property: input.property ?? null };
+  return { sources, images, property: input.property ?? null, photoReviewMode: input.photoReviewMode ?? "standard" };
 }

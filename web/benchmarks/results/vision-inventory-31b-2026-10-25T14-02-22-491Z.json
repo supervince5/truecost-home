@@ -1,0 +1,23 @@
+{
+  "startedAt": "2026-10-25T14:02:22.491Z",
+  "model": "gemma-4-31b-it",
+  "prompt": "Describe only what is visible in these views of one property photograph. First identify the scene and physical objects using their connections and surrounding context. Then examine visible surface changes, geometry, gaps, connections and alignment. Do not diagnose hidden causes, estimate costs, or force an object identity. Distinguish what you can see from uncertainty. The first image is the whole photo; the next four are overlapping top-left, top-right, bottom-left, bottom-right crops of it. They are the same scene, not five separate defects. Return JSON {\"scene\":string,\"observations\":[{\"object\":string,\"visibleDetail\":string,\"location\":string,\"uncertainty\":string}],\"limitations\":[string]}. Include useful spatial relationships and visible irregularities. Do not guess material composition or condition behind surfaces. No markdown.",
+  "status": "finished",
+  "rows": [
+    {
+      "id": "epa-32",
+      "elapsedMs": 42583,
+      "error": "ApiError"
+    },
+    {
+      "id": "epa-29",
+      "elapsedMs": 65007,
+      "error": "AbortError"
+    },
+    {
+      "id": "epa-93",
+      "elapsedMs": 51503,
+      "error": "ApiError"
+    }
+  ]
+}

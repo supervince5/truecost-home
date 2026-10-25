@@ -1,0 +1,11 @@
+# TrueCost Home visual system
+
+The interface supports a first-time buyer reviewing property evidence and planning repair cash. It is a working application, not a marketing-only landing page.
+
+The October 25 redesign uses the user's reference palette exactly: sage #CCD5AE, pale sage #E9EDC8, cream #FEFAE1, warm cream #FAEDCD, and tan #D4A373. Dark olive #30372B and secondary olive #606650 provide readable contrast; the light swatches are surfaces, never low-contrast text.
+
+Apple-inspired principles: system typography, generous spacing, progressive disclosure, consistent controls, immediate pressed feedback, functional translucent navigation, and restrained step transitions. Respect reduced motion, contrast, and transparency preferences. No invented statistics, fake listings, automatic eligibility claims, or decorative dashboards.
+
+Use Tailwind v4 for layout utilities and theme tokens, with CSS for shared control states and responsive component behavior. Desktop uses a broad evidence column and a quieter budget column; mobile stacks the same workflow. Recurring-cost details are grouped under disclosure controls instead of presenting thirteen equally prominent fields.
+
+The three steps remain Home & budget, Review & results, and Next steps. Live findings retain their submitted evidence snapshot. Repair scope confirmation remains separate from accepting an observation. Unknown values stay visible, and assistance does not enter baseline cash flow.
