@@ -17,7 +17,8 @@ TrueCost Home is a planned buyer-facing tool that connects listing information a
 7. [Whole-home research and cost engine](docs/WHOLE_HOME_RESEARCH.md) — source library, conditions, pricing and API.
 8. [Detection benchmark](docs/DETECTION_BENCHMARK.md) — constructed scenarios and real educational photographs.
 9. [Demo reliability](docs/DEMO_RELIABILITY.md) — repaired-condition guard, photo deadlines and measured reruns.
-10. [Model development](docs/MODEL_DEVELOPMENT.md) — prompting versus training and how we will measure improvements.
+10. [Photo detection evaluation](docs/PHOTO_DETECTION_EVAL.md) — measured failures, rejected experiments and current limitations.
+11. [Model development](docs/MODEL_DEVELOPMENT.md) — prompting versus training and how we will measure improvements.
 
 ## The product in one flow
 

@@ -57,3 +57,7 @@ npm run benchmark:reliability
 Live benchmarks contact the provider and may consume quota or incur charges. A failed case makes the benchmark exit unsuccessfully and remains in its saved JSON. Never combine overlapping development runs into an independent accuracy score.
 
 For a recorded demonstration, label recorded results as recorded and retain the request, model/prompt/pipeline versions and limitations. A provider failure must appear as unavailable, never as a clean inspection.
+
+## October 25 follow-up
+
+The [photo detection evaluation](PHOTO_DETECTION_EVAL.md) found unresolved semantic failures despite successful API responses. Four proposed improvements failed the full acceptance gate and were not shipped. The neutral follow-up question guard prevents presupposed causes in generated questions; it does not correct object recognition. Keep the earlier latency/service measurements separate from detection correctness.

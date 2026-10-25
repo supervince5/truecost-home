@@ -4,6 +4,7 @@ import { prepareEvidence } from "../../src/server/evidence/prepare";
 import { extract } from "../../src/server/analysis/extract";
 import { buildConditionReview } from "../../src/server/condition/review";
 import type { ModelProvider } from "../../src/server/model/provider";
+import sharp from "sharp";
 
 const finding = (id: string, component: string, indicatorIds: string[], quote: string) => ({ id, component, conditionState: "current", indicatorIds, description: quote, evidenceClass: "reported_inspection_finding", evidence: [{ kind: "report", sourceId: "report-1", page: 1, quote }], needsProfessionalAssessment: true, followUpQuestion: "Can a qualified professional verify the cause and extent?" });
 
@@ -57,4 +58,20 @@ it("rejects an active-tag response that omitted its condition state", () => {
   const raw = finding("f1", "kitchen", ["cabinet_water_damage"], "Cabinet is swollen.");
   Reflect.deleteProperty(raw, "conditionState");
   expect(extractionOutputSchema.safeParse({ findings: [raw], unassessedComponents: [] }).success).toBe(false);
+});
+
+it("does not pass a photo follow-up that assumes a hidden cause to the buyer", async () => {
+  const bytes = await sharp({ create: { width: 8, height: 8, channels: 3, background: "white" } }).png().toBuffer();
+  const output = { findings: [{
+    id: "f1", component: "other", conditionState: "current", indicatorIds: [],
+    description: "A dark surface mark is visible.", evidenceClass: "visual_observation",
+    evidence: [{ kind: "image", sourceId: "photo-1" }], needsProfessionalAssessment: true,
+    followUpQuestion: "What caused the active pipe leak behind this surface?",
+  }], unassessedComponents: [] };
+  const model: ModelProvider = { modelId: "gemma-4-26b-a4b-it", generate: async () => ({ text: JSON.stringify(output), modelVersion: null, inputTokens: 1, outputTokens: 1 }) };
+  const result = await extract(await prepareEvidence({ images: [{ mimeType: "image/png", data: bytes.toString("base64") }] }), model);
+  expect(result.findings[0].followUpQuestion).not.toContain("active pipe leak");
+  expect(result.findings[0].followUpQuestion).toContain("qualified professional");
+  expect(result.findings[0].description).toBe("A dark surface mark is visible.");
+  expect(result.conditionReview.cards).toEqual([]);
 });

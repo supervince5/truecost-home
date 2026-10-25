@@ -13,7 +13,8 @@
     "check": "npm run lint && npm run typecheck && npm test && npm run build",
     "benchmark:live": "node --env-file=.env.local node_modules/vitest/vitest.mjs run --config vitest.benchmark.config.mts benchmarks/live.bench.ts",
     "benchmark:photos": "node --env-file=.env.local node_modules/vitest/vitest.mjs run --config vitest.benchmark.config.mts benchmarks/photos.bench.ts",
-    "benchmark:reliability": "node --env-file=.env.local node_modules/vitest/vitest.mjs run --config vitest.benchmark.config.mts benchmarks/reliability.bench.ts"
+    "benchmark:reliability": "node --env-file=.env.local node_modules/vitest/vitest.mjs run --config vitest.benchmark.config.mts benchmarks/reliability.bench.ts",
+    "benchmark:vision": "node --env-file=.env.local node_modules/vitest/vitest.mjs run --config vitest.benchmark.config.mts benchmarks/vision-comparison.bench.ts"
   },
   "dependencies": {
     "@google/genai": "2.31.0",

@@ -4,7 +4,7 @@
 
 Implemented: a server-only hosted-Gemma adapter and `POST /api/analyze`, bounded evidence preparation, a versioned prompt, strict output validation, a shared two-call retry budget, and tests. Live text and image smoke checks succeeded; see [the recorded results](MODEL_SMOKE_RESULTS.md). The buyer-facing upload screen, PDF extraction, financial calculator, persistence and deployment are separate milestones.
 
-This wrapper does **not** train or fine-tune weights. It guides a pretrained model using a checklist and examples, then checks the response. It cannot prove that an image interpretation is correct. Every accepted response has `reviewRequired: true` and every finding requires professional assessment.
+This wrapper does **not** train or fine-tune weights. It guides a pretrained model using a checklist and examples, then checks the response. It cannot prove that an image interpretation is correct. Every accepted response has `reviewRequired: true` and every finding requires professional assessment. Photo follow-up questions use a neutral verification question; specific checks come from sourced review cards, so a generated question cannot presume an unproved cause. This does not validate the description itself.
 
 The response includes source-backed review cards, coverage gaps and cross-system hypotheses. Every extraction declares conditionState (current, historical, resolved or unknown). Only current observations can create indicator cards or pattern candidates. Noncurrent observations remain context with empty indicator IDs and do not remove coverage gaps. Present damage after a repaired leak can still be current; the application never suppresses an entire property merely because one leak was fixed. See [whole-home research and costs](WHOLE_HOME_RESEARCH.md) and the [detection benchmark](DETECTION_BENCHMARK.md). The cost engine is separate from Gemma.
 
@@ -83,6 +83,8 @@ These checks do not establish whether a statement is true, whether a quoted stat
 A condition state is still a model interpretation, not semantic proof. The state gate prevents a resolved or historical label from becoming an active repair card; it cannot guarantee the model classifies every sentence correctly.
 
 ## Training and evaluation
+
+The [October 25 photo evaluation](PHOTO_DETECTION_EVAL.md) rejected stronger reasoning, a larger model, a revised single-pass prompt and a two-pass review because none met the full acceptance gate. Production retains 26B MINIMAL. The misread wall material and missed downspout remain unresolved in the default photo path; do not present it as dependable inspection automation.
 
 See [the model development plan](MODEL_DEVELOPMENT.md). Automated tests exercise code with controlled model responses and the real SDK against a fake HTTP transport. They are not vision-accuracy tests. The [development benchmark](DETECTION_BENCHMARK.md) contains 24 constructed text scenarios and four attributed EPA photographs. Saved findings still require semantic review, and neither dataset establishes field accuracy. Do not report model improvement until the basic-prompt comparison and held-out review have actually run.
 

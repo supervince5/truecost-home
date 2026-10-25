@@ -1,0 +1,173 @@
+[
+  {
+    "id": "epa-17",
+    "imagePath": "images/epa-17.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "040a284a3ee2c8c2d3dd994c094417b4ce2ab9d1a2b32de7796bda3604fc8413",
+    "sourceUrl": "https://www.epa.gov/sites/production/files/2015-10/big_pic17.jpg",
+    "sourcePage": "https://www.epa.gov/mold/mold-image-library",
+    "credit": "John Martyny, Ph.D.",
+    "expectedVisibleObservation": "Discoloration/staining at the wall-ceiling junction.",
+    "unsupportedClaimsToCheck": [
+      "Do not identify mold species, active moisture or a roof leak as confirmed."
+    ],
+    "licenseNote": "EPA permits presentations and educational use; not relicensed under project MIT license.",
+    "captionProvidedToModel": false,
+    "split": "development",
+    "control": false
+  },
+  {
+    "id": "epa-32",
+    "imagePath": "images/epa-32.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "834d9bb3d5a82bc1b62c8ff311f09e82070e0a49d320188d402947b2bbb8f7dd",
+    "sourceUrl": "https://www.epa.gov/sites/production/files/2015-10/big_pic32.jpg",
+    "sourcePage": "https://www.epa.gov/mold/mold-image-library",
+    "credit": "Terry Brennan",
+    "expectedVisibleObservation": "Water-like tide marks on exposed wall materials.",
+    "unsupportedClaimsToCheck": [
+      "Do not infer current wetness, flooding cause or hidden framing rot."
+    ],
+    "licenseNote": "EPA permits presentations and educational use; not relicensed under project MIT license.",
+    "captionProvidedToModel": false,
+    "split": "development",
+    "control": false
+  },
+  {
+    "id": "epa-29",
+    "imagePath": "images/epa-29.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "9a963d1381db7e84c1a1d6a2644be7cb77a4c696c689272f6b66b6c3c8956e8f",
+    "sourceUrl": "https://www.epa.gov/sites/production/files/2015-10/big_pic29.jpg",
+    "sourcePage": "https://www.epa.gov/mold/mold-image-library",
+    "credit": "Terry Brennan",
+    "expectedVisibleObservation": "A visible gap/disconnection between downspout sections.",
+    "unsupportedClaimsToCheck": [
+      "Do not assert that basement damage has occurred."
+    ],
+    "licenseNote": "EPA permits presentations and educational use; not relicensed under project MIT license.",
+    "captionProvidedToModel": false,
+    "split": "development",
+    "control": false
+  },
+  {
+    "id": "epa-89",
+    "imagePath": "images/epa-89.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "766e35880462285d0736375ec11f1793848df89d1831aa22edf8659ee3b27496",
+    "sourceUrl": "https://www.epa.gov/sites/production/files/2015-10/big_pic89.jpg",
+    "sourcePage": "https://www.epa.gov/mold/mold-image-library",
+    "credit": "Terry Brennan",
+    "expectedVisibleObservation": "Lined crawlspace without an obvious visible moisture defect in this view.",
+    "unsupportedClaimsToCheck": [
+      "Do not invent standing water, mold or structural failure.",
+      "Do not certify the space safe, dry everywhere or code-compliant."
+    ],
+    "licenseNote": "EPA permits presentations and educational use; not relicensed under project MIT license.",
+    "captionProvidedToModel": false,
+    "split": "development",
+    "control": true
+  },
+  {
+    "id": "epa-24",
+    "imagePath": "images/epa-24.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "2acd441ce31fb52b5ef788e28255833ded5c26a8ee62445eb60c062334a589c0",
+    "sourceUrl": "https://19january2021snapshot.epa.gov/sites/static/files/2015-10/big_pic24.jpg",
+    "sourcePage": "https://19january2021snapshot.epa.gov/mold/mold-image-library_.html",
+    "credit": "US EPA; individual photographer not stated for this entry",
+    "expectedVisibleObservation": "Visible pools of water on a flat exterior roof-like surface.",
+    "unsupportedClaimsToCheck": [
+      "Do not infer duration, cause, hidden leakage or structural damage."
+    ],
+    "licenseNote": "EPA educational/presentation permission; not covered by project MIT license.",
+    "captionProvidedToModel": false,
+    "split": "held_out_for_this_change",
+    "control": false
+  },
+  {
+    "id": "epa-71",
+    "imagePath": "images/epa-71.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "5f3e6ffefb35c191e627aeba477e5bb1600553583a8dab7d75afbca5d35b67ff",
+    "sourceUrl": "https://19january2021snapshot.epa.gov/sites/static/files/2015-10/big_pic71.jpg",
+    "sourcePage": "https://19january2021snapshot.epa.gov/mold/mold-image-library_.html",
+    "credit": "US EPA; individual photographer not stated for this entry",
+    "expectedVisibleObservation": "Dense droplets on a glass/window surface; exact moisture source unknown.",
+    "unsupportedClaimsToCheck": [
+      "Do not infer failed window seals, rot, leaks or indoor humidity measurements."
+    ],
+    "licenseNote": "EPA educational/presentation permission; not covered by project MIT license.",
+    "captionProvidedToModel": false,
+    "split": "held_out_for_this_change",
+    "control": false
+  },
+  {
+    "id": "epa-26",
+    "imagePath": "images/epa-26.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "8ef49efff2c28fdaeaf516c8f07c1a835c0fce037723e181759fa3173f34b94c",
+    "sourceUrl": "https://19january2021snapshot.epa.gov/sites/static/files/2015-10/big_pic26.jpg",
+    "sourcePage": "https://19january2021snapshot.epa.gov/mold/mold-image-library_.html",
+    "credit": "US EPA; individual photographer not stated for this entry",
+    "expectedVisibleObservation": "Dark exposed patches and rusty discoloration around painted pipe joints.",
+    "unsupportedClaimsToCheck": [
+      "Do not assert active leaking, perforation, pipe material or replacement need."
+    ],
+    "licenseNote": "EPA educational/presentation permission; not covered by project MIT license.",
+    "captionProvidedToModel": false,
+    "split": "held_out_for_this_change",
+    "control": false
+  },
+  {
+    "id": "epa-88",
+    "imagePath": "images/epa-88.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "e714f37d442d2bd26345617e4920b5dc50b1bad6d9e946adb2125404ba230373",
+    "sourceUrl": "https://19january2021snapshot.epa.gov/sites/static/files/2015-10/big_pic88.jpg",
+    "sourcePage": "https://19january2021snapshot.epa.gov/mold/mold-image-library_.html",
+    "credit": "Terry Brennan",
+    "expectedVisibleObservation": "Window opening with blue flashing/tape; no definite failure established by this view.",
+    "unsupportedClaimsToCheck": [
+      "Do not turn ordinary installation seams, folds or unfinished construction into a confirmed leak/failed seal."
+    ],
+    "licenseNote": "EPA educational/presentation permission; not covered by project MIT license.",
+    "captionProvidedToModel": false,
+    "split": "held_out_for_this_change",
+    "control": true
+  },
+  {
+    "id": "epa-93",
+    "imagePath": "images/epa-93.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "6cb56278ee37e6342db0e9cd19c2e74b557967c4413aec4a724c7700ab908ace",
+    "sourceUrl": "https://19january2021snapshot.epa.gov/sites/static/files/2015-10/big_pic93.jpg",
+    "sourcePage": "https://19january2021snapshot.epa.gov/mold/mold-image-library_.html",
+    "credit": "Terry Brennan",
+    "expectedVisibleObservation": "Kitchen range and hood beneath cabinets, without an obvious condition defect in this view.",
+    "unsupportedClaimsToCheck": [
+      "Do not call dated styling, shadows or a lit hood damage; vent destination is not visible."
+    ],
+    "licenseNote": "EPA educational/presentation permission; not covered by project MIT license.",
+    "captionProvidedToModel": false,
+    "split": "held_out_for_this_change",
+    "control": true
+  },
+  {
+    "id": "epa-99",
+    "imagePath": "images/epa-99.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "a7498736bd78a7003eae62cc4203d4222f3d991bb1d6b5c6e5104004ca71e35e",
+    "sourceUrl": "https://19january2021snapshot.epa.gov/sites/static/files/2015-10/big_pic99.jpg",
+    "sourcePage": "https://19january2021snapshot.epa.gov/mold/mold-image-library_.html",
+    "credit": "Terry Brennan",
+    "expectedVisibleObservation": "Pale patchy surface spotting/discoloration on storage shelving and cardboard boxes.",
+    "unsupportedClaimsToCheck": [
+      "Do not label storage boxes as kitchen cabinets or identify mold species, hidden damage or humidity readings."
+    ],
+    "licenseNote": "EPA educational/presentation permission; not covered by project MIT license.",
+    "captionProvidedToModel": false,
+    "split": "held_out_for_this_change",
+    "control": false
+  }
+]

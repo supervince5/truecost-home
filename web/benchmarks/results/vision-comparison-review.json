@@ -1,0 +1,69 @@
+{
+  "kind": "manual development review, not blind expert ground truth",
+  "rawReport": "vision-comparison-2026-10-25T07-31-38-455Z.json",
+  "rawReportSha256": "53154f2dc0060ea4dae493fd50b9ab572ff1a74f5cba3e55808516b47adb0682",
+  "decision": "reject HIGH-only candidate",
+  "reason": "Unsupported finding introduced on a control; original two improvements do not override acceptance criteria.",
+  "rows": [
+    {
+      "id": "epa-17",
+      "minimal": "usable sign",
+      "high": "usable sign",
+      "notes": "Both recover discoloration at the wall/ceiling junction; raw questions presume moisture cause."
+    },
+    {
+      "id": "epa-32",
+      "minimal": "wrong object and indicator",
+      "high": "usable generic sign",
+      "notes": "MINIMAL labels exposed wall materials as boxes and applies a cabinet indicator. HIGH retains tide marks without committing to material; exact identity is not recovered. Raw questions presume moisture cause."
+    },
+    {
+      "id": "epa-29",
+      "minimal": "miss",
+      "high": "usable sign",
+      "notes": "HIGH describes the gap between downspout sections."
+    },
+    {
+      "id": "epa-89",
+      "minimal": "appropriate abstention",
+      "high": "appropriate abstention",
+      "notes": "No concerning visible sign; does not establish safety."
+    },
+    {
+      "id": "epa-24",
+      "minimal": "miss",
+      "high": "partial: unsupported material",
+      "notes": "HIGH recovers pooling but names concrete without adequate visual support."
+    },
+    {
+      "id": "epa-71",
+      "minimal": "miss",
+      "high": "miss",
+      "notes": "Neither returns the visible droplets."
+    },
+    {
+      "id": "epa-26",
+      "minimal": "unsupported indicator",
+      "high": "unsupported assertion",
+      "notes": "MINIMAL describes staining but assigns plumbing_leak. HIGH asserts holes that this image does not establish."
+    },
+    {
+      "id": "epa-88",
+      "minimal": "appropriate abstention",
+      "high": "appropriate abstention",
+      "notes": "Installation folds/seams alone do not establish failure."
+    },
+    {
+      "id": "epa-93",
+      "minimal": "appropriate abstention",
+      "high": "unsupported finding on control",
+      "notes": "HIGH calls an ambiguous dark region a stain; shadow cannot be ruled out."
+    },
+    {
+      "id": "epa-99",
+      "minimal": "miss",
+      "high": "wrong object/location",
+      "notes": "HIGH labels the marked storage shelf as basement floor. No fully usable recovery."
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import type { ModelProvider } from "../model/provider";
 import { PROMPT_VERSION } from "../model/prompt";
 import { buildConditionReview } from "../condition/review";
 
-export const PIPELINE_VERSION = "condition-state-photo-deadline-v4";
+export const PIPELINE_VERSION = "photo-evidence-review-v5";
 
 export async function extract(evidence: PreparedEvidence, provider: ModelProvider, options: { signal?: AbortSignal; timeoutMs?: number } = {}) {
   const started = Date.now();
@@ -57,6 +57,11 @@ export async function extract(evidence: PreparedEvidence, provider: ModelProvide
       if (!parsed.success) continue;
       const findings = parsed.data.findings.map((finding) => ({ ...finding,
         indicatorIds: finding.conditionState === "current" ? finding.indicatorIds : [],
+        // Questions must not presume a cause that a photograph has not established.
+        // Specific verification steps are supplied by the sourced review cards.
+        followUpQuestion: finding.evidenceClass === "visual_observation"
+          ? "What could explain this visible condition, and what should a qualified professional check?"
+          : finding.followUpQuestion,
         needsProfessionalAssessment: true as const }));
       if (findings.some((finding) => !finding.followUpQuestion)) continue;
       const unassessedComponents = Array.from(new Set([...parsed.data.unassessedComponents, ...componentSchema.options.filter((component) => component !== "other" && !findings.some((finding) => finding.component === component && finding.conditionState === "current"))]));
