@@ -41,7 +41,26 @@ Paperclip is not part of the MVP. A bounded request pipeline is sufficient.
 
 ## Run locally
 
-There is no runnable application yet. Do not install dependencies based on this README alone. Each implementation milestone will add exact version pins, setup commands, environment requirements, and test commands. `.env.example` contains proposed configuration names, not a working endpoint.
+The UI runs on **demo fixture data** (`fixtures/demo-analysis.ts`). No model call, API route, or cloud resource is wired up yet, and every screen is labeled "Demo: cached analysis".
+
+Requires Node.js 22.18 or newer.
+
+```bash
+npm install        # creates package-lock.json; commit it to pin exact versions
+npm run dev        # http://localhost:3000
+npm test           # pure TypeScript cost and cash-gap engine (node:test)
+npm run typecheck
+```
+
+| Path | What it is |
+|---|---|
+| `app/page.tsx` | Intake: listing, photos, budget and cash |
+| `app/analysis/page.tsx` + `components/AnalysisWorkspace.tsx` | Desktop review workspace: findings, evidence viewer, live results |
+| `app/next-steps/page.tsx` | Pathways (never added to the baseline) and inspector questions |
+| `lib/schemas.ts` | Draft Zod contracts the Gemma adapter's output must match |
+| `lib/engine/ownership.ts` | Monthly cost and near-term cash gap, integer cents, no model calls |
+
+`.env.example` contains proposed configuration names, not a working endpoint.
 
 ## Product boundaries
 
