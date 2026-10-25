@@ -717,7 +717,9 @@
       "wet-rooms"
     ],
     "priority": "investigate",
-    "costCatalogIds": []
+    "costCatalogIds": [
+      "downspout_reconnect"
+    ]
   },
   {
     "id": "wall_surface_stain",

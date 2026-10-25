@@ -57,3 +57,19 @@ describe("source-backed cost engine", () => {
     for (const q of [0, -1, Infinity, 1.5]) expect(() => estimateCosts(request([item("window_vinyl", q)]), date)).toThrow();
   });
 });
+
+
+describe("downspout reconnection planning", () => {
+  const reviewed = new Date("2026-10-25T12:00:00Z");
+  it("prices a confirmed localized repair with its contractor source", () => {
+    const result = estimateCosts(request([item("downspout_reconnect")]), reviewed);
+    expect(result.complete).toBe(true);
+    expect(result.total).toEqual({ lowCents: 7500, highCents: 15000 });
+    expect(result.lines[0].source?.url).toBe("https://mtconstructionllc.com/services/gutter-repairs/");
+    expect(result.lines[0].geography).toBe("northern_virginia");
+  });
+  it("does not price an unconfirmed repair or export the local range to DC", () => {
+    expect(estimateCosts(request([{ ...item("downspout_reconnect"), scopeConfirmed: false }]), reviewed).lines[0].status).toBe("scope_required");
+    expect(estimateCosts(request([item("downspout_reconnect")], "dc"), reviewed).lines[0].status).toBe("region_mismatch");
+  });
+});

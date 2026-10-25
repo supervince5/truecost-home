@@ -58,7 +58,7 @@ export function estimateCosts(input: unknown, date = new Date()) {
   const priced = lines.filter((line) => line.lowCents !== null && line.highCents !== null);
   const subtotal = priced.length ? { lowCents: priced.reduce((n, line) => n + line.lowCents!, 0), highCents: priced.reduce((n, line) => n + line.highCents!, 0) } : null;
   const complete = priced.length === lines.length;
-  return { catalogVersion: "2026-10-24-v1", currency: "USD", lines, subtotal,
+  return { catalogVersion: "2026-10-25-v2", currency: "USD", lines, subtotal,
     total: complete ? subtotal : null, complete, resaleValueImpact: null,
     limitation: "Published planning prices for selected scopes, not bids, invoices, a whole-home repair budget or a property valuation. Unselected and concealed work is not included. No inferred quantities, local multipliers, rebates or model-generated prices." };
 }

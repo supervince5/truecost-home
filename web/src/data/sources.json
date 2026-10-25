@@ -232,5 +232,14 @@
     "basis": "technical_guidance",
     "publishedAt": "2026-08-17",
     "checkedAt": "2026-10-24"
+  },
+  {
+    "id": "downspout-repair-cost",
+    "publisher": "MT Construction LLC",
+    "title": "Gutter Repairs in Woodbridge, VA: downspout reconnection and elbow replacement",
+    "url": "https://mtconstructionllc.com/services/gutter-repairs/",
+    "basis": "contractor_published_range",
+    "publishedAt": null,
+    "checkedAt": "2026-10-25"
   }
 ]

@@ -257,5 +257,21 @@
     "exclusions": "Relocation and differing finish/scope need a quote. Not a caulking or localized leak repair price.",
     "conflicts": [],
     "purpose": "elective_remodel"
+  },
+  {
+    "id": "downspout_reconnect",
+    "components": [
+      "drainage"
+    ],
+    "title": "Localized downspout reconnection and elbow replacement",
+    "lowCents": 7500,
+    "highCents": 15000,
+    "sourceId": "downspout-repair-cost",
+    "unit": "project",
+    "geography": "northern_virginia",
+    "assumptions": "One localized downspout reconnection with an elbow replacement, subject to a contractor confirming that this is the appropriate repair. Published contractor range for the Woodbridge area, not a statewide average.",
+    "exclusions": "Multiple sections, fascia work, underground drains, foundation damage, and other additional repairs require a separate quote. Tax and permit treatment are not specified by the source.",
+    "conflicts": [],
+    "purpose": "repair_scenario"
   }
 ]
