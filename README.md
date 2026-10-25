@@ -4,7 +4,7 @@
 
 TrueCost Home is a buyer-facing demo that connects listing information and property-condition evidence to repair scenarios, monthly ownership budgets, upfront cash gaps, and assistance pathways.
 
-**Status: local demo implemented.** The three-screen flow accepts photos and pasted evidence, calls Gemma, lets buyers review findings and confirm repair scopes, and calculates sourced repair scenarios and five-year cash flow. The interface uses Tailwind/CSS with a cream, sage and tan palette. Photo interpretation remains experimental: deliberate mode can recover small visible details, but can also produce false positives and takes longer. It supports one photo per analysis; standard mode supports up to six. See [photo evaluation](docs/PHOTO_DETECTION_EVAL.md).
+**Status: local demo implemented.** The three-screen flow accepts photos and pasted evidence, calls Gemma, lets buyers review findings and confirm repair scopes, and calculates sourced repair scenarios and five-year cash flow. The interface uses Tailwind/CSS with a cream, sage and tan palette. Photo interpretation remains experimental: deliberate mode can recover small visible details, but can also produce false positives and takes longer. The interface accepts up to seven views of one home and reviews each in a separate bounded request, with progress and cancellation. A failed view stops the review without presenting a complete result. See [photo evaluation](docs/PHOTO_DETECTION_EVAL.md).
 
 No accounts or Google Cloud setup are needed for this demo. Reports stay in browser memory; uploaded evidence is sent to the configured model provider for analysis. Firestore persistence and deployment are future work. PDF parsing is not implemented: paste inspection text instead.
 

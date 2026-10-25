@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/lora";
 @theme inline {
   --color-sage: #ccd5ae;
   --color-pale-sage: #e9edc8;
@@ -6,7 +8,7 @@
   --color-warm-cream: #faedcd;
   --color-tan: #d4a373;
   --color-ink: #30372b;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: "DM Sans Variable", sans-serif;
 }
 :root {
   --ink:#30372b; --muted:#606650; --ground:#fefae1; --surface:#fffdf1;
@@ -17,7 +19,7 @@
 }
 *{box-sizing:border-box}
 html{font-size:16px;scroll-behavior:smooth;scroll-padding-top:110px}
-body{margin:0;background:var(--ground);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"DM Sans Variable",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
 ::selection{background:#ccd5ae;color:#26301f}
 input,textarea,select{caret-color:#46543c}
 *{scrollbar-color:#a5af86 #fefae1;scrollbar-width:thin}
@@ -199,3 +201,30 @@ input[type=checkbox]{width:19px;height:19px;vertical-align:middle;margin:0 7px 0
 @media(prefers-reduced-transparency:reduce){.app-header{background:#fffdf6}}
 @media(prefers-contrast:more){.app-header{background:#fffdf6}.field__hint,.fineprint,.welcome-caption{color:#454d38}}
 @media print{.back-link,.welcome-actions,.landing-nav{display:none!important}}
+
+.welcome-hero h1,.method-heading h2,.tour-heading h2{font-family:"Lora Variable",Georgia,serif;font-weight:450;letter-spacing:-.045em}
+.welcome-hero h1>span{font-style:italic;font-weight:400}
+.welcome-hero h1{font-size:clamp(3.4rem,5.7vw,5.1rem);line-height:1.12}
+.welcome-hero>*{animation:welcome-in .65s cubic-bezier(.2,.8,.2,1) both}
+.welcome-hero h1{animation-delay:.07s}.welcome-description{animation-delay:.14s}.welcome-actions{animation-delay:.21s}.welcome-caption{animation-delay:.28s}
+@keyframes welcome-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.welcome-actions .btn>span,.landing-nav .btn>span{transition:transform .2s ease}.welcome-actions .btn:hover>span,.landing-nav .btn:hover>span{transform:translate(3px,-3px)}
+.home-tour{max-width:1160px;margin:0 auto 120px;display:grid;grid-template-columns:.8fr 1.3fr;gap:65px;padding:35px 25px 0;align-items:center}
+.tour-heading .section-label{font-size:10px;letter-spacing:.12em;margin-bottom:22px}
+.tour-heading h2{font-size:40px;line-height:1.2;margin:0 0 22px}.tour-heading h2 em{color:#7b8662;font-weight:400}
+.tour-heading>p:last-child{font-size:15px;line-height:1.8;color:#686e5b;max-width:290px}
+.tour-interactive{min-width:0}.tour-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+.tour-tabs button{border:0;background:transparent;border-radius:30px;color:#657053;font-size:12px;padding:9px 11px;cursor:pointer;transition:background .2s,color .2s}
+.tour-tabs button[aria-selected=true]{background:#46543c;color:#fffdf1}.tour-tabs button:hover:not([aria-selected=true]){background:#e9edc8}
+.tour-panel{background:#f2f3e4;border-radius:22px;padding:22px 28px 32px;min-height:430px;display:flex;flex-direction:column;justify-content:center}
+.tour-house{width:100%;max-width:330px;align-self:center}.tour-house svg{width:100%;height:auto}
+.zone{fill:#fffdf5;stroke:#b2bea0;stroke-width:1.5;transition:fill .35s,stroke .35s}.zone.selected{fill:#d4a373;stroke:#977249}
+.zone-line{stroke:#b2bea0;stroke-width:7;transition:stroke .35s}.zone-line.selected{stroke:#b77e48}
+.tour-marker{fill:#46543c;stroke:#fffdf5;stroke-width:3;transition:cx .35s,cy .35s}
+.tour-copy{animation:welcome-in .3s ease both;min-height:152px}.tour-count{font-size:10px;letter-spacing:.12em;color:#798368}
+.tour-copy h3{font-size:21px;font-weight:500;letter-spacing:-.025em;margin:9px 0 12px}.tour-copy p{font-size:13px;line-height:1.75;color:#606950;margin:0 0 14px;max-width:450px}
+.tour-clue{font-size:11px;color:#4e5a3f}.tour-limit{font-size:10px;text-align:center;color:#7c806f;margin:15px 0 0}
+.method-list article{transition:transform .2s}.method-list article:hover{transform:translateX(5px)}
+@media(max-width:760px){.home-tour{grid-template-columns:1fr;gap:30px;margin:0 22px 70px;padding:0}.tour-heading h2{font-size:35px}.tour-heading>p:last-child{max-width:360px}.tour-tabs{gap:3px}.tour-tabs button{padding:9px 10px;font-size:11px}.tour-panel{padding:15px 24px 28px;min-height:435px}.welcome-hero h1{font-size:clamp(3.1rem,11.7vw,4.4rem)}}
+@media(prefers-reduced-motion:reduce){.welcome-hero>*,.tour-copy{animation:none}.zone,.zone-line,.tour-marker,.tour-tabs button,.method-list article,.welcome-actions .btn>span,.landing-nav .btn>span{transition:none}.method-list article:hover,.welcome-actions .btn:hover>span,.landing-nav .btn:hover>span{transform:none}}
+.analysis-progress{padding:22px;border-radius:14px;background:#f1f3e5}.analysis-progress progress{width:100%;height:7px;accent-color:#7b8c5a}.analysis-progress p{font-size:13px;line-height:1.7;color:#606950;margin:12px 0 0}

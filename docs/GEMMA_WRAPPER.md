@@ -84,7 +84,7 @@ A condition state is still a model interpretation, not semantic proof. The state
 
 ## Training and evaluation
 
-The [October 25 photo evaluation](PHOTO_DETECTION_EVAL.md) rejected stronger reasoning, a larger model, a revised single-pass prompt and a two-pass review because none met the full acceptance gate. Production retains 26B MINIMAL. The misread wall material and missed downspout remain unresolved in the default photo path; do not present it as dependable inspection automation.
+The [October 25 photo evaluation](PHOTO_DETECTION_EVAL.md) rejected stronger reasoning, a larger model, a revised single-pass prompt and a two-pass review because none met the full acceptance gate. The API defaults to 26B MINIMAL. The interface offers deliberate 26B HIGH and defaults to it, with an explicit latency and false-positive caveat. Neither setting passed the full accuracy gate. The UI accepts seven photos by sending one per request; it does not increase the single-request photo limit.
 
 See [the model development plan](MODEL_DEVELOPMENT.md). Automated tests exercise code with controlled model responses and the real SDK against a fake HTTP transport. They are not vision-accuracy tests. The [development benchmark](DETECTION_BENCHMARK.md) contains 24 constructed text scenarios and four attributed EPA photographs. Saved findings still require semantic review, and neither dataset establishes field accuracy. Do not report model improvement until the basic-prompt comparison and held-out review have actually run.
 
@@ -93,3 +93,9 @@ See [the model development plan](MODEL_DEVELOPMENT.md). Automated tests exercise
 In production, the route returns `DISABLED` unless `ENABLE_ANALYZE_API=true`. Enable it only behind private Cloud Run IAM or equivalent access controls; that environment flag is not authentication. Origin checks prevent ordinary cross-site browser calls, not direct abuse. Add distributed quotas before public deployment.
 
 Firestore remains planned for scoped analysis records, source metadata and revisions; Cloud Storage remains planned for private media. Neither is called here. Server SDK access will require IAM and application-level ownership checks, retention/deletion tests and scoped access. Accounts are deferred. Budget changes should reuse reviewed findings in client state; no cross-user cache or persistent report URLs are implemented.
+
+## Seven-view interface
+
+`web/src/lib/photo-review.ts` coordinates up to seven sequential requests, each with one photo. Listing/report text is supplied only to the first request. Each photo retains its own deadline and maximum two provider attempts. The entire sequence may take several minutes. Cancel stops subsequent requests and aborts the current fetch. A failed view stops the sequence and returns an explicit error; it does not silently present a partial review as complete.
+
+The merge assigns unique finding IDs and remaps each source to its original photo number, including research-card and within-view pattern references. Model, prompt, pipeline, knowledge and review-mode versions must match. These are independent observations, not multi-view causal reasoning or automatic physical-defect deduplication. Reviewers should exclude duplicate observations and price shared repairs once. The UI and cost API block overlapping scopes.

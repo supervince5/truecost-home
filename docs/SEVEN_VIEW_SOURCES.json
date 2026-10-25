@@ -1,0 +1,48 @@
+{
+  "property": "348 Thompson Hollow Rd, Bentonville, VA 22610",
+  "listing": "https://www.redfin.com/VA/Bentonville/348-Thompson-Hollow-Rd-22610/home/68818302",
+  "retrieved": "2026-10-25",
+  "photos": [
+    {
+      "file": "01-exterior-and-yard.jpg",
+      "sourceUrl": "https://ssl.cdn-redfin.com/photo/235/bigphoto/066/VAWR2015066_2.jpg",
+      "sha256": "791c7b259ed00fd4ca865a2e9ec58e4502ee0066173902260b3dbefcead1cfc0",
+      "bytes": 661969
+    },
+    {
+      "file": "02-deck.jpg",
+      "sourceUrl": "https://ssl.cdn-redfin.com/photo/235/bigphoto/066/VAWR2015066_4_2.jpg",
+      "sha256": "ef0117d43433e106abc9dd7b886bb3874467aa852615270bcdcdde534f4813bd",
+      "bytes": 233028
+    },
+    {
+      "file": "03-rear-exterior-and-tank.jpg",
+      "sourceUrl": "https://ssl.cdn-redfin.com/photo/235/bigphoto/066/VAWR2015066_6_2.jpg",
+      "sha256": "2147e4257b3c45066811dd2839f0ef35bd1828e3be5b99dd6e9a6b8e66a9a8fb",
+      "bytes": 631410
+    },
+    {
+      "file": "04-kitchen.jpg",
+      "sourceUrl": "https://ssl.cdn-redfin.com/photo/235/bigphoto/066/VAWR2015066_16_2.jpg",
+      "sha256": "fbf239fc0b0074139cff9ac1d68572dd6ae1eb56dca045adc3ade202fa59e524"
+    },
+    {
+      "file": "05-living-room-and-stove.jpg",
+      "sourceUrl": "https://ssl.cdn-redfin.com/photo/235/bigphoto/066/VAWR2015066_17_2.jpg",
+      "sha256": "84cd4244b7b939a0fd00588df19187d14f7639381b8b5c3ca666cca3a764c448"
+    },
+    {
+      "file": "06-bathroom.jpg",
+      "sourceUrl": "https://ssl.cdn-redfin.com/photo/235/bigphoto/066/VAWR2015066_19_2.jpg",
+      "sha256": "38d87de0b056c1283cc67027771e76fbe020243bb39de227f16ab5a634cee7e9",
+      "bytes": 136536
+    },
+    {
+      "file": "07-bedroom.jpg",
+      "sourceUrl": "https://ssl.cdn-redfin.com/photo/235/bigphoto/066/VAWR2015066_26_2.jpg",
+      "sha256": "33adcd4372e6f61be52d037b55b63ce61bfbe767de74a3535e5bc76423be5503"
+    }
+  ],
+  "rights": "Listing images retain their original rights and visible Bright MLS watermark. Local evaluation references only; no open-source relicensing or public repository redistribution.",
+  "coverage": "Seven distinct views of the same property. Not a complete inspection: HVAC, electrical internals, concealed areas, and close roof/foundation details are not established."
+}

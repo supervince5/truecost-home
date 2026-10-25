@@ -17,6 +17,8 @@
     "benchmark:vision": "node --env-file=.env.local node_modules/vitest/vitest.mjs run --config vitest.benchmark.config.mts benchmarks/vision-comparison.bench.ts"
   },
   "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/lora": "^5.3.0",
     "@google/genai": "2.31.0",
     "next": "16.4.3",
     "react": "19.3.0",
