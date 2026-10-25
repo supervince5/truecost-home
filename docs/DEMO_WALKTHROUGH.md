@@ -1,48 +1,52 @@
 # Two-minute walkthrough
 
-Audience: homebuyers comparing homes before making an offer, especially first-time buyers with limited cash left after the down payment. Read only the quoted narration. Screen directions and technical notes are not spoken. Target: about two minutes at a conversational presentation pace; rehearse once with a timer.
+Audience: homebuyers comparing homes before making an offer, especially first-time buyers stretching their savings. Read the quoted narration; screen cues are not spoken. Target roughly two minutes at a brisk pace. Rehearse with a timer.
 
-## 0:00–0:27 | Problem and audience
+Use a completed photo review with the label **Analysis completed earlier**. The budget example is illustrative, not a repair quote for the photographed house. Do not imply the current seven-photo test produced a validated cost estimate.
 
-Show the landing page. Overlay the two statistics with source names and years.
+## Landing page
 
 “You can afford the asking price. But can you afford what comes next?
 
-NAR’s 2025 report puts first-time buyers at just 21 percent of buyers. Harvard found maintenance spending averaged 76 percent more for pre-1980 homes than those built since 2010.
+Harvard found that maintenance spending averaged 76 percent more for pre-1980 homes than homes built since 2010.
 
-We built TrueCost for homebuyers, especially first-time buyers with little cash left after the down payment.”
+TrueCost Home helps buyers understand those extra costs before committing, especially first-time buyers stretching their savings.”
 
-## 0:27–0:45 | The buyer’s workflow
+## Click Explore a home; show uploads and expand Add your budget
 
-Show seven uploaded views, then cut to an actual completed review. Label the edit “Analysis completed earlier.” Do not wait through inference during the narration.
+“I’ll upload seven views of this home. Buyers can use listing or tour photos, without an inspection report. Adding a budget lets us connect potential repairs to what they can actually afford.”
 
-“Before making an offer, you upload listing or tour photos. No inspection report is required. We support seven views of the home. Gemma helps identify visible concerns and connects each observation to its photo, so you can check it yourself.”
+## Click Analyze this home; cut to the completed review
 
-## 0:45–1:10 | Gemma and the backend
+“This button calls our Next.js backend at /api/analyze. The server validates and resizes each image, removes metadata, and assigns an evidence ID.
 
-Show the evidence card, followed by the pipeline diagram below.
+Our server-side adapter uses Google’s SDK to call Gemma 4’s generateContent method. It sends the image, its evidence ID, and our researched whole-home checklist.
 
-“Our Next.js backend checks and resizes the images, removes metadata, and sends them to Gemma through Google’s API. A researched checklist guides the model across home systems.
+Gemma returns JSON containing the observation, component, condition state, and supporting evidence. Zod validates that structure, and our backend checks the references before displaying a finding. The API key stays server-side.”
 
-Gemma returns structured observations, not prices. We validate the response format and evidence references, with bounded retries and timeouts. Those checks don’t guarantee every observation is correct. You review the findings before choosing a repair scope.”
+## Show the siding observation with its photo, then the ceiling observation
 
-## 1:10–1:50 | Cost mathematics
+“In this completed run, Gemma flagged siding discoloration and a possible ceiling stain. The ceiling image is ambiguous, so I’ll exclude that observation. A stain alone doesn’t establish an active leak.”
 
-Show a sourced repair range, then the equations and an explicitly labeled illustrative cash-flow example.
+## Click Exclude from plan; show scope controls, then a labeled illustrative budget example
 
-“The cost engine then looks up published ranges. For each confirmed repair, we multiply the unit price by quantity and add the results. Missing information stays unknown.
+“For a repair scenario, the buyer confirms the scope and quantity. Our separate cost endpoint looks up published prices. It multiplies quantity by the low and high unit costs, then adds the ranges. Gemma never invents the price.
 
-We calculate the mortgage from the loan amount, interest rate, and term, then add taxes, insurance, and other monthly costs.
+We calculate the mortgage payment from principal, interest rate, and term, then add recurring expenses.”
 
-The key is timing. Starting with cash left after closing and protected savings, we add your available monthly savings and subtract repairs when they’re due. We run three cost-and-timing scenarios over five years.
+## Point to Five-year cash timing
 
-For example, four thousand dollars available and a six-thousand-dollar immediate repair leaves a two-thousand-dollar gap. Saving three hundred a month afterward cannot pay that bill today.”
+“Each month, remaining cash equals last month’s balance, plus available savings, minus repairs due.
 
-## 1:50–2:00 | Close
+Four thousand dollars available against a six-thousand-dollar immediate repair means a two-thousand-dollar gap. Future savings can’t pay today’s bill.”
 
-Show the cash-gap result, verification questions, and assistance links.
+## Change Monthly housing budget; open Questions & assistance
 
-“Changing your budget recalculates instantly, without another model call. This is planning support, not an inspection or appraisal. Our goal is to help buyers ask better questions before committing.”
+“Budget changes recalculate without another model call. Finally, buyers leave with questions to ask and assistance resources to explore.
+
+We help buyers plan beyond the asking price.”
+
+Closing overlay: **Planning support, not an inspection or appraisal.**
 
 ## Sources for the opening
 
@@ -100,7 +104,7 @@ Implemented server code: `src/server/costs/engine.ts`; versioned inputs: `src/da
 
 ### Mortgage and recurring ownership
 
-Let P = purchase price minus down payment, r = annual percentage rate / 1200, and n = loan term in months:
+Let P = purchase price minus down payment, r = annual nominal interest rate (note rate, expressed as a percentage) / 1200, and n = loan term in months:
 
 ```text
 Mortgage payment M = P × r / (1 − (1 + r)^(−n))

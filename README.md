@@ -4,9 +4,13 @@
 
 TrueCost Home is a buyer-facing demo that connects listing information and property-condition evidence to repair scenarios, monthly ownership budgets, upfront cash gaps, and assistance pathways.
 
-**Status: local demo implemented.** The three-screen flow accepts photos and pasted evidence, calls Gemma, lets buyers review findings and confirm repair scopes, and calculates sourced repair scenarios and five-year cash flow. The interface uses Tailwind/CSS with a cream, sage and tan palette. Photo interpretation remains experimental: deliberate mode can recover small visible details, but can also produce false positives and takes longer. The interface accepts up to seven views of one home and reviews each in a separate bounded request, with progress and cancellation. A failed view stops the review without presenting a complete result. See [photo evaluation](docs/PHOTO_DETECTION_EVAL.md).
+**Status: deployed hackathon demo.** The three-screen flow accepts photos and pasted evidence, calls Gemma, lets buyers review findings and confirm repair scopes, and calculates sourced repair scenarios and five-year cash flow. The interface uses Tailwind/CSS with a cream, sage and tan palette. Photo interpretation remains experimental: deliberate mode can recover small visible details, but can also produce false positives and takes longer. The interface accepts up to seven views of one home and reviews each in a separate bounded request, with progress and cancellation. A failed view stops the review without presenting a complete result. See [photo evaluation](docs/PHOTO_DETECTION_EVAL.md).
 
-No accounts or Google Cloud setup are needed for this demo. Reports stay in browser memory; uploaded evidence is sent to the configured model provider for analysis. Firestore persistence and deployment are future work. PDF parsing is not implemented: paste inspection text instead.
+No accounts or Google Cloud setup are needed for this demo. Reports stay in browser memory; uploaded evidence is sent to the configured model provider for analysis. Firestore persistence is future work. PDF parsing is not implemented: paste inspection text instead.
+
+**[Open the public demo](https://truecost-home-3n9ovsjc1-vincents-projects-e9423c09.vercel.app)**. No Vercel login required. See [deployment details](docs/VERCEL_DEMO.md) and the [spoken walkthrough](docs/DEMO_WALKTHROUGH.md).
+
+The current application is in **`web/`**. The root-level UI prototype from the team’s earlier work is preserved separately; run and deploy `web/` for the integrated Gemma demo.
 
 ## Start here
 
@@ -40,7 +44,7 @@ The memorable result is not just a larger monthly number: **a monthly payment ca
 | Financial calculations | Pure TypeScript modules, independently tested |
 | Cost/program reference data | Small versioned JSON datasets with sources |
 | Cash-flow display | Accessible scenario summaries and monthly ledger |
-| Demo hosting | Local Next.js server; cloud deployment deferred |
+| Demo hosting | Vercel Hobby; Next.js app rooted at `web/` |
 | Uploaded media | Browser memory and bounded server request; Cloud Storage deferred |
 | Persisted reports | None for the demo; Firestore deferred |
 | Secrets | Ignored web/.env.local; server-only access |
@@ -68,7 +72,7 @@ Run checks from `web/`:
 npm run check
 ```
 
-This runs ESLint, route-type generation and TypeScript checking, contract tests, and a production build. Individual scripts: `lint`, `typecheck`, `test`, `build`. After building, `ENABLE_ANALYZE_API=true npm start` serves the local production demo with analysis enabled. Keep this unauthenticated demo private. VS Code includes **Web: dev** and **Web: checks** tasks.
+This runs ESLint, route-type generation and TypeScript checking, contract tests, and a production build. Individual scripts: `lint`, `typecheck`, `test`, `build`. After building, `ENABLE_ANALYZE_API=true npm start` serves the local production demo with analysis enabled. The public hackathon demo uses process-local request limits, not distributed abuse controls. VS Code includes **Web: dev** and **Web: checks** tasks.
 
 `web/src/app/` contains pages and API routes; `web/src/lib/schemas/` contains shared runtime contracts; `web/fixtures/` contains synthetic examples; `web/tests/` contains tests. `.tsx` files render React interfaces, `.ts` files hold logic/types, `.json` files hold data/configuration, and `.md` files explain the project.
 
