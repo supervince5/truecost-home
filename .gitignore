@@ -42,6 +42,7 @@ htmlcov/
 !.vscode/extensions.json
 !.vscode/tasks.json
 .firebase/
+.vercel/
 coverage/
 playwright-report/
 test-results/
